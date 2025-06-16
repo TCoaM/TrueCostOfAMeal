@@ -1,0 +1,90 @@
+"Country Name";"Country FAO Code";"Country ISO2";"Item Name";"Item FAO Code";"Item Category";"Unit of Measure";Value
+Italy;106;IT;Cattle;866;"Live animals";m3/ton;5094.3
+Italy;106;IT;"Cattle meat";867;Meat;m3/ton;7521.7
+Italy;106;IT;"Offals of cattle, edible";868;Meat;m3/ton;7605
+Italy;106;IT;"Fat, cattle";869;Meat;m3/ton;7605
+Italy;106;IT;"Meat-Cattle, boneless";870;Meat;m3/ton;10596.7
+Italy;106;IT;"Sausage Beef and Veal";874;Meat;m3/ton;12675.1
+Italy;106;IT;"Meat, beef, preparations";875;Meat;m3/ton;12675.1
+Italy;106;IT;"Cow milk, whole, fresh";882;"Diary & Eggs";m3/ton;703.1
+Italy;106;IT;"Cream fresh";885;"Diary & Eggs";m3/ton;1265.7
+Italy;106;IT;"Butter Cow Milk";886;"Diary & Eggs";m3/ton;3703.2
+Italy;106;IT;"Milk Skm of Cows";888;"Diary & Eggs";m3/ton;680.5
+Italy;106;IT;"Milk Whole Cond";889;"Diary & Eggs";m3/ton;1270.7
+Italy;106;IT;"Whey Condensed";890;"Diary & Eggs";m3/ton;431.4
+Italy;106;IT;"Yoghurt, concentrated or not";892;"Diary & Eggs";m3/ton;791
+Italy;106;IT;Butterm.,Curdl,Acid.Milk;893;"Diary & Eggs";m3/ton;1066.3
+Italy;106;IT;"Milk, whole evaporated";894;"Diary & Eggs";m3/ton;1052.4
+Italy;106;IT;"Milk Whole Dried";897;"Diary & Eggs";m3/ton;3164.1
+Italy;106;IT;"Milk Skimmed Dry";898;"Diary & Eggs";m3/ton;3164.1
+Italy;106;IT;"Whey, dry";900;"Diary & Eggs";m3/ton;431.4
+Italy;106;IT;"Cheese of Whole Cow Milk";901;"Diary & Eggs";m3/ton;3379.7
+Italy;106;IT;"Processed Cheese";907;"Diary & Eggs";m3/ton;3379.7
+Italy;106;IT;"Prod.of Nat.Milk Constit";909;"Diary & Eggs";m3/ton;791
+Italy;106;IT;"Ice cream and edible ice";910;"Diary & Eggs";m3/ton;1270.7
+Italy;106;IT;"Meat indigenous, cattle";944;Meat;m3/ton;7521.7
+Italy;106;IT;Buffaloes;946;"Live animals";m3/ton;5094.3
+Italy;106;IT;"Meat, buffalo";947;Meat;m3/ton;7521.7
+Italy;106;IT;"Milk, whole fresh buffalo";951;"Diary & Eggs";m3/ton;703.1
+Italy;106;IT;"Ghee, of buffalo milk";953;"Diary & Eggs";m3/ton;3703.2
+Italy;106;IT;"Meat indigenous, buffalo";972;Meat;m3/ton;7521.7
+Italy;106;IT;Sheep;976;"Live animals";m3/ton;4844.2
+Italy;106;IT;"Sheep meat";977;Meat;m3/ton;7466.2
+Italy;106;IT;"Offals of Sheep,Edible";978;Meat;m3/ton;3378.9
+Italy;106;IT;"Milk, whole fresh sheep";982;"Diary & Eggs";m3/ton;703.1
+Italy;106;IT;"Cheese of Sheep Milk";984;"Diary & Eggs";m3/ton;3379.7
+Italy;106;IT;"Meat indigenous, sheep";1012;Meat;m3/ton;7466.2
+Italy;106;IT;Goats;1016;"Live animals";m3/ton;3175.5
+Italy;106;IT;"Goat meat";1017;Meat;m3/ton;4682.5
+Italy;106;IT;"Offals of Goats, Edible";1018;Meat;m3/ton;3378.9
+Italy;106;IT;"Milk, whole fresh goat";1020;"Diary & Eggs";m3/ton;703.1
+Italy;106;IT;"Meat indigenous, goat";1032;Meat;m3/ton;4682.5
+Italy;106;IT;Pigs;1034;"Live animals";m3/ton;3577.5
+Italy;106;IT;"Pig meat";1035;Meat;m3/ton;3932.4
+Italy;106;IT;"Offals of Pigs, Edible";1036;Meat;m3/ton;1171.5
+Italy;106;IT;"Fat of Pigs";1037;Meat;m3/ton;2358.7
+Italy;106;IT;"Meat, pork";1038;Meat;m3/ton;5400.7
+Italy;106;IT;"Bacon and Ham";1039;Meat;m3/ton;5823.9
+Italy;106;IT;"Sausages of Pig Meat";1041;Meat;m3/ton;1278.8
+Italy;106;IT;"Prep of Pig Meat";1042;Meat;m3/ton;1278.8
+Italy;106;IT;Lard;1043;Meat;m3/ton;2358.7
+Italy;106;IT;"Meat indigenous, pig";1055;Meat;m3/ton;5400.7
+Italy;106;IT;Chickens;1057;"Live animals";m3/ton;1829.8
+Italy;106;IT;"Meat, chicken";1058;Meat;m3/ton;2358.7
+Italy;106;IT;"Offals, liver chicken";1059;Meat;m3/ton;2358.7
+Italy;106;IT;"Fat, liver prepared (foie gras)";1060;Meat;m3/ton;2358.7
+Italy;106;IT;"Meat, chicken, canned";1061;Meat;m3/ton;2358.7
+Italy;106;IT;"Hen eggs, in shell";1062;"Diary & Eggs";m3/ton;1179.6
+Italy;106;IT;"Eggs Liquid";1063;"Diary & Eggs";m3/ton;1184.6
+Italy;106;IT;"Eggs Dried";1064;"Diary & Eggs";m3/ton;1761.6
+Italy;106;IT;Ducks;1068;"Live animals";m3/ton;1829.8
+Italy;106;IT;"Duck meat";1069;Meat;m3/ton;2358.7
+Italy;106;IT;"Meat indigenous, duck";1070;Meat;m3/ton;2358.7
+Italy;106;IT;"Goose and guinea fowl meat";1073;Meat;m3/ton;2358.7
+Italy;106;IT;"Offals, liver geese";1074;Meat;m3/ton;2358.7
+Italy;106;IT;"Offals, liver duck";1075;Meat;m3/ton;2358.7
+Italy;106;IT;"Meat indigenous, geese";1077;Meat;m3/ton;2358.7
+Italy;106;IT;Turkeys;1079;"Live animals";m3/ton;1829.8
+Italy;106;IT;"Turkey meat";1080;Meat;m3/ton;2358.7
+Italy;106;IT;"Meat indigenous, bird nes";1084;Meat;m3/ton;2358.7
+Italy;106;IT;"Meat indigenous, turkey";1087;Meat;m3/ton;2358.7
+Italy;106;IT;"Meat, bird nes";1089;Meat;m3/ton;2358.7
+Italy;106;IT;"Other bird eggs,in shell";1091;"Diary & Eggs";m3/ton;1179.6
+Italy;106;IT;"Meat indigenous, chicken";1094;Meat;m3/ton;2358.7
+Italy;106;IT;Horses;1096;"Live animals";m3/ton;31327.5
+Italy;106;IT;"Horse meat";1097;Meat;m3/ton;39950
+Italy;106;IT;Asses;1107;"Live animals";m3/ton;31327.5
+Italy;106;IT;"Meat, ass";1108;Meat;m3/ton;39950
+Italy;106;IT;Mules;1110;"Live animals";m3/ton;31327.5
+Italy;106;IT;"Meat, mule";1111;Meat;m3/ton;39950
+Italy;106;IT;"Meat indigenous, horse";1120;Meat;m3/ton;39950
+Italy;106;IT;"Meat indigenous, ass";1122;Meat;m3/ton;39950
+Italy;106;IT;"Meat indigenous, mule";1124;Meat;m3/ton;39950
+Italy;106;IT;"Milk, whole fresh camel";1130;"Diary & Eggs";m3/ton;703.1
+Italy;106;IT;"Meat, game";1163;Meat;m3/ton;4682.5
+Italy;106;IT;"Meat, dried nes";1164;Meat;m3/ton;5624.9
+Italy;106;IT;"Meat, nes";1166;Meat;m3/ton;1278.8
+Italy;106;IT;"Offals, nes";1167;Meat;m3/ton;1171.5
+Italy;106;IT;"Oils, fats of animal nes";1168;Meat;m3/ton;2358.7
+Italy;106;IT;"Meal, meat";1173;Meat;m3/ton;1278.8
+Italy;106;IT;Tallow;1225;Meat;m3/ton;2358.7
