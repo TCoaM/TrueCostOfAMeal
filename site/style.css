@@ -1,0 +1,4 @@
+ body { font-family: Arial; padding: 20px; }
+    .ingredient { margin: 5px 0; }
+    img { width: 80px; margin-right: 10px; vertical-align: middle; }
+    #results { margin-top: 20px; }
