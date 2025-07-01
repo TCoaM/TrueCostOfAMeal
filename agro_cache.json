@@ -1,0 +1,26 @@
+{
+  "Land area": {
+    "label": "land area",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_298db0d3"
+  },
+  "Agriculture": {
+    "label": "agriculture",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_203"
+  },
+  "Agricultural water withdrawal": {
+    "label": "agricultural water use",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_510aba4c"
+  },
+  "Industrial water withdrawal": {
+    "label": "industrial water use",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_a99e4170"
+  },
+  "Municipal water withdrawal": {
+    "label": "water use",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_16065"
+  },
+  "Forest land": {
+    "label": "forest land",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_24843"
+  }
+}
