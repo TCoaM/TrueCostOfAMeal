@@ -22,5 +22,250 @@
   "Forest land": {
     "label": "forest land",
     "uri": "http://aims.fao.org/aos/agrovoc/c_24843"
+  },
+  "Crop Production": {
+    "label": "crop production",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_5976"
+  },
+  "Livestock Production": {
+    "label": "livestock production",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_331557"
+  },
+  "On-Farm Energy": {
+    "label": null,
+    "uri": null
+  },
+  "Land-Use Change": {
+    "label": "land-use change",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_fac4b794"
+  },
+  "Waste": {
+    "label": "wastes",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_8307"
+  },
+  "Ag. Inputs Manufacturing": {
+    "label": null,
+    "uri": null
+  },
+  "Processing & Packaging": {
+    "label": null,
+    "uri": null
+  },
+  "Transport & Retail": {
+    "label": null,
+    "uri": null
+  },
+  "Consumption": {
+    "label": "consumption",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_1827"
+  },
+  
+  "Beer": {
+    "label": "beers",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_864"
+  },
+  "Liqueurs": {
+    "label": "liqueurs",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_4369"
+  },
+  "Sparkling wine": {
+    "label": "champagne and sparkling wines",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_9735"
+  },
+  "Wine, red": {
+    "label": "red wines",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_28614"
+  },
+  "Wine, white": {
+    "label": "white wines",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_28612"
+  },
+  "Snail, garden": {
+    "label": "land snails",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_36631"
+  },
+  "Pork lard": {
+    "label": "lard",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_12088"
+  },
+  "Olive oil, virgin or extra-virgin": {
+    "label": "olive oil",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_25491"
+  },
+  "Maize oil, edible": {
+    "label": "maize oil",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_29474"
+  },
+  "Peanut oil, edible": {
+    "label": null,
+    "uri": null
+  },
+  "Seed oils": {
+    "label": "seed oils",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_565dc43d"
+  },
+  "Soya bean oil, refined": {
+    "label": "soybean oil",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_16508"
+  },
+  "Sunflower seed oil, edible": {
+    "label": "sunflower oil",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_25506"
+  },
+  "Vegetable fats and oils, edible": {
+    "label": "plant fats",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_8167"
+  },
+  "Butter": {
+    "label": "butter",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_1162"
+  },
+  "Cocoa beverages": {
+    "label": "cocoa beverages",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_1712"
+  },
+  "Coffee (average strength) beverage": {
+    "label": "coffee",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_1731"
+  },
+  "Coffee beverage decaffeinated": {
+    "label": "coffee substitutes",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_1733"
+  },
+  "Coffee espresso (beverage)": {
+    "label": "coffee",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_1731"
+  },
+  "Barley coffee infusion": {
+    "label": null,
+    "uri": null
+  },
+  "Camomile infusion": {
+    "label": null,
+    "uri": null
+  },
+  "Herbal and other non-tea infusions": {
+    "label": null,
+    "uri": null
+  },
+  "Non-fermented tea, infusion": {
+    "label": null,
+    "uri": null
+  },
+  "Tea beverages": {
+    "label": "tea",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_7634"
+  },
+  "Tea infusion with added flavouring ingredients": {
+    "label": null,
+    "uri": null
+  },
+  "Tea, decaffeinated, infusion": {
+    "label": null,
+    "uri": null
+  },
+  "Cocoa powder": {
+    "label": "cocoa powder",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_33967"
+  },
+  "Barley coffee ingredient": {
+    "label": null,
+    "uri": null
+  },
+  "Instant coffee powder": {
+    "label": "instant coffee",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_16495"
+  },
+  "Cocoa beverage-preparation, powder": {
+    "label": null,
+    "uri": null
+  },
+  "Coffee beverage-preparation, powder": {
+    "label": null,
+    "uri": null
+  },
+  "Hot drinks and infusions composite ingredients": {
+    "label": null,
+    "uri": null
+  },
+  "Tea extract (powder)": {
+    "label": null,
+    "uri": null
+  },
+  "Boiled eggs": {
+    "label": "eggs",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2502"
+  },
+  "Fried eggs": {
+    "label": null,
+    "uri": null
+  },
+  "Poached eggs": {
+    "label": null,
+    "uri": null
+  },
+  "Hen egg white": {
+    "label": null,
+    "uri": null
+  },
+  "Hen egg yolk": {
+    "label": null,
+    "uri": null
+  },
+  "Hen eggs": {
+    "label": null,
+    "uri": null
+  },
+  "Shrimps, common": {
+    "label": null,
+    "uri": null
+  },
+  "River eels": {
+    "label": null,
+    "uri": null
+  },
+  "Salmons": {
+    "label": null,
+    "uri": null
+  },
+  "Perch": {
+    "label": "perch",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_5694"
+  },
+  "Cod": {
+    "label": "cod",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_1717"
+  },
+  "Sole": {
+    "label": "soles",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_7227"
+  },
+  "Anchovies": {
+    "label": "anchovies",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_396"
+  },
+  "Groupers": {
+    "label": "groupers",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_3392"
+  },
+  "Sea bass": {
+    "label": "sea bass",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_6893"
+  },
+  "Gilthead seabream": {
+    "label": null,
+    "uri": null
+  },
+  "Miscellaneous demersal marine fishes": {
+    "label": null,
+    "uri": null
+  },
+  "Mackerel": {
+    "label": "mackerel",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_4498"
+  },
+  "Rays": {
+    "label": "X rays",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_8453"
   }
 }
