@@ -296,8 +296,8 @@
     "uri": "http://aims.fao.org/aos/agrovoc/c_5621"
   },
   "Dried pasta": {
-  "label": "pasta",
-  "uri": "http://aims.fao.org/aos/agrovoc/c_5621"
+    "label": "pasta",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_5621"
   },
   "Cow, ox or bull fresh meat": {
     "label": "beef",
@@ -314,5 +314,17 @@
   "Common peaches": {
     "label": "peaches",
     "uri": "http://aims.fao.org/aos/agrovoc/c_5638"
+  },
+  "Cow milk": {
+    "label": "cow milk",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_16080"
+  },
+  "Coffee": {
+    "label": "coffee",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_1731"
+  },
+  "Tomatoes": {
+    "label": "tomatoes",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_7805"
   }
 }
