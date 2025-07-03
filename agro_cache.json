@@ -59,7 +59,6 @@
     "label": "consumption",
     "uri": "http://aims.fao.org/aos/agrovoc/c_1827"
   },
-  
   "Beer": {
     "label": "beers",
     "uri": "http://aims.fao.org/aos/agrovoc/c_864"
@@ -267,5 +266,45 @@
   "Rays": {
     "label": "X rays",
     "uri": "http://aims.fao.org/aos/agrovoc/c_8453"
+  },
+  "Cow milk, semi skimmed (half fat)": {
+    "label": "skim milk",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_7096"
+  },
+  "Apples": {
+    "label": "apples",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_541"
+  },
+  "Potatoes": {
+    "label": "potatoes",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_13551"
+  },
+  "Wheat bread and rolls, white (refined flour)": {
+    "label": "bread",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_1071"
+  },
+  "Chicken fresh meat": {
+    "label": "chicken meat",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_24000"
+  },
+  "Cow milk, whole": {
+    "label": "whole milk",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_15364"
+  },
+  "Dried durum pasta": {
+    "label": "pasta",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_5621"
+  },
+  "Cow, ox or bull fresh meat": {
+    "label": "meat",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_4669"
+  },
+  "Cola beverages, caffeinic": {
+    "label": "soft drinks",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_7149"
+  },
+  "Globe tomato": {
+    "label": "tomatoes",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_7805"
   }
 }
