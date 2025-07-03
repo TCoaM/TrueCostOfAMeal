@@ -295,9 +295,13 @@
     "label": "pasta",
     "uri": "http://aims.fao.org/aos/agrovoc/c_5621"
   },
+  "Dried pasta": {
+  "label": "pasta",
+  "uri": "http://aims.fao.org/aos/agrovoc/c_5621"
+  },
   "Cow, ox or bull fresh meat": {
-    "label": "meat",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_4669"
+    "label": "beef",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_861"
   },
   "Cola beverages, caffeinic": {
     "label": "soft drinks",
@@ -306,5 +310,9 @@
   "Globe tomato": {
     "label": "tomatoes",
     "uri": "http://aims.fao.org/aos/agrovoc/c_7805"
+  },
+  "Common peaches": {
+    "label": "peaches",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_5638"
   }
 }
