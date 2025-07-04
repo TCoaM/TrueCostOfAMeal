@@ -31,10 +31,6 @@
     "label": "livestock production",
     "uri": "http://aims.fao.org/aos/agrovoc/c_331557"
   },
-  "On-Farm Energy": {
-    "label": null,
-    "uri": null
-  },
   "Land-Use Change": {
     "label": "land-use change",
     "uri": "http://aims.fao.org/aos/agrovoc/c_fac4b794"
@@ -42,18 +38,6 @@
   "Waste": {
     "label": "wastes",
     "uri": "http://aims.fao.org/aos/agrovoc/c_8307"
-  },
-  "Ag. Inputs Manufacturing": {
-    "label": null,
-    "uri": null
-  },
-  "Processing & Packaging": {
-    "label": null,
-    "uri": null
-  },
-  "Transport & Retail": {
-    "label": null,
-    "uri": null
   },
   "Consumption": {
     "label": "consumption",
@@ -95,10 +79,6 @@
     "label": "maize oil",
     "uri": "http://aims.fao.org/aos/agrovoc/c_29474"
   },
-  "Peanut oil, edible": {
-    "label": null,
-    "uri": null
-  },
   "Seed oils": {
     "label": "seed oils",
     "uri": "http://aims.fao.org/aos/agrovoc/c_565dc43d"
@@ -135,97 +115,21 @@
     "label": "coffee",
     "uri": "http://aims.fao.org/aos/agrovoc/c_1731"
   },
-  "Barley coffee infusion": {
-    "label": null,
-    "uri": null
-  },
-  "Camomile infusion": {
-    "label": null,
-    "uri": null
-  },
-  "Herbal and other non-tea infusions": {
-    "label": null,
-    "uri": null
-  },
-  "Non-fermented tea, infusion": {
-    "label": null,
-    "uri": null
-  },
   "Tea beverages": {
     "label": "tea",
     "uri": "http://aims.fao.org/aos/agrovoc/c_7634"
-  },
-  "Tea infusion with added flavouring ingredients": {
-    "label": null,
-    "uri": null
-  },
-  "Tea, decaffeinated, infusion": {
-    "label": null,
-    "uri": null
   },
   "Cocoa powder": {
     "label": "cocoa powder",
     "uri": "http://aims.fao.org/aos/agrovoc/c_33967"
   },
-  "Barley coffee ingredient": {
-    "label": null,
-    "uri": null
-  },
   "Instant coffee powder": {
     "label": "instant coffee",
     "uri": "http://aims.fao.org/aos/agrovoc/c_16495"
   },
-  "Cocoa beverage-preparation, powder": {
-    "label": null,
-    "uri": null
-  },
-  "Coffee beverage-preparation, powder": {
-    "label": null,
-    "uri": null
-  },
-  "Hot drinks and infusions composite ingredients": {
-    "label": null,
-    "uri": null
-  },
-  "Tea extract (powder)": {
-    "label": null,
-    "uri": null
-  },
   "Boiled eggs": {
     "label": "eggs",
     "uri": "http://aims.fao.org/aos/agrovoc/c_2502"
-  },
-  "Fried eggs": {
-    "label": null,
-    "uri": null
-  },
-  "Poached eggs": {
-    "label": null,
-    "uri": null
-  },
-  "Hen egg white": {
-    "label": null,
-    "uri": null
-  },
-  "Hen egg yolk": {
-    "label": null,
-    "uri": null
-  },
-  "Hen eggs": {
-    "label": null,
-    "uri": null
-  },
-  "Shrimps, common": {
-    "label": null,
-    "uri": null
-  },
-  "River eels": {
-    "label": null,
-    "uri": null
-  },
-  "Salmons": {
-    "label": null,
-    "uri": null
   },
   "Perch": {
     "label": "perch",
@@ -250,14 +154,6 @@
   "Sea bass": {
     "label": "sea bass",
     "uri": "http://aims.fao.org/aos/agrovoc/c_6893"
-  },
-  "Gilthead seabream": {
-    "label": null,
-    "uri": null
-  },
-  "Miscellaneous demersal marine fishes": {
-    "label": null,
-    "uri": null
   },
   "Mackerel": {
     "label": "mackerel",
@@ -296,8 +192,8 @@
     "uri": "http://aims.fao.org/aos/agrovoc/c_5621"
   },
   "Dried pasta": {
-  "label": "pasta",
-  "uri": "http://aims.fao.org/aos/agrovoc/c_5621"
+    "label": "pasta",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_5621"
   },
   "Cow, ox or bull fresh meat": {
     "label": "beef",
@@ -314,5 +210,117 @@
   "Common peaches": {
     "label": "peaches",
     "uri": "http://aims.fao.org/aos/agrovoc/c_5638"
+  },
+  "Energy": {
+    "label": "energy",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2565"
+  },
+  "IPPU": {
+    "label": null,
+    "uri": null
+  },
+  "Other": {
+    "label": null,
+    "uri": null
+  },
+  "Crop Residues": {
+    "label": "crop residues",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_16118"
+  },
+  "Manure Management": {
+    "label": "manure management",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2ed1deb4"
+  },
+  "Forest fires": {
+    "label": "forest fires",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_3045"
+  },
+  "Food Processing": {
+    "label": "food processing",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_37969"
+  },
+  "Food Packaging": {
+    "label": "food packaging",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_dda2fc32"
+  },
+  "International bunkers": {
+    "label": null,
+    "uri": null
+  },
+  "Rice Cultivation": {
+    "label": "crop production",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_5976"
+  },
+  "Burning - Crop residues": {
+    "label": "crop production",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_5976"
+  },
+  "Enteric Fermentation": {
+    "label": "fermentation",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2855"
+  },
+  "Manure left on Pasture": {
+    "label": "livestock production",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_331557"
+  },
+  "Manure applied to Soils": {
+    "label": "crop production",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_5976"
+  },
+  "Synthetic Fertilizers": {
+    "label": "fertilizers",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2867"
+  },
+  "Drained organic soils": {
+    "label": "organic soils",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_5390"
+  },
+  "On-farm energy use": {
+    "label": "energy consumption",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_16121"
+  },
+  "Forestland": {
+    "label": "forest land",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_24843"
+  },
+  "Net Forest conversion": {
+    "label": "land-use change",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_fac4b794"
+  },
+  "Savanna fires": {
+    "label": "wildfires",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_34150"
+  },
+  "Fires in organic soils": {
+    "label": "wildfires",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_34150"
+  },
+  "Fires in humid tropical forests": {
+    "label": "wildfires",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_34150"
+  },
+  "Agrifood Systems Waste Disposal": {
+    "label": "waste disposal",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_8305"
+  },
+  "Fertilizers Manufacturing": {
+    "label": "farm inputs",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2798"
+  },
+  "Pesticides Manufacturing": {
+    "label": "farm inputs",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2798"
+  },
+  "Food Retail": {
+    "label": "food supply chains",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2630c679"
+  },
+  "Food Household Consumption": {
+    "label": "food supply chains",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2630c679"
+  },
+  "Food Transport": {
+    "label": "food supply chains",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2630c679"
   }
 }
