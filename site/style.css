@@ -1,4 +1,31 @@
- body { font-family: Arial; padding: 20px; }
-    .ingredient { margin: 5px 0; }
-    img { width: 80px; margin-right: 10px; vertical-align: middle; }
-    #results { margin-top: 20px; }
+* { margin:1.5%;
+   font-family: "Poppins", sans-serif;
+   font-weight: 300;
+   background-color: #FFFAF4;
+}
+
+p{
+   font-size: 19px;
+}
+
+h2{font-size: 45px;}
+h3{font-size:30px}
+.section{height:95vh}
+
+.cavText{
+   font-size: 26px;
+   font-family: "Caveat", cursive;
+}
+
+.hero h1{
+padding-top: 25%;
+  font-family: "Caveat", cursive;
+  font-size: 60px;
+  font-weight: 500;
+  font-style: normal;}
+
+
+.onYourPlate{padding-top: 5%}
+.ingredient { margin: 5px 0; }
+img { width: 80px; margin-right: 10px; vertical-align: middle; }
+#results { margin-top: 20px; }
