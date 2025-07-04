@@ -322,5 +322,17 @@
   "Food Transport": {
     "label": "food supply chains",
     "uri": "http://aims.fao.org/aos/agrovoc/c_2630c679"
+  },
+  "Cow milk": {
+    "label": "cow milk",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_16080"
+  },
+  "Coffee": {
+    "label": "coffee",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_1731"
+  },
+  "Tomatoes": {
+    "label": "tomatoes",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_7805"
   }
 }
