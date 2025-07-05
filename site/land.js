@@ -1,5 +1,5 @@
 const width4 = 500;
-const height4 = 500;
+const height4 = 700;
 const radius4 = Math.min(width4, height4) / 2;
 let landChartDrawn = false;
 
@@ -37,6 +37,8 @@ function drawLandChart() {
 
     arcs.append("path")
       .attr("fill", d => color(d.data.AGROVOC_label))
+      .attr("stroke", "#333")               
+      .attr("stroke-width", 1.2) 
       .transition()
       .duration(1000)
       .attrTween("d", function(d) {
@@ -48,7 +50,7 @@ function drawLandChart() {
       arcs.append("text")
         .attr("transform", d => `translate(${arc.centroid(d)})`)
         .style("text-anchor", "middle")
-        .style("font-size", "14px")
+        .style("font-size", "16px")
         .style("font-weight", "bold")
         .style("fill", "#333")
         .html(d => {
@@ -62,7 +64,7 @@ function drawLandChart() {
   });
 }
 
-// Scroll observer (unique)
+// animation! 
 const observer4 = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
     if (entry.isIntersecting && !landChartDrawn) {
