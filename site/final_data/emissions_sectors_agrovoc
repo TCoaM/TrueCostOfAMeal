@@ -1,0 +1,15 @@
+,Item,Domain,Area,Element,Year,Unit,Value,Flag Description,Category,AGROVOC_label,AGROVOC_uri
+0,Energy,Emissions totals,World,Emissions (CO2eq) (AR5),2022,kt,38843791.437,Estimated value,Other,energy,http://aims.fao.org/aos/agrovoc/c_2565
+1,IPPU,Emissions totals,World,Emissions (CO2eq) (AR5),2022,kt,4500829.092,Estimated value,Other,,
+2,Waste,Emissions totals,World,Emissions (CO2eq) (AR5),2022,kt,2577948.1648,Estimated value,Other,wastes,http://aims.fao.org/aos/agrovoc/c_8307
+3,International bunkers,Emissions totals,World,Emissions (CO2eq) (AR5),2022,kt,1175800.1198,Estimated value,Other,,
+4,Other,Emissions totals,World,Emissions (CO2eq) (AR5),2022,kt,211179.1401,Estimated value,Other,,
+5,Ag. Inputs Manufacturing,Emissions totals,World,Emissions (CO2eq) (AR5),2022,kt,555038.1564,Estimated value,Agrifood System,farm inputs,http://aims.fao.org/aos/agrovoc/c_2798
+6,Consumption,Emissions totals,World,Emissions (CO2eq) (AR5),2022,kt,1204484.6937,Estimated value,Agrifood System,consumption,http://aims.fao.org/aos/agrovoc/c_1827
+7,Crop Production,Emissions totals,World,Emissions (CO2eq) (AR5),2022,kt,2598559.1653,Estimated value,Agrifood System,crop production,http://aims.fao.org/aos/agrovoc/c_5976
+8,Land-Use Change,Emissions totals,World,Emissions (CO2eq) (AR5),2022,kt,797675.1317,Estimated value,Agrifood System,land-use change,http://aims.fao.org/aos/agrovoc/c_fac4b794
+9,Livestock Production,Emissions totals,World,Emissions (CO2eq) (AR5),2022,kt,4095916.2924,Estimated value,Agrifood System,livestock production,http://aims.fao.org/aos/agrovoc/c_331557
+10,On-Farm Energy,Emissions totals,World,Emissions (CO2eq) (AR5),2022,kt,928493.9005,Estimated value,Agrifood System,energy consumption,http://aims.fao.org/aos/agrovoc/c_16121
+11,Processing & Packaging,Emissions totals,World,Emissions (CO2eq) (AR5),2022,kt,975378.0251,Estimated value,Agrifood System,food processing,http://aims.fao.org/aos/agrovoc/c_37969
+12,Transport & Retail,Emissions totals,World,Emissions (CO2eq) (AR5),2022,kt,1317907.9615,Estimated value,Agrifood System,food supply chains,http://aims.fao.org/aos/agrovoc/c_2630c679
+13,Waste,Emissions totals,World,Emissions (CO2eq) (AR5),2022,kt,1281260.1272,Estimated value,Agrifood System,wastes,http://aims.fao.org/aos/agrovoc/c_8307
