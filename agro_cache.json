@@ -1,338 +1,980 @@
 {
-  "Land area": {
+  "land area": {
     "label": "land area",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_298db0d3"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_298db0d3",
+    "altLabels": []
   },
-  "Agriculture": {
+  "agriculture": {
     "label": "agriculture",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_203"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_203",
+    "altLabels": []
   },
-  "Agricultural water withdrawal": {
+  "agricultural water withdrawal": {
     "label": "agricultural water use",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_510aba4c"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_510aba4c",
+    "altLabels": []
   },
-  "Industrial water withdrawal": {
+  "industrial water withdrawal": {
     "label": "industrial water use",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_a99e4170"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_a99e4170",
+    "altLabels": []
   },
-  "Municipal water withdrawal": {
+  "municipal water withdrawal": {
     "label": "water use",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_16065"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_16065",
+    "altLabels": []
   },
-  "Forest land": {
+  "forest land": {
     "label": "forest land",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_24843"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_24843",
+    "altLabels": []
   },
-  "Crop Production": {
+  "crop production": {
     "label": "crop production",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_5976"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_5976",
+    "altLabels": []
   },
-  "Livestock Production": {
+  "livestock production": {
     "label": "livestock production",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_331557"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_331557",
+    "altLabels": []
   },
-  "Land-Use Change": {
+  "land-use change": {
     "label": "land-use change",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_fac4b794"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_fac4b794",
+    "altLabels": []
   },
-  "Waste": {
+  "waste": {
     "label": "wastes",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_8307"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_8307",
+    "altLabels": []
   },
-  "Consumption": {
+  "consumption": {
     "label": "consumption",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_1827"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_1827",
+    "altLabels": []
   },
-  "Beer": {
+  "beer": {
     "label": "beers",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_864"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_864",
+    "altLabels": []
   },
-  "Liqueurs": {
+  "liqueurs": {
     "label": "liqueurs",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_4369"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_4369",
+    "altLabels": []
   },
-  "Sparkling wine": {
+  "sparkling wine": {
     "label": "champagne and sparkling wines",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_9735"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_9735",
+    "altLabels": []
   },
-  "Wine, red": {
+  "wine red": {
     "label": "red wines",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_28614"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_28614",
+    "altLabels": []
   },
-  "Wine, white": {
+  "wine white": {
     "label": "white wines",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_28612"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_28612",
+    "altLabels": []
   },
-  "Snail, garden": {
+  "snail garden": {
     "label": "land snails",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_36631"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_36631",
+    "altLabels": []
   },
-  "Pork lard": {
+  "pork lard": {
     "label": "lard",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_12088"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_12088",
+    "altLabels": []
   },
-  "Olive oil, virgin or extra-virgin": {
+  "olive oil virgin or extra-virgin": {
     "label": "olive oil",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_25491"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_25491",
+    "altLabels": []
   },
-  "Maize oil, edible": {
+  "maize oil edible": {
     "label": "maize oil",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_29474"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_29474",
+    "altLabels": []
   },
-  "Seed oils": {
+  "seed oils": {
     "label": "seed oils",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_565dc43d"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_565dc43d",
+    "altLabels": []
   },
-  "Soya bean oil, refined": {
+  "soya bean oil refined": {
     "label": "soybean oil",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_16508"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_16508",
+    "altLabels": []
   },
-  "Sunflower seed oil, edible": {
+  "sunflower seed oil edible": {
     "label": "sunflower oil",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_25506"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_25506",
+    "altLabels": []
   },
-  "Vegetable fats and oils, edible": {
+  "vegetable fats and oils edible": {
     "label": "plant fats",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_8167"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_8167",
+    "altLabels": []
   },
-  "Butter": {
+  "butter": {
     "label": "butter",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_1162"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_1162",
+    "altLabels": []
   },
-  "Cocoa beverages": {
+  "cocoa beverages": {
     "label": "cocoa beverages",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_1712"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_1712",
+    "altLabels": []
   },
-  "Coffee (average strength) beverage": {
+  "coffee (average strength) beverage": {
     "label": "coffee",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_1731"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_1731",
+    "altLabels": []
   },
-  "Coffee beverage decaffeinated": {
+  "coffee beverage decaffeinated": {
     "label": "coffee substitutes",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_1733"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_1733",
+    "altLabels": []
   },
-  "Coffee espresso (beverage)": {
+  "coffee espresso (beverage)": {
     "label": "coffee",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_1731"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_1731",
+    "altLabels": []
   },
-  "Tea beverages": {
+  "tea beverages": {
     "label": "tea",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_7634"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_7634",
+    "altLabels": []
   },
-  "Cocoa powder": {
+  "cocoa powder": {
     "label": "cocoa powder",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_33967"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_33967",
+    "altLabels": []
   },
-  "Instant coffee powder": {
+  "instant coffee powder": {
     "label": "instant coffee",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_16495"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_16495",
+    "altLabels": []
   },
-  "Boiled eggs": {
+  "boiled eggs": {
     "label": "eggs",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_2502"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2502",
+    "altLabels": []
   },
-  "Perch": {
+  "perch": {
     "label": "perch",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_5694"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_5694",
+    "altLabels": []
   },
-  "Cod": {
-    "label": "cod",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_1717"
-  },
-  "Sole": {
+  "sole": {
     "label": "soles",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_7227"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_7227",
+    "altLabels": []
   },
-  "Anchovies": {
+  "anchovies": {
     "label": "anchovies",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_396"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_396",
+    "altLabels": []
   },
-  "Groupers": {
+  "groupers": {
     "label": "groupers",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_3392"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_3392",
+    "altLabels": []
   },
-  "Sea bass": {
-    "label": "sea bass",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_6893"
-  },
-  "Mackerel": {
+
+  "mackerel": {
     "label": "mackerel",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_4498"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_4498",
+    "altLabels": []
   },
-  "Rays": {
+  "rays": {
     "label": "X rays",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_8453"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_8453",
+    "altLabels": []
   },
-  "Cow milk, semi skimmed (half fat)": {
+  "cow milk semi skimmed (half fat)": {
     "label": "skim milk",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_7096"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_7096",
+    "altLabels": []
+
   },
-  "Apples": {
-    "label": "apples",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_541"
-  },
-  "Potatoes": {
-    "label": "potatoes",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_13551"
-  },
-  "Wheat bread and rolls, white (refined flour)": {
+  "wheat bread and rolls white (refined flour)": {
     "label": "bread",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_1071"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_1071",
+    "altLabels": []
   },
-  "Chicken fresh meat": {
+  "chicken fresh meat": {
     "label": "chicken meat",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_24000"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_24000",
+    "altLabels": []
   },
-  "Cow milk, whole": {
+  "cow milk whole": {
     "label": "whole milk",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_15364"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_15364",
+    "altLabels": []
   },
-  "Dried durum pasta": {
+  "dried durum pasta": {
     "label": "pasta",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_5621"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_5621",
+    "altLabels": []
   },
-  "Dried pasta": {
+  "dried pasta": {
     "label": "pasta",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_5621"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_5621",
+    "altLabels": []
   },
-  "Cow, ox or bull fresh meat": {
+  "cow ox or bull fresh meat": {
     "label": "beef",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_861"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_861",
+    "altLabels": []
   },
-  "Cola beverages, caffeinic": {
+  "cola beverages caffeinic": {
     "label": "soft drinks",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_7149"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_7149",
+    "altLabels": []
   },
-  "Globe tomato": {
+  "globe tomato": {
     "label": "tomatoes",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_7805"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_7805",
+    "altLabels": []
   },
-  "Common peaches": {
+  "common peaches": {
     "label": "peaches",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_5638"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_5638",
+    "altLabels": []
   },
-  "Energy": {
+  "energy": {
     "label": "energy",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_2565"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2565",
+    "altLabels": []
   },
-  "IPPU": {
-    "label": null,
-    "uri": null
+  "ippu": {
+    "label": "Not found",
+    "uri": "Not found",
+    "altLabels": []
   },
-  "Other": {
-    "label": null,
-    "uri": null
+  "other": {
+    "label": "Not found",
+    "uri": "Not found",
+    "altLabels": []
   },
-  "Crop Residues": {
+  "crop residues": {
     "label": "crop residues",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_16118"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_16118",
+    "altLabels": []
   },
-  "Manure Management": {
+  "manure management": {
     "label": "manure management",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_2ed1deb4"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2ed1deb4",
+    "altLabels": []
   },
-  "Forest fires": {
+  "forest fires": {
     "label": "forest fires",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_3045"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_3045",
+    "altLabels": []
   },
-  "Food Processing": {
+  "food processing": {
     "label": "food processing",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_37969"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_37969",
+    "altLabels": []
   },
-  "Food Packaging": {
+  "food packaging": {
     "label": "food packaging",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_dda2fc32"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_dda2fc32",
+    "altLabels": []
   },
-  "International bunkers": {
+  "international bunkers": {
     "label": null,
-    "uri": null
+    "uri": null,
+    "altLabels": []
   },
-  "Rice Cultivation": {
+  "rice cultivation": {
     "label": "crop production",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_5976"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_5976",
+    "altLabels": []
   },
-  "Burning - Crop residues": {
+  "burning - crop residues": {
     "label": "crop production",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_5976"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_5976",
+    "altLabels": []
   },
-  "Enteric Fermentation": {
+  "enteric fermentation": {
     "label": "fermentation",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_2855"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2855",
+    "altLabels": []
   },
-  "Manure left on Pasture": {
+  "manure left on pasture": {
     "label": "livestock production",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_331557"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_331557",
+    "altLabels": []
   },
-  "Manure applied to Soils": {
+  "manure applied to soils": {
     "label": "crop production",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_5976"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_5976",
+    "altLabels": []
   },
-  "Synthetic Fertilizers": {
+  "synthetic fertilizers": {
     "label": "fertilizers",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_2867"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2867",
+    "altLabels": []
   },
-  "Drained organic soils": {
+  "drained organic soils": {
     "label": "organic soils",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_5390"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_5390",
+    "altLabels": []
   },
-  "On-farm energy use": {
+  "on-farm energy use": {
     "label": "energy consumption",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_16121"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_16121",
+    "altLabels": []
   },
-  "Forestland": {
+  "forestland": {
     "label": "forest land",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_24843"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_24843",
+    "altLabels": []
   },
-  "Net Forest conversion": {
+  "net forest conversion": {
     "label": "land-use change",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_fac4b794"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_fac4b794",
+    "altLabels": []
   },
-  "Savanna fires": {
+  "savanna fires": {
     "label": "wildfires",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_34150"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_34150",
+    "altLabels": []
   },
-  "Fires in organic soils": {
+  "fires in organic soils": {
     "label": "wildfires",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_34150"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_34150",
+    "altLabels": []
   },
-  "Fires in humid tropical forests": {
+  "fires in humid tropical forests": {
     "label": "wildfires",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_34150"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_34150",
+    "altLabels": []
   },
-  "Agrifood Systems Waste Disposal": {
+  "agrifood systems waste disposal": {
     "label": "waste disposal",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_8305"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_8305",
+    "altLabels": []
   },
-  "Fertilizers Manufacturing": {
+  "fertilizers manufacturing": {
     "label": "farm inputs",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_2798"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2798",
+    "altLabels": []
   },
-  "Pesticides Manufacturing": {
+  "pesticides manufacturing": {
     "label": "farm inputs",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_2798"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2798",
+    "altLabels": []
   },
-  "Food Retail": {
+  "food retail": {
     "label": "food supply chains",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_2630c679"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2630c679",
+    "altLabels": []
   },
-  "Food Household Consumption": {
+  "food household consumption": {
     "label": "food supply chains",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_2630c679"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2630c679",
+    "altLabels": []
   },
-  "Food Transport": {
+  "food transport": {
     "label": "food supply chains",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_2630c679"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2630c679",
+    "altLabels": []
   },
-  "Cow milk": {
+  "cow milk": {
     "label": "cow milk",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_16080"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_16080",
+    "altLabels": []
   },
-  "Coffee": {
+  "coffee": {
     "label": "coffee",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_1731"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_1731",
+    "altLabels": []
   },
-  "Tomatoes": {
+  "tomatoes": {
     "label": "tomatoes",
-    "uri": "http://aims.fao.org/aos/agrovoc/c_7805"
+    "uri": "http://aims.fao.org/aos/agrovoc/c_7805",
+    "altLabels": []
+  },
+  "ag. inputs manufacturing": {
+    "label": "farm inputs",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2798",
+    "altLabels": []
+  },
+  "on-farm energy": {
+    "label": "energy consumption",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_16121",
+    "altLabels": []
+  },
+  "processing & packaging": {
+    "label": "food processing",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_37969",
+    "altLabels": []
+  },
+  "transport & retail": {
+    "label": "food supply chains",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2630c679",
+    "altLabels": []
+  },
+  "apples": {
+    "label": "apples",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_541",
+    "altLabels": [
+      "crab apples"
+    ]
+  },
+  "potatoes": {
+    "label": "potatoes",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_13551",
+    "altLabels": [
+      "irish potato"
+    ]
+  },
+  "well water": {
+    "label": "well water",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_e7603b18",
+    "altLabels": []
+  },
+  "oranges": {
+    "label": "sweet oranges",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_7550",
+    "altLabels": [
+      "oranges (not otherwise specified)"
+    ]
+  },
+  "courgettes": {
+    "label": "marrows",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_12414",
+    "altLabels": [
+      "courgettes"
+    ]
+  },
+  "melons": {
+    "label": "winter melons",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_acf09bff",
+    "altLabels": [
+      "honeydew melons"
+    ]
+  },
+  "watermelons": {
+    "label": "watermelons",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_15277",
+    "altLabels": [
+      "water melons"
+    ]
+  },
+  "pears": {
+    "label": "pears",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_5645",
+    "altLabels": []
+  },
+  "aubergines": {
+    "label": "eggplants",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_8998",
+    "altLabels": [
+      "aubergines"
+    ]
+  },
+  "sweet peppers": {
+    "label": "sweet peppers",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_14727",
+    "altLabels": [
+      "pimiento",
+      "bell peppers",
+      "green peppers",
+      "paprikas (vegetables)",
+      "red peppers (vegetable)"
+    ]
+  },
+  "cucumbers": {
+    "label": "sea cucumbers",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_6896",
+    "altLabels": [
+      "beche de mer",
+      "holothurians"
+    ]
+  },
+  "plums": {
+    "label": "plums",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_6028",
+    "altLabels": [
+      "damsons",
+      "gages (fruits)",
+      "greengages"
+    ]
+  },
+  "cod": {
+    "label": "cod",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_1717",
+    "altLabels": [
+      "codfish"
+    ]
+  },
+  "kaki": {
+    "label": "Diospyros kaki",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2304",
+    "altLabels": [
+      "diospyros chinensis",
+      "japanese persimmon"
+    ]
+  },
+  "gilthead seabream": {
+    "label": "Pagrus aurata",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_37040",
+    "altLabels": [
+      "gilthead seabream"
+    ]
+  },
+  "figs": {
+    "label": "figs",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_10840",
+    "altLabels": []
+  },
+  "sea bass": {
+    "label": "sea bass",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_6893",
+    "altLabels": [
+      "sand perch",
+      "comber",
+      "wreckfish",
+      "marine bass",
+      "white perch"
+    ]
+  },
+  "globe artichokes": {
+    "label": "globe artichokes",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_11171",
+    "altLabels": [
+      "artichokes"
+    ]
+  },
+  "ricotta": {
+    "label": "ricotta cheese",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_c936d390",
+    "altLabels": []
+  },
+  "broccoli": {
+    "label": "broccoli",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_7339",
+    "altLabels": [
+      "calabrese",
+      "sprouting broccoli"
+    ]
+  },
+  "cauliflowers": {
+    "label": "cauliflowers",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_1394",
+    "altLabels": []
+  },
+  "radicchio": {
+    "label": "radicchio",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_c32f344d",
+    "altLabels": [
+      "red chicory"
+    ]
+  },
+  "swordfish": {
+    "label": "tuna fisheries",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_40059f89",
+    "altLabels": [
+      "swordfish fisheries"
+    ]
+  },
+
+  "wheat bread and rolls semi-brown": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+
+  "mozzarella": {
+    "label": "mozzarella",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_df8c2b51",
+    "altLabels": []
+  },
+  "common banana": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "yeast bread \u2013 pizza dough": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "preserved tomato whole or pieces": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "tea infusion with added flavouring ingredients": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "calf fresh meat": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "cutting lettuces": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "juice orange": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "herbal and other non-tea infusions": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "ice cream milk-based": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "pig fresh meat": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "hen eggs": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "mandarins": {
+    "label": "mandarins",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_4568",
+    "altLabels": []
+  },
+  "table grapes": {
+    "label": "table grapes",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_acbdb4b0",
+    "altLabels": []
+  },
+  "wheat bread and rolls brown or wholemeal": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "yoghurt cow milk flavoured": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "apricots": {
+    "label": "apricots",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_545",
+    "altLabels": []
+  },
+  "carrots": {
+    "label": "carrots",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_9640",
+    "altLabels": []
+  },
+  "yoghurt cow milk plain": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "pizza base cooked": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "non-fermented tea infusion": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "italian-style sausage": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "kiwi fruits (green red yellow)": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "rice grain polished": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "biscuits sweet plain": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "cooked pork ham": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "french beans (with pods)": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "sponge cake": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "ham pork": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "biscuit with inclusions filling or coating": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "bread and rolls with special ingredients added": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "turnip tops": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "florence fennels": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "spinaches": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "onion bulbs for fresh consumption": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "multivitamin juices": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "wild chicories": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "cheese parmigiano reggiano": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "shortcrust (pies -tarts)": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "cow milk skimmed (low fat)": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "barley coffee infusion": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "canned tunas and similar": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "diet soft drink with caffeine": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "fruit nectars (min. 25-50% fruit as defined in eu legislation)": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "swiss chards": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "fried eggs": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "crackers and breadsticks": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "fresh stuffed egg pasta": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "turkey fresh meat": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "jam of fruit / vegetables": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "camomile infusion": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "soya drink": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "head lettuces": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "breadcrumbs": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "fresh egg pasta": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "gnocchi": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "brioche type products": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "wheat flour white": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "yoghurt cow milk": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "garden peas (without pods)": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "biscuits chocolate": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "white sugar": {
+    "label": "white sugar",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_36411",
+    "altLabels": []
+  },
+  "squid common": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "fruit soft drink orange": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "head cabbages": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "coffee (weak strength) beverage": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "borlotti or other common beans (without pods)": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "strawberries": {
+    "label": "strawberries",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_7443",
+    "altLabels": []
+  },
+  "salmons": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "clementines": {
+    "label": "clementines",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_9895",
+    "altLabels": []
+  },
+  "tea decaffeinated infusion": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "fruit juices (100% from named source)": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "rusk refined flour": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "soft drink lemon flavour": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "multigrain (not only rye-wheat) bread and rolls": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "rusk wholemeal": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "octopus common": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
   }
 }
