@@ -1,4 +1,4 @@
-,VariableGroup,Subgroup,Variable,Area,Year,Value,Unit,Symbol,IsAggregate,AGROVOC_label,AGROVOC_uri
-482,Water use,Water withdrawal by sector,Agricultural water withdrawal,World,2022,2851.590176077,10^9 m3/year,E,True,,
-2414,Water use,Water withdrawal by sector,Industrial water withdrawal,World,2022,609.893920192,10^9 m3/year,E,True,,
-4741,Water use,Water withdrawal by sector,Municipal water withdrawal,World,2022,527.233047703,10^9 m3/year,E,True,,
+VariableGroup,Subgroup,Variable,Area,Year,Value,Unit,Symbol,IsAggregate,AGROVOC_label,AGROVOC_uri
+Water use,Water withdrawal by sector,Agricultural water withdrawal,World,2022,2851.590176077,10^9 m3/year,E,True,,
+Water use,Water withdrawal by sector,Industrial water withdrawal,World,2022,609.893920192,10^9 m3/year,E,True,,
+Water use,Water withdrawal by sector,Municipal water withdrawal,World,2022,527.233047703,10^9 m3/year,E,True,,

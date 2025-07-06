@@ -644,9 +644,9 @@
     "altLabels": []
   },
   "hen eggs": {
-    "label": null,
-    "uri": null,
-    "altLabels": []
+    "label": "eggs",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2502",
+    "altLabels": ["fresh eggs"]
   },
   "mandarins": {
     "label": "mandarins",
@@ -709,8 +709,8 @@
     "altLabels": []
   },
   "biscuits sweet plain": {
-    "label": null,
-    "uri": null,
+    "label": "biscuits",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_16475",
     "altLabels": []
   },
   "cooked pork ham": {
@@ -729,8 +729,8 @@
     "altLabels": []
   },
   "ham pork": {
-    "label": null,
-    "uri": null,
+    "label": "hams",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_3481",
     "altLabels": []
   },
   "biscuit with inclusions filling or coating": {
@@ -889,8 +889,8 @@
     "altLabels": []
   },
   "biscuits chocolate": {
-    "label": null,
-    "uri": null,
+    "label": "biscuits",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_16475",
     "altLabels": []
   },
   "white sugar": {
@@ -919,8 +919,8 @@
     "altLabels": []
   },
   "borlotti or other common beans (without pods)": {
-    "label": null,
-    "uri": null,
+    "label": "beans",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_331566",
     "altLabels": []
   },
   "strawberries": {
@@ -929,9 +929,9 @@
     "altLabels": []
   },
   "salmons": {
-    "label": null,
-    "uri": null,
-    "altLabels": []
+    "label": "salmon",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_6756",
+    "altLabels": ["grilse"]
   },
   "clementines": {
     "label": "clementines",
@@ -1030,18 +1030,18 @@
     "uri": null
   },
   "rice grain": {
-    "label": null,
-    "uri": null,
-    "altLabels": []
+    "label": "rice",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_6599",
+    "altLabels": ["paddy"]
   },
   "lentils (dry)": {
-    "label": null,
-    "uri": null,
+    "label": "lentils",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_12140",
     "altLabels": []
   },
   "mixed breakfast cereals": {
-    "label": null,
-    "uri": null,
+    "label": "breakfast cereals",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_1073",
     "altLabels": []
   },
   "borlotti or other common beans (dry)": {
@@ -1055,13 +1055,13 @@
     "altLabels": []
   },
   "chickpeas (dry)": {
-    "label": null,
-    "uri": null,
-    "altLabels": []
+    "label": "chickpeas",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_9785",
+    "altLabels": ["bengal gram", "chick peas"]
   },
   "garden peas (dry)": {
-    "label": null,
-    "uri": null,
-    "altLabels": []
+    "label": "peas",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_13177",
+    "altLabels": ["field pea", "garden pea"]
   }
 }
