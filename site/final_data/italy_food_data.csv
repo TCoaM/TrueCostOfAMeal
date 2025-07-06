@@ -1,0 +1,15 @@
+AGROVOC_label,AGROVOC_uri,food_typology,Mean_consumption_italy,Carbon Footprint (g CO2eq/g o cc),(Water Footprint liters) water/kg o liter,cost_per_kg_or_l
+cow milk,http://aims.fao.org/aos/agrovoc/c_16080,ANIMAL HUSBANDRY,307.48,1.305,1260.5,1.8000000000000003
+coffee,http://aims.fao.org/aos/agrovoc/c_1731,AGRICULTURAL PROCESSED,253.19,6.71,19956.0,16.94
+apples,http://aims.fao.org/aos/agrovoc/c_541,CROPS,134.45,0.2539,622.0,2.54
+tomatoes,http://aims.fao.org/aos/agrovoc/c_7805,CROPS,134.18,1.2625499999999998,41.0,6.66
+potatoes,http://aims.fao.org/aos/agrovoc/c_13551,CROPS,123.47,0.24,575.0,1.98
+bread,http://aims.fao.org/aos/agrovoc/c_1071,AGRICULTURAL PROCESSED,122.61,0.86,667.0,2.8666666666666667
+red wines,http://aims.fao.org/aos/agrovoc/c_28614,AGRICULTURAL PROCESSED,108.28999999999999,0.873,524.0,2.32
+chicken meat,http://aims.fao.org/aos/agrovoc/c_24000,ANIMAL HUSBANDRY,99.33,3.676746753,3960.0,15.61
+pasta,http://aims.fao.org/aos/agrovoc/c_5621,AGRICULTURAL PROCESSED,88.81,1.2055,1508.0,23.15
+soft drinks,http://aims.fao.org/aos/agrovoc/c_7149,,85.10000000000001,,,1.98
+olive oil,http://aims.fao.org/aos/agrovoc/c_25491,AGRICULTURAL PROCESSED,79.36,3.265,14415.0,8.27
+beers,http://aims.fao.org/aos/agrovoc/c_864,AGRICULTURAL PROCESSED,75.78,0.693,155.0,1.9
+beef,http://aims.fao.org/aos/agrovoc/c_861,ANIMAL HUSBANDRY,74.71,25.751,15139.0,26.01
+peaches,http://aims.fao.org/aos/agrovoc/c_5638,CROPS,67.53999999999999,0.385,910.0,

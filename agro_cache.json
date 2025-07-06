@@ -1028,5 +1028,40 @@
   "Common peaches": {
     "label": null,
     "uri": null
+  },
+  "rice grain": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "lentils (dry)": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "mixed breakfast cereals": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "borlotti or other common beans (dry)": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "chocolate": {
+    "label": "chocolate",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_1582",
+    "altLabels": []
+  },
+  "chickpeas (dry)": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
+  },
+  "garden peas (dry)": {
+    "label": null,
+    "uri": null,
+    "altLabels": []
   }
 }
