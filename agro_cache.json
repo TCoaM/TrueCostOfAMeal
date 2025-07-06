@@ -184,7 +184,6 @@
     "uri": "http://aims.fao.org/aos/agrovoc/c_3392",
     "altLabels": []
   },
-
   "mackerel": {
     "label": "mackerel",
     "uri": "http://aims.fao.org/aos/agrovoc/c_4498",
@@ -199,7 +198,6 @@
     "label": "skim milk",
     "uri": "http://aims.fao.org/aos/agrovoc/c_7096",
     "altLabels": []
-
   },
   "wheat bread and rolls white (refined flour)": {
     "label": "bread",
@@ -585,13 +583,11 @@
       "swordfish fisheries"
     ]
   },
-
   "wheat bread and rolls semi-brown": {
     "label": null,
     "uri": null,
     "altLabels": []
   },
-
   "mozzarella": {
     "label": "mozzarella",
     "uri": "http://aims.fao.org/aos/agrovoc/c_df8c2b51",
@@ -976,5 +972,61 @@
     "label": null,
     "uri": null,
     "altLabels": []
+  },
+  "Cow milk": {
+    "label": "cow milk",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_16080"
+  },
+  "Coffee": {
+    "label": "coffee",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_1731"
+  },
+  "Apples": {
+    "label": "apples",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_541"
+  },
+  "Tomatoes": {
+    "label": "tomatoes",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_7805"
+  },
+  "Potatoes": {
+    "label": "potatoes",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_13551"
+  },
+  "Wheat bread and rolls, white (refined flour)": {
+    "label": null,
+    "uri": null
+  },
+  "Wine, red": {
+    "label": null,
+    "uri": null
+  },
+  "Chicken fresh meat": {
+    "label": null,
+    "uri": null
+  },
+  "Dried pasta": {
+    "label": null,
+    "uri": null
+  },
+  "Cola beverages, caffeinic": {
+    "label": null,
+    "uri": null
+  },
+  "Olive oil, virgin or extra-virgin": {
+    "label": null,
+    "uri": null
+  },
+  "Beer": {
+    "label": "beers",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_864"
+  },
+  "Cow, ox or bull fresh meat": {
+    "label": null,
+    "uri": null
+  },
+  "Common peaches": {
+    "label": null,
+    "uri": null
   }
 }
