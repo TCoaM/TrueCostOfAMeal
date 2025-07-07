@@ -594,8 +594,8 @@
     "altLabels": []
   },
   "common banana": {
-    "label": null,
-    "uri": null,
+    "label": "bananas",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_806",
     "altLabels": []
   },
   "yeast bread \u2013 pizza dough": {
@@ -624,8 +624,8 @@
     "altLabels": []
   },
   "juice orange": {
-    "label": null,
-    "uri": null,
+    "label": "orange juice",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_25492",
     "altLabels": []
   },
   "herbal and other non-tea infusions": {
@@ -634,7 +634,7 @@
     "altLabels": []
   },
   "ice cream milk-based": {
-    "label": null,
+    "label": "ice cream",
     "uri": null,
     "altLabels": []
   },
@@ -761,8 +761,8 @@
     "altLabels": []
   },
   "onion bulbs for fresh consumption": {
-    "label": null,
-    "uri": null,
+    "label": "onions",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_12934",
     "altLabels": []
   },
   "multivitamin juices": {
@@ -846,8 +846,8 @@
     "altLabels": []
   },
   "soya drink": {
-    "label": null,
-    "uri": null,
+    "label": "soy milk",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_15563",
     "altLabels": []
   },
   "head lettuces": {
