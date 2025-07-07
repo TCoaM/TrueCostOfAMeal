@@ -646,7 +646,9 @@
   "hen eggs": {
     "label": "eggs",
     "uri": "http://aims.fao.org/aos/agrovoc/c_2502",
-    "altLabels": ["fresh eggs"]
+    "altLabels": [
+      "fresh eggs"
+    ]
   },
   "mandarins": {
     "label": "mandarins",
@@ -931,7 +933,9 @@
   "salmons": {
     "label": "salmon",
     "uri": "http://aims.fao.org/aos/agrovoc/c_6756",
-    "altLabels": ["grilse"]
+    "altLabels": [
+      "grilse"
+    ]
   },
   "clementines": {
     "label": "clementines",
@@ -1032,7 +1036,9 @@
   "rice grain": {
     "label": "rice",
     "uri": "http://aims.fao.org/aos/agrovoc/c_6599",
-    "altLabels": ["paddy"]
+    "altLabels": [
+      "paddy"
+    ]
   },
   "lentils (dry)": {
     "label": "lentils",
@@ -1045,8 +1051,8 @@
     "altLabels": []
   },
   "borlotti or other common beans (dry)": {
-    "label": null,
-    "uri": null,
+    "label": "common beans",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_4098",
     "altLabels": []
   },
   "chocolate": {
@@ -1057,11 +1063,22 @@
   "chickpeas (dry)": {
     "label": "chickpeas",
     "uri": "http://aims.fao.org/aos/agrovoc/c_9785",
-    "altLabels": ["bengal gram", "chick peas"]
+    "altLabels": [
+      "bengal gram",
+      "chick peas"
+    ]
   },
   "garden peas (dry)": {
     "label": "peas",
     "uri": "http://aims.fao.org/aos/agrovoc/c_13177",
-    "altLabels": ["field pea", "garden pea"]
+    "altLabels": [
+      "field pea",
+      "garden pea"
+    ]
+  },
+  "tuna and bonito (generic)": {
+    "label": "tuna",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_8003",
+    "altLabels": []
   }
 }
