@@ -485,7 +485,7 @@ function drawChart(theme) {
 
 
 //meal game
-fetch('data.json')
+fetch('final_data/game_data.json')
   .then(res => res.json())
   .then(data => {
     const optionsDiv = document.getElementById('ingredient-options');
@@ -534,7 +534,6 @@ function updatePlate(data) {
     img.src = info.image;
     img.alt = item;
 
-    // position
     const angle = (index / selected.length) * 360;
     const radius = 80;
     const rad = angle * (Math.PI / 180);
@@ -560,7 +559,7 @@ function showResults(data) {
 
   selected.forEach(item => {
     const info = data[item];
-    if (!info) return; // 🛑 Skip if not found
+    if (!info) return; 
 
     total.co2 += info.co2;
     total.water += info.water;
@@ -570,16 +569,16 @@ function showResults(data) {
     div.className = 'breakdown-item';
     div.innerHTML = `
       <a href="${info.link}" target="_blank">${item.charAt(0).toUpperCase() + item.slice(1)}</a><br>
-      CO₂: ${info.co2.toFixed(2)} kg<br>
+      CO₂: ${info.carbon.toFixed(2)} kg<br>
       Water: ${info.water.toLocaleString()} liters<br>
-      Land: ${info.land.toFixed(2)} m²
+      Cost: ${info.cost.toFixed(2)} m²
     `;
     breakdownDiv.appendChild(div);
   });
 
   document.getElementById('co2-value').textContent = total.co2.toFixed(2);
   document.getElementById('water-value').textContent = total.water.toLocaleString();
-  document.getElementById('land-value').textContent = total.land.toFixed(2);
+  document.getElementById('cost-value').textContent = total.land.toFixed(2);
 
   const resultsSection = document.getElementById('results-section');
   if (resultsSection) {
