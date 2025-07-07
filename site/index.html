@@ -38,10 +38,13 @@
   </div>
 
   <div class="section three">
-    <h4 class="cavText">Water</h4>
-    <h3>How much water does the food sector use compared to others?</h3>
-    <p>Water scarcity is a global issue and the way food is produced plays a major role. Agriculture and food systems account for around 70% of global water withdrawals, making it the most water-intensive sector on the planet. Industrial processes and municipal (household) uses follow far behind.
-    </p>
+    <div>
+      <h4 class="cavText">Water</h4>
+      <h3>How much water does the food sector use compared to others?</h3>
+      <p>Water scarcity is a global issue and the way food is produced plays a major role. Agriculture and food systems account for around 70% of global water withdrawals, making it the most water-intensive sector on the planet. Industrial processes and municipal (household) uses follow far behind.
+        
+      </p>
+    </div>
     <div id="pie_3">
       <svg id="svg3"></svg>
     </div>
@@ -64,39 +67,50 @@
     <p>While energy and transportation often steal the spotlight in climate discussions, agriculture and food systems contribute a significant share of global greenhouse gas emissions, particularly through livestock, and crop production. Globally, the agriculture sector emits over 20% of total emissions, second only to energy production.
     </p>
     <p>This chart compares emissions across sectors, helping us see where food fits in the global picture.</p>
-  <div id="emission-chart-container">
-    <div class="bar-title">Top Emission Sources (kt CO₂eq, 2022)</div>
-    <svg id="emission-bar-chart" width="auto" height="auto"></svg>
-    
-    <svg id="arrow-svg" width="200" height="150" style="overflow: visible;"></svg>
-    <div id="emissions_total_chart">
-      <div id="total_emissions">
-        <p>1234458640</p>
-        <p>total food emissions</p>
-      </div>
-      <svg id="food-zoom-chart" width="1000" height="1500"></svg>
-
-    </div>
+  <div class="chart-wrapper">
+  <div class="chart-container">
+    <svg id="emission-bar-chart"></svg>
   </div>
+
+  <div class="arrow-container">
+    <svg id="arrow-svg"></svg>
+  </div>
+
+  <div class="zoom-container">
+    <svg id="food-zoom-chart"></svg>
+  </div>
+</div>
+
   
 </div> 
 
  
 
-<!--
 <div class="section onYourPlate">
-    <h1>What's on your Plate?</h1>
-    <div id="ingredient-options">
+  <div class="plate-menu-wrapper">
+    <div class="plate-side">
+      <img src="images/plate.png" alt="Plate" class="plate-base" />
+      <div id="ingredient-images"></div>
     </div>
-  <div id="results">
-    <h2>Total Environmental Impact</h2>
-    <p>CO₂: <span id="co2-value">0</span> kg</p>
-    <p>Water: <span id="water-value">0</span> liters</p>
-    <p>Land: <span id="land-value">0</span> m²</p>
-    <div id="ingredient-images"></div>
+    
+    <div class="menu-side">
+      <h1>What's on your Plate?</h1>
+      <div id="ingredient-options"></div>
+      <button id="confirm-btn">Confirm My Plate</button>
+    </div>
   </div>
 </div>
--->
+
+<div id="results-section" class="results hidden">
+  <h2>Total Environmental Impact</h2>
+  <p>CO₂: <span id="co2-value">0</span> kg</p>
+  <p>Water: <span id="water-value">0</span> liters</p>
+  <p>Land: <span id="land-value">0</span> m²</p>
+
+  <div id="breakdown"></div>
+</div>
+
+
 
   <script src="water.js"></script>
   <script src="land.js"></script>

@@ -6,6 +6,13 @@
     "image": "images/chicken.png",
     "type": "protein"
   },
+  "ham": {
+    "co2": 6.9,
+    "water": 4325,
+    "land": 7,
+    "image": "images/chicken.png",
+    "type": "protein"
+  },
   "rice": {
     "co2": 2.7,
     "water": 2497,
