@@ -94,3 +94,101 @@ window.addEventListener("DOMContentLoaded", () => {
     observer.observe(pie3);
   }
 });
+
+//meal game
+fetch('data.json')
+  .then(res => res.json())
+  .then(data => {
+    const optionsDiv = document.getElementById('ingredient-options');
+    const grouped = {};
+
+    // ingredients grouped by type
+    Object.entries(data).forEach(([key, val]) => {
+      if (!grouped[val.type]) grouped[val.type] = {};
+      grouped[val.type][key] = val;
+    });
+
+    // become checkboxes
+    Object.entries(grouped).forEach(([type, items]) => {
+      const groupDiv = document.createElement('div');
+      groupDiv.className = 'food-group';
+      groupDiv.innerHTML = `<h3>${type.charAt(0).toUpperCase() + type.slice(1)}</h3>`;
+      Object.keys(items).forEach(ingredient => {
+        const label = document.createElement('label');
+        label.className = 'ingredient';
+        label.innerHTML = `
+          <input type="checkbox" value="${ingredient}"> 
+          ${ingredient.charAt(0).toUpperCase() + ingredient.slice(1)}
+        `;
+        groupDiv.appendChild(label);
+      });
+      optionsDiv.appendChild(groupDiv);
+    });
+
+    optionsDiv.addEventListener('change', () => updatePlate(data));
+
+    document.getElementById('confirm-btn').addEventListener('click', () => {
+      showResults(data);
+    });
+  });
+
+function updatePlate(data) {
+  const selected = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+    .map(cb => cb.value);
+
+  const imageDiv = document.getElementById('ingredient-images');
+  imageDiv.innerHTML = '';
+
+  selected.forEach((item, index) => {
+    const info = data[item];
+    const img = document.createElement('img');
+    img.src = info.image;
+    img.alt = item;
+
+    // position
+    const angle = (index / selected.length) * 360;
+    const radius = 80;
+    const rad = angle * (Math.PI / 180);
+    const x = 50 + radius * Math.cos(rad);
+    const y = 50 + radius * Math.sin(rad);
+    img.style.left = `${x}%`;
+    img.style.top = `${y}%`;
+
+    imageDiv.appendChild(img);
+  });
+}
+
+function showResults(data) {
+  const selected = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+    .map(cb => cb.value);
+
+  if (selected.length === 0) return;
+
+  let total = { co2: 0, water: 0, land: 0 };
+
+  const breakdownDiv = document.getElementById('breakdown');
+  breakdownDiv.innerHTML = '';
+
+  selected.forEach(item => {
+    const info = data[item];
+    total.co2 += info.co2;
+    total.water += info.water;
+    total.land += info.land;
+
+    const div = document.createElement('div');
+    div.className = 'breakdown-item';
+    div.innerHTML = `
+      <a href="${info.link}" target="_blank">${item.charAt(0).toUpperCase() + item.slice(1)}</a><br>
+      CO₂: ${info.co2.toFixed(2)} kg<br>
+      Water: ${info.water.toLocaleString()} liters<br>
+      Land: ${info.land.toFixed(2)} m²
+    `;
+    breakdownDiv.appendChild(div);
+  });
+
+  document.getElementById('co2-value').textContent = total.co2.toFixed(2);
+  document.getElementById('water-value').textContent = total.water.toLocaleString();
+  document.getElementById('land-value').textContent = total.land.toFixed(2);
+
+  document.getElementById('results-section').classList.remove('hidden');
+}

@@ -11,6 +11,10 @@ p{
 h2{font-size: 45px;}
 h3{font-size:30px}
 .section{height:100vh}
+.three{display: flex;
+}
+
+
 .cavText{
    font-size: 26px;
    font-family: "Caveat", cursive;
@@ -23,29 +27,135 @@ padding-top: 25%;
   font-weight: 500;
   font-style: normal;}
 
-#emissions_total_chart{display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-align-items: end;}
 
-#emissions_total_chart #total_emissions{flex: baseline;
-   text-align: right;
-}
 
 #emissions_total_chart #total_emissions :first-child{font-size: 50px;}
 
 #emissions_total_chart svg{flex:60%}
 
 
+.chart-container,
+.arrow-container,
+.zoom-container {
+  width: 100%;
+  overflow: visible;
+}
+
 .arrow-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 0x;
-  margin-bottom: 0;
+  width: 100%;
+  height: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+#arrow-svg {
+  display: block;
+  width: 100%;
+  height: 200px;
 }
 
 
-.onYourPlate{padding-top: 5%}
-.ingredient { margin: 5px 0; }
-img { width: 80px; margin-right: 10px; vertical-align: middle; }
-#results { margin-top: 20px; }
+.five svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+
+
+.onYourPlate {
+  padding: 40px;
+}
+
+.plate-menu-wrapper {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.plate-side {
+  position: relative;
+  flex: 1;
+  max-width: 50%;
+}
+
+.plate-base {
+  width: 100%;
+  max-width: 400px;
+}
+
+#ingredient-images img {
+  position: absolute;
+  width: 60px;
+  transition: all 0.3s ease;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.menu-side {
+  flex: 1;
+  max-width: 50%;
+}
+
+.menu-side h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.food-group {
+  margin-bottom: 20px;
+}
+
+.food-group h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
+
+.ingredient {
+  display: block;
+  margin-bottom: 6px;
+}
+
+#confirm-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #333;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+#confirm-btn:hover {
+  background: #555;
+}
+
+.results {
+  margin-top: 60px;
+  padding: 40px;
+  border-top: 2px dashed #333;
+}
+
+#breakdown {
+  margin-top: 20px;
+}
+
+.breakdown-item {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-left: 4px solid #4caf50;
+  padding-left: 10px;
+}
+
+.breakdown-item a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.hidden {
+  display: none;
+}
