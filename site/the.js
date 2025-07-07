@@ -238,7 +238,7 @@ function drawGroupedBarChart() {
       .selectAll("text")
       .attr("transform", "rotate(-40)")
       .style("text-anchor", "end")
-      .style("font-size", "14px");
+      .style("font-size", "15px");
 
     svg.append("g").call(d3.axisLeft(y));
 
@@ -393,31 +393,35 @@ observer.observe(document.querySelector("#emission_bar_chart"));
 
 //italy
 //food items
- const margin = { top: 40, right: 20, bottom: 100, left: 80 };
-const width = 900 - margin.left - margin.right;
-const height = 500 - margin.top - margin.bottom;
-
-const svg = d3.select("#chartSix")
-    .append("g")
-    .attr("transform", `translate(${margin.left},${margin.top})`);
+const margin = { top: 40, right: 20, bottom: 100, left: 80 };
+const fullWidth = 1580;
+const fullHeight = 650;
+const width = fullWidth - margin.left - margin.right;
+const height = fullHeight - margin.top - margin.bottom;
 
 let rawData;
 
 d3.csv("final_data/italy_food_data.csv", d3.autoType).then(data => {
   rawData = data.filter(d => d["AGROVOC_label"]);
-
   drawChart("co2");
 
-  d3.select("#theme-select").on("change", function() {
+  d3.select("#theme").on("change", function () {
     const selected = this.value;
     drawChart(selected);
   });
 });
 
 function drawChart(theme) {
-  svg.selectAll("*").remove();
+  d3.select("#chartSix").selectAll("*").remove();
 
-  const valueKey = theme === "co2"
+  const svg = d3.select("#chartSix")
+    .append("svg")
+    .attr("width", fullWidth)
+    .attr("height", fullHeight)
+    .append("g")
+    .attr("transform", `translate(${margin.left},${margin.top})`);
+
+  const valueKey = theme === "water"
     ? "Carbon Footprint (g CO2eq/g o cc)"
     : "(Water Footprint liters) water/kg o liter";
 
@@ -432,41 +436,56 @@ function drawChart(theme) {
     .range([height, 0]);
 
   svg.append("g")
-      .attr("transform", `translate(0, ${height})`)
-      .call(d3.axisBottom(x))
-      .selectAll("text")
-      .attr("transform", "rotate(-40)")
-      .style("text-anchor", "end")
-      .style("font-size", "12px");
-
+    .attr("transform", `translate(0, ${height})`)
+    .call(d3.axisBottom(x))
+    .selectAll("text")
+    .attr("transform", "rotate(-40)")
+    .style("text-anchor", "end")
+    .style("font-size", "15.5px");
 
   svg.append("g").call(d3.axisLeft(y));
 
-
   svg.selectAll("rect")
-      .data(rawData)
-      .enter()
-      .append("rect")
-      .attr("x", d => x(d["AGROVOC_label"]))
-      .attr("width", x.bandwidth())
-      .attr("y", d => y(d[valueKey] || 0))
-      .attr("height", d => height - y(d[valueKey] || 0))
-      .attr("fill", theme === "co2" ? "#db4c3f" : "#1f77b4");
-
+    .data(rawData)
+    .enter()
+    .append("rect")
+    .attr("x", d => x(d["AGROVOC_label"]))
+    .attr("width", x.bandwidth())
+    .attr("y", d => y(d[valueKey] || 0))
+    .attr("height", d => height - y(d[valueKey] || 0))
+    .attr("fill", theme === "co2" ? "#db4c3f" : "#1f77b4")
+    .attr("stroke", "#333")
+    .attr("stroke-width", 1.2)
+    .attr("rx", 8)
+    .attr("ry", 8);
 
   svg.append("text")
-      .attr("x", -height / 2)
-      .attr("y", -50)
-      .attr("transform", "rotate(-90)")
-      .attr("text-anchor", "middle")
-      .style("font-size", "16px")
-      .text(theme === "co2" ? "g CO₂ eq / g" : "Liters / kg");
-  };
+    .attr("x", -height / 2)
+    .attr("y", -70)
+    .attr("transform", "rotate(-90)")
+    .attr("text-anchor", "middle")
+    .style("font-size", "16px")
+    .text(theme === "co2" ? "g CO₂ eq / g" : "Liters / kg");
+  
+  svg.selectAll("text.value-label")
+  .data(rawData)
+  .enter()
+  .append("text")
+  .attr("class", "value-label")
+  .attr("x", d => x(d["AGROVOC_label"]) + x.bandwidth() / 2)
+  .attr("y", d => y(d[valueKey] || 0) - 5)
+  .attr("text-anchor", "middle")
+  .style("font-size", "15px")
+  .style("fill", "#333")
+  .text(d => d[valueKey]);
+
+}
+
 
 
 
 //meal game
-fetch('data.json')
+fetch('final_data/game_data.json')
   .then(res => res.json())
   .then(data => {
     const optionsDiv = document.getElementById('ingredient-options');
@@ -515,7 +534,6 @@ function updatePlate(data) {
     img.src = info.image;
     img.alt = item;
 
-    // position
     const angle = (index / selected.length) * 360;
     const radius = 80;
     const rad = angle * (Math.PI / 180);
@@ -541,7 +559,7 @@ function showResults(data) {
 
   selected.forEach(item => {
     const info = data[item];
-    if (!info) return; // 🛑 Skip if not found
+    if (!info) return; 
 
     total.co2 += info.co2;
     total.water += info.water;
@@ -551,16 +569,16 @@ function showResults(data) {
     div.className = 'breakdown-item';
     div.innerHTML = `
       <a href="${info.link}" target="_blank">${item.charAt(0).toUpperCase() + item.slice(1)}</a><br>
-      CO₂: ${info.co2.toFixed(2)} kg<br>
+      CO₂: ${info.carbon.toFixed(2)} kg<br>
       Water: ${info.water.toLocaleString()} liters<br>
-      Land: ${info.land.toFixed(2)} m²
+      Cost: ${info.cost.toFixed(2)} m²
     `;
     breakdownDiv.appendChild(div);
   });
 
   document.getElementById('co2-value').textContent = total.co2.toFixed(2);
   document.getElementById('water-value').textContent = total.water.toLocaleString();
-  document.getElementById('land-value').textContent = total.land.toFixed(2);
+  document.getElementById('cost-value').textContent = total.land.toFixed(2);
 
   const resultsSection = document.getElementById('results-section');
   if (resultsSection) {
