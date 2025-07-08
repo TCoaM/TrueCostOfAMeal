@@ -1,5 +1,5 @@
-const waterChartWidth = 200;
-const waterChartHeight = 300;
+const waterChartWidth = 400;
+const waterChartHeight = 500;
 const waterChartRadius = Math.min(waterChartWidth, waterChartHeight) / 2;
 let waterChartDrawn = false;
 
@@ -458,10 +458,10 @@ d3.csv("site/final_data/italy_food_data.csv", d3.autoType).then(data => {
   drawBarChart(cleanData);
 });
 
-function drawBarChart(data) {
-  d3.select("#chartSix").selectAll("*").remove();
+function drawBarChartPOP(data) {
+  d3.select("#chartPopularity").selectAll("*").remove();
 
-  const svg = d3.select("#chartSix")
+  const svg = d3.select("#chartPopularity")
     .append("svg")
     .attr("width", fullWidthPOP)
     .attr("height", fullHeightPOP)

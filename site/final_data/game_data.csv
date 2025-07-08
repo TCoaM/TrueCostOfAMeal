@@ -1,4 +1,4 @@
-AGROVOC_label,AGROVOC_uri,food_typology,Mean_consumption_italy,Carbon Footprint (g CO2eq/g o cc),(Water Footprint liters) water/kg o liter,cost_per_kg_or_l
+AGROVOC_label,AGROVOC_uri,food_typology,Mean_consumption_italy_(g/day),Carbon Footprint (g CO2eq/g o cc),Water Footprint liters (water/kg o liter),cost_per_kg_or_l
 cow milk,http://aims.fao.org/aos/agrovoc/c_16080,ANIMAL HUSBANDRY,307.48,1.305,1260.5,8.12
 coffee,http://aims.fao.org/aos/agrovoc/c_1731,AGRICULTURAL PROCESSED,253.19,6.71,19956.0,16.94
 apples,http://aims.fao.org/aos/agrovoc/c_541,CROPS,134.45,0.2539,622.0,2.54
