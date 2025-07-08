@@ -1,5 +1,5 @@
-const waterChartWidth = 500;
-const waterChartHeight = 700;
+const waterChartWidth = 400;
+const waterChartHeight = 500;
 const waterChartRadius = Math.min(waterChartWidth, waterChartHeight) / 2;
 let waterChartDrawn = false;
 
@@ -11,16 +11,6 @@ function drawWaterChart() {
 
     .attr("transform", `translate(${waterChartWidth / 2}, ${waterChartHeight / 2})`);
 
-  // Chart Title
-  d3.select("#svg3")
-    .append("text")
-    .attr("x", waterChartWidth / 2)
-    .attr("y", 30)
-    .attr("text-anchor", "middle")
-    .style("font-size", "22px")
-    
-    .style("font-weight", "bold")
-    .text("Agriculture leads global water withdrawal");
 
   // Custom color 
   const color = d3.scaleOrdinal()
@@ -30,7 +20,7 @@ function drawWaterChart() {
     ;
 
  
-  d3.csv("final_data/filtered_water_agrovoc.csv").then(data => {
+  d3.csv("site/final_data/filtered_water_agrovoc.csv").then(data => {
     data.forEach(d => d.Value = +d.Value);  
     const pie = d3.pie()
       .value(d => d.Value)
@@ -58,6 +48,45 @@ function drawWaterChart() {
         const i = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
         return t => arc(i(t));
       });
+
+      svg.append("path")
+        .attr("d", "M15,-60 C40,-80 200,-100 290, 50")  
+        .attr("fill", "none")
+        .attr("stroke", "#333")
+        .attr("stroke-width", 1.5)
+        .attr("marker-end", "url(#arrow)")           
+        .attr("transform", `translate(${waterChartRadius}, 0)`);
+
+      d3.select("#svg3")
+        .append("defs")
+        .append("marker")
+        .attr("id", "arrow")
+        .attr("viewBox", "0 0 10 10")
+        .attr("refX", 10)
+        .attr("refY", 5)
+        .attr("markerWidth", 6)
+        .attr("markerHeight", 6)
+        .attr("orient", "auto")
+        .append("path")
+        .attr("d", "M 0 0 L 10 5 L 0 10 z")
+        .attr("fill", "#333");
+
+        svg.append("text")
+        .attr("x", waterChartRadius + 250)
+        .attr("y", 115)
+        .attr("text-anchor", "start")
+        .style("font-size", "20px")
+        .style("font-family", "sans-serif")
+        .text("23.60B L");
+
+        svg.append("text")
+          .attr("x", waterChartRadius + 250)
+          .attr("y", 150)
+          .attr("text-anchor", "start")
+          .style("font-size", "16px")
+          .style("fill", "#333")
+          .text("total agricultural water withdrawal");
+
 
     //  labels after animation
     setTimeout(() => {
@@ -110,21 +139,11 @@ function drawLandChart() {
     .append("g")
     .attr("transform", `translate(${width4 / 2}, ${height4 / 2})`);
 
-  // Title
-  d3.select("#svg4")
-    .append("text")
-    .attr("x", width4 / 2)
-    .attr("y", 30)
-    .attr("text-anchor", "middle")
-    .style("font-size", "20px")
-    .style("font-weight", "bold")
-    .text("Land Use Distribution (2018)");
-
   const color = d3.scaleOrdinal()
     .domain(["land area", "agriculture", "forest land"])
     .range(["#8dd3c7", "#ffffb3", "#bebada"]);
 
-  d3.csv("final_data/filtered_landuse_agrovoc.csv").then(data => {
+  d3.csv("site/final_data/filtered_landuse_agrovoc.csv").then(data => {
     data.forEach(d => d.Value = +d.Value);
 
     const pie = d3.pie().value(d => d.Value).padAngle(0.03);
@@ -146,6 +165,45 @@ function drawLandChart() {
         return t => arc(i(t));
       });
 
+
+    d3.select("#svg4")
+      .append("defs")
+      .append("marker")
+      .attr("id", "arrow2")
+      .attr("viewBox", "0 0 10 10")
+      .attr("refX", 10)
+      .attr("refY", 5)
+      .attr("markerWidth", 6)
+      .attr("markerHeight", 6)
+      .attr("orient", "auto")
+      .append("path")
+      .attr("d", "M 0 0 L 10 5 L 0 10 z")
+      .attr("fill", "#333");
+
+    svg.append("path")
+      .attr("d", "M10,-50 C30,-80 150,-100 240,30")
+      .attr("fill", "none")
+      .attr("stroke", "#333")
+      .attr("stroke-width", 1.5)
+      .attr("marker-end", "url(#arrow2)")
+      .attr("transform", `translate(${radius4}, 0)`);
+
+    svg.append("text")
+      .attr("x", radius4 + 200)
+      .attr("y", 95)
+      .attr("text-anchor", "start")
+      .style("font-size", "32px")
+      .style("font-family", "sans-serif")
+      .text("49.8M ha");
+
+    svg.append("text")
+      .attr("x", radius4 + 200)
+      .attr("y", 125)
+      .attr("text-anchor", "start")
+      .style("font-size", "16px")
+      .style("fill", "#333")
+      .text("total agricultural land");
+
     setTimeout(() => {
       arcs.append("text")
         .attr("transform", d => `translate(${arc.centroid(d)})`)
@@ -163,6 +221,7 @@ function drawLandChart() {
     }, 1000);
   });
 }
+
 
 const observer4 = new IntersectionObserver((entries, obs) => { // animation! 
   entries.forEach(entry => {
@@ -192,7 +251,7 @@ function drawGroupedBarChart() {
     .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
     .append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);
-  d3.csv("final_data/emissions_sectors_agrovoc.csv").then(data => {
+  d3.csv("site/final_data/emissions_sectors_agrovoc.csv").then(data => {
     data = data.filter(d => d.Item && d.Value);
     data.forEach(d => d.Value = +d.Value);
 
@@ -278,12 +337,12 @@ function drawGroupedBarChart() {
 }
 
 function drawArrowToZoomedChart(barX, chartWidth, margin) {
-  const arrowSvg = d3.select("#arrow-svg");
+  const arrowSvg = d3.select("#arrow_svg");
   arrowSvg.selectAll("*").remove();
 
-  const arrowX = barX + margin.left + 20; 
-  const startY = 0;
-  const endY = 140;
+  const arrowX = barX + margin.left + 60; 
+  const startY = -60;
+  const endY = 250;
   const controlY = 120;
 
   const pathData = `M${arrowX},${startY} Q${arrowX},${controlY} ${arrowX},${endY}`;
@@ -301,7 +360,7 @@ function drawArrowToZoomedChart(barX, chartWidth, margin) {
     .attr("markerHeight", 6)
     .attr("orient", "auto")
     .append("path")
-    .attr("d", "M 0 0 L 10 5 L 0 10 z")
+    .attr("d", "M 0 0 L 10 5 L 0 10 ")
     .attr("fill", "#333");
 
   arrowSvg.append("path")
@@ -313,10 +372,10 @@ function drawArrowToZoomedChart(barX, chartWidth, margin) {
 }
 
 function drawZoomedFoodChart(foodData, colorScale, containerWidth) {
-  const svgZoom = d3.select("#food-zoom-chart");
+  const svgZoom = d3.select("#food_zoom_chart");
   svgZoom.selectAll("*").remove();
 
-  const margin = { top: 40, right: 280, bottom: 40, left: 100 };
+  const margin = { top: 5, right: 0, bottom: 0, left: 0 };
   const width = containerWidth - margin.left - margin.right;
 
   const data = Object.entries(foodData).map(([key, val]) => ({
@@ -368,13 +427,6 @@ function drawZoomedFoodChart(foodData, colorScale, containerWidth) {
     .text(d => `${d.key}: ${Math.round(d.value).toLocaleString()}`);
 
   const total = d3.sum(data, d => d.value);
-  svgZoom.append("text")
-    .attr("x", width / 2 + margin.left)
-    .attr("y", chartHeight + margin.top + 60)
-    .attr("text-anchor", "middle")
-    .style("font-size", "24px")
-    .style("font-weight", "bold")
-    .text(`${Math.round(total).toLocaleString()} total food emissions`);
 }
 
 let chartDrawn = false;
@@ -392,7 +444,92 @@ observer.observe(document.querySelector("#emission_bar_chart"));
 
 
 //italy
-//food items
+//top food items
+const margipopularity = { top: 40, right: 20, bottom: 100, left: 80 };
+const fullWidthPOP = 1580;
+const fullHeightPOP = 650;
+const widthPOP = fullWidthPOP - margipopularity.left - margipopularity.right;
+const heightPOP = fullHeightPOP - margipopularity.top - margipopularity.bottom;
+
+d3.csv("site/final_data/italy_food_data.csv", d3.autoType).then(data => {
+
+  const cleanData = data.filter(d => d["Exposure hierarchy (L7)"] && d.Mean);
+
+  drawBarChart(cleanData);
+});
+
+function drawBarChartPOP(data) {
+  d3.select("#chartPopularity").selectAll("*").remove();
+
+  const svg = d3.select("#chartPopularity")
+    .append("svg")
+    .attr("width", fullWidthPOP)
+    .attr("height", fullHeightPOP)
+    .append("g")
+    .attr("transform", `translate(${margipopularity.left},${margipopularity.top})`);
+
+  const x = d3.scaleBand()
+    .domain(data.map(d => d["Exposure hierarchy (L7)"]))
+    .range([0, widthPOP])
+    .padding(0.2);
+
+  const y = d3.scaleLinear()
+    .domain([0, d3.max(data, d => d.Mean)])
+    .nice()
+    .range([heightPOP, 0]);
+
+  // X Axis
+  svg.append("g")
+    .attr("transform", `translate(0, ${heightPOP})`)
+    .call(d3.axisBottom(x))
+    .selectAll("text")
+    .attr("transform", "rotate(-40)")
+    .style("text-anchor", "end")
+    .style("font-size", "14px");
+
+  // Y Axis
+  svg.append("g").call(d3.axisLeft(y));
+
+  // Bars
+  svg.selectAll("rect")
+    .data(data)
+    .enter()
+    .append("rect")
+    .attr("x", d => x(d["Exposure hierarchy (L7)"]))
+    .attr("width", x.bandwidth())
+    .attr("y", d => y(d.Mean))
+    .attr("height", d => heightPOP - y(d.Mean))
+    .attr("fill", "#5f9ea0")
+    .attr("stroke", "#333")
+    .attr("stroke-width", 1.2)
+    .attr("rx", 8)
+    .attr("ry", 8);
+
+  // Y-axis label
+  svg.append("text")
+    .attr("x", -heightPOP / 2)
+    .attr("y", -60)
+    .attr("transform", "rotate(-90)")
+    .attr("text-anchor", "middle")
+    .style("font-size", "16px")
+    .text("Mean Value");
+
+  // Value Labels
+  svg.selectAll("text.value-label")
+    .data(data)
+    .enter()
+    .append("text")
+    .attr("class", "value-label")
+    .attr("x", d => x(d["Exposure hierarchy (L7)"]) + x.bandwidth() / 2)
+    .attr("y", d => y(d.Mean) - 5)
+    .attr("text-anchor", "middle")
+    .style("font-size", "13px")
+    .style("fill", "#333")
+    .text(d => d.Mean.toFixed(1));
+}
+
+
+//food items emissions+water
 const margin = { top: 40, right: 20, bottom: 100, left: 80 };
 const fullWidth = 1580;
 const fullHeight = 650;
@@ -401,7 +538,7 @@ const height = fullHeight - margin.top - margin.bottom;
 
 let rawData;
 
-d3.csv("final_data/italy_food_data.csv", d3.autoType).then(data => {
+d3.csv("site/final_data/italy_food_data.csv", d3.autoType).then(data => {
   rawData = data.filter(d => d["AGROVOC_label"]);
   drawChart("co2");
 
@@ -478,14 +615,13 @@ function drawChart(theme) {
   .style("font-size", "15px")
   .style("fill", "#333")
   .text(d => d[valueKey]);
-
 }
 
 
 
 
 //meal game
-fetch('final_data/game_data.json')
+fetch('site/final_data/game_data.json')
   .then(res => res.json())
   .then(data => {
     const optionsDiv = document.getElementById('ingredient-options');

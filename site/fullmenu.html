@@ -43,14 +43,15 @@
     <button id="modalCloseBtn" onclick="closeModal()">✖</button>
     <img id="modalImg" src="" alt="Food image" />
     <h2 id="modalTitle"></h2>
+    <hr id = "category-separator">
     <p id="modalDescription"></p>
   </div>
 </div>
 
-<div class = "menu-title">
+<div class = "menu-title" >
     <h1 class="menu-header">Full Menu</h1>
     <p class="menu-description">
-        Click on the different food s and discover their real impact.
+        Click on the different foods and discover their real cost.
     </p>
 </div>
 
@@ -111,12 +112,12 @@ function displayMenuCategories() {
   const groupedData = Object.keys(data).reduce((acc, key) => {
     const entry = data[key];
     // Use 'Unknown' or a similar string for items where type is 'NaN' or missing
-    const type = entry.type && entry.type !== "NaN" ? entry.type : 'Unknown'; 
+    const meal_type = entry.meal_type && entry.meal_type !== "NaN" ? entry.meal_type : 'Unknown'; 
     
-    if (!acc[type]) {
-      acc[type] = [];
+    if (!acc[meal_type]) {
+      acc[meal_type] = [];
     }
-    acc[type].push({ key: key, ...entry });
+    acc[meal_type].push({ key: key, ...entry });
     return acc;
   }, {});
 
