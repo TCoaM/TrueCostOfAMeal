@@ -23,11 +23,7 @@ h5{font-size: 1rem;
    text-transform: uppercase}
 
 
-#svg3, #svg4 {padding-left:5%;
-  width: 100%;
-  height: auto;
-  display: block;
-}
+
 
 .section{
    height:100vh;
@@ -209,3 +205,18 @@ h5{font-size: 1rem;
 .hidden {
   display: none;
 }
+
+
+.group-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.food-group {
+  flex: 1 1 220px;
+  min-width: 200px;
+  max-width: 250px;
+}
+
+

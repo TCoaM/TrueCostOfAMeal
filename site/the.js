@@ -471,19 +471,16 @@ function drawPopularityChart(data) {
     .nice()
     .range([heightPOP, 0]);
 
-  // X Axis
   svg.append("g")
     .attr("transform", `translate(0,${heightPOP})`)
     .call(d3.axisBottom(x))
     .selectAll("text")
     .attr("transform", "rotate(-40)")
     .style("text-anchor", "end")
-    .style("font-size", "13px");
+    .style("font-size", "15px");
 
-  // Y Axis
   svg.append("g").call(d3.axisLeft(y));
 
-  // Bars
   svg.selectAll("rect")
     .data(data)
     .enter()
@@ -498,7 +495,6 @@ function drawPopularityChart(data) {
     .attr("rx", 6)
     .attr("ry", 6);
 
-  // Y-axis label
   svg.append("text")
     .attr("x", -heightPOP / 2)
     .attr("y", -50)
@@ -610,31 +606,49 @@ function drawChart(theme) {
 fetch('site/final_data/game_data.json')
   .then(res => res.json())
   .then(data => {
+    const mealOrder = [
+      "First course",
+      "Extras",
+      "Second courses & Side dishes",
+      "Drinks",
+      "Desserts & Fruits"
+    ];
+
     const optionsDiv = document.getElementById('ingredient-options');
     const grouped = {};
 
-    // ingredients grouped by type
     Object.entries(data).forEach(([key, val]) => {
-      if (!grouped[val.type]) grouped[val.type] = {};
-      grouped[val.type][key] = val;
+      if (!grouped[val.meal_type]) grouped[val.meal_type] = {};
+      grouped[val.meal_type][key] = val;
     });
 
     // become checkboxes
-    Object.entries(grouped).forEach(([type, items]) => {
+    const groupWrapper = document.createElement('div');  
+    groupWrapper.className = 'group-wrapper';
+    optionsDiv.appendChild(groupWrapper);
+
+    mealOrder.forEach(meal_type => {
+      const items = grouped[meal_type];
+      if (!items) return;
+
       const groupDiv = document.createElement('div');
       groupDiv.className = 'food-group';
-      groupDiv.innerHTML = `<h3>${type.charAt(0).toUpperCase() + type.slice(1)}</h3>`;
-      Object.keys(items).forEach(ingredient => {
-        const label = document.createElement('label');
-        label.className = 'ingredient';
-        label.innerHTML = `
-          <input type="radio" value="${ingredient}"> 
-          ${ingredient.charAt(0).toUpperCase() + ingredient.slice(1)}
-        `;
-        groupDiv.appendChild(label);
-      });
-      optionsDiv.appendChild(groupDiv);
-    });
+      groupDiv.innerHTML = `<h3>${meal_type}</h3>`;
+
+  Object.keys(items).forEach(ingredient => {
+    const label = document.createElement('label');
+    label.className = 'ingredient';
+    label.innerHTML = `
+      <input type="radio" name="${meal_type}" value="${ingredient}">
+      ${ingredient.charAt(0).toUpperCase() + ingredient.slice(1)}
+    `;
+    groupDiv.appendChild(label);
+  });
+
+  groupWrapper.appendChild(groupDiv);
+});
+
+    
 
     optionsDiv.addEventListener('change', () => updatePlate(data));
 
@@ -693,7 +707,7 @@ function showResults(data) {
       <a href="${info.link}" target="_blank">${item.charAt(0).toUpperCase() + item.slice(1)}</a><br>
       CO₂: ${info.carbon.toFixed(2)} kg<br>
       Water: ${info.water.toLocaleString()} liters<br>
-      Cost: ${info.cost.toFixed(2)} m²
+      Cost: ${info.cost.toFixed(2)} 
     `;
     breakdownDiv.appendChild(div);
   });
