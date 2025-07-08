@@ -111,7 +111,7 @@ function displayMenuCategories() {
   const groupedData = Object.keys(data).reduce((acc, key) => {
     const entry = data[key];
     // Use 'Unknown' or a similar string for items where type is 'NaN' or missing
-    const type = entry.type && entry.type !== "NaN" ? entry.type : 'Unknown'; 
+    const type = entry.meal_type && entry.type !== "NaN" ? entry.type : 'Unknown'; 
     
     if (!acc[type]) {
       acc[type] = [];
