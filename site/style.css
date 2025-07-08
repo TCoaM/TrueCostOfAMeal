@@ -5,7 +5,7 @@
 }
 
 p{
-   font-size: 19px;
+   font-size: 16px;
 }
 
 h2{
@@ -17,7 +17,7 @@ h3{
    padding: 0.5% 0 2% 0;
 }
 
-h5{font-size: 22px;
+h5{font-size: 19px;
    padding-top:2%;
    font-family: "Caveat", cursive !important;
    text-transform: uppercase}
