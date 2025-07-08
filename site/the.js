@@ -602,8 +602,131 @@ function drawChart(theme) {
   .style("fill", "#333")
   .text(d => d[valueKey]);
 }
+//alternatives chart
 
+document.addEventListener("DOMContentLoaded", function () {
+  const chartSeven_items = [
+    "cow milk", "soy milk", "chocolate", "bananas",
+    "coffee", "orange juice", "beef", "salmon"
+  ];
 
+  const chartSeven_svg = d3.select("#chartSeven");
+  const chartSeven_fullWidth = +chartSeven_svg.attr("width");
+  const chartSeven_fullHeight = +chartSeven_svg.attr("height");
+  const chartSeven_margin = { top: 40, right: 20, bottom: 100, left: 80 };
+  const chartSeven_width = chartSeven_fullWidth - chartSeven_margin.left - chartSeven_margin.right;
+  const chartSeven_height = chartSeven_fullHeight - chartSeven_margin.top - chartSeven_margin.bottom;
+
+  let chartSeven_data = [];
+
+  d3.json("site/final_data/game_data.json").then(data => {
+    chartSeven_data = chartSeven_items.map(item => {
+      if (data[item]) {
+        return {
+          name: item,
+          water: data[item].water,
+          co2: data[item].carbon
+        };
+      } else {
+        console.warn(`"${item}" not found`);
+        return null;
+      }
+    }).filter(d => d !== null);
+
+    drawChartSeven("co2");
+
+    d3.select("#theme-seven").on("change", function () {
+      drawChartSeven(this.value);
+    });
+  });
+
+  function drawChartSeven(theme) {
+    chartSeven_svg.selectAll("*").remove();
+
+    const chart = chartSeven_svg.append("g")
+      .attr("transform", `translate(${chartSeven_margin.left},${chartSeven_margin.top})`);
+
+    const valueKey = theme === "water" ? "water" : "co2";
+    const yLabel = theme === "water" ? "Liters / KG" : "kg CO₂ eq / KG";
+    const color = theme === "water" ? "#1f77b4" : "#db4c3f";
+
+    // Group items in pairs
+    const groupedData = [];
+    for (let i = 0; i < chartSeven_data.length; i += 2) {
+      groupedData.push({
+        groupIndex: i / 2,
+        items: chartSeven_data.slice(i, i + 2)
+      });
+    }
+
+    // Scale for groups
+    const xGroup = d3.scaleBand()
+      .domain(groupedData.map(d => d.groupIndex))
+      .range([0, chartSeven_width])
+      .padding(0.3);
+
+    // Scale for items within each group
+    const xItem = d3.scaleBand()
+      .domain([0, 1])
+      .range([0, xGroup.bandwidth()])
+      .padding(0.1);
+
+    const y = d3.scaleLinear()
+      .domain([0, d3.max(chartSeven_data, d => d[valueKey]) || 0])
+      .nice()
+      .range([chartSeven_height, 0]);
+
+    // Create x-axis with all item names
+    const xAxis = d3.scaleBand()
+      .domain(chartSeven_data.map(d => d.name))
+      .range([0, chartSeven_width])
+      .padding(0.2);
+
+    chart.append("g")
+      .attr("transform", `translate(0, ${chartSeven_height})`)
+      .call(d3.axisBottom(xAxis))
+      .selectAll("text")
+      .attr("transform", "rotate(-40)")
+      .style("text-anchor", "end")
+      .style("font-size", "13px");
+
+    chart.append("g").call(d3.axisLeft(y));
+
+    // Draw bars for each group
+    groupedData.forEach(group => {
+      group.items.forEach((item, itemIndex) => {
+        chart.append("rect")
+          .attr("x", xGroup(group.groupIndex) + xItem(itemIndex))
+          .attr("width", xItem.bandwidth())
+          .attr("y", y(item[valueKey]))
+          .attr("height", chartSeven_height - y(item[valueKey]))
+          .attr("fill", (group.groupIndex * 2 + itemIndex) % 2 === 0 ? "#f8b4b4" : "#b8e6b0")
+          .attr("stroke", "#333")
+          .attr("stroke-width", 1.2)
+          .attr("rx", 6)
+          .attr("ry", 6);
+
+        // Add value labels
+        chart.append("text")
+          .attr("class", "value-label")
+          .attr("x", xGroup(group.groupIndex) + xItem(itemIndex) + xItem.bandwidth() / 2)
+          .attr("y", y(item[valueKey]) - 5)
+          .attr("text-anchor", "middle")
+          .style("font-size", "13px")
+          .style("fill", "#333")
+          .text(item[valueKey]);
+      });
+    });
+
+    chart.append("text")
+      .attr("x", -chartSeven_height / 2)
+      .attr("y", -60)
+      .attr("transform", "rotate(-90)")
+      .attr("text-anchor", "middle")
+      .style("font-size", "14px")
+      .text(yLabel);
+  }
+});
 
 
 //meal game

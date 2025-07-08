@@ -102,6 +102,13 @@ h5{font-size: 1rem;
 #graphSix{width: 100%;
   overflow: visible;}
 
+.alternatives{
+  margin-top: 10vh;
+}
+#graphSeven {
+  width: 100%;
+  overflow: visible;
+}
 
 #chartPopularity svg {
   width: 100%;
