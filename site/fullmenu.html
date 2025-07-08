@@ -86,11 +86,12 @@ function openModalBtn(btn) {
     document.getElementById("modalImg").src = imageUrl;
     document.getElementById("modalImg").alt = key;
     document.getElementById("modalDescription").innerHTML = `
-        <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Type:</span> ${entry.type || 'N/A'}<br>
-        <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Consumption:</span> ${entry.consumption || 'N/A'}<br>
-        <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Carbon:</span> ${entry.carbon || 'N/A'}<br>
-        <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Water:</span> ${entry.water || 'N/A'}<br>
-        <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Cost:</span> ${entry.cost || 'N/A'}
+        <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Agrovoc URI:</span> ${entry.AGROVOC_uri || 'Data not available'}<br>
+        <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Type:</span> ${entry.type || 'Data not available'}<br>
+        <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Consumption (g/day):</span> ${entry.consumption || 'Data not available'}<br>
+        <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Carbon (g CO₂eq/g):</span> ${entry.carbon || 'Data not available'}<br>
+        <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Water (L/kg):</span> ${entry.water || 'Data not available'}<br>
+        <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Cost (€/kg):</span> ${entry.cost || 'Data not available'}
       `;
     document.getElementById("modal").style.display = "block";
   } else {
