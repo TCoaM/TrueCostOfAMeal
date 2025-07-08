@@ -1,5 +1,5 @@
-const waterChartWidth = 500;
-const waterChartHeight = 600;
+const waterChartWidth = 200;
+const waterChartHeight = 300;
 const waterChartRadius = Math.min(waterChartWidth, waterChartHeight) / 2;
 let waterChartDrawn = false;
 
@@ -75,7 +75,7 @@ function drawWaterChart() {
         .attr("x", waterChartRadius + 250)
         .attr("y", 115)
         .attr("text-anchor", "start")
-        .style("font-size", "35px")
+        .style("font-size", "20px")
         .style("font-family", "sans-serif")
         .text("23.60B L");
 
@@ -83,7 +83,7 @@ function drawWaterChart() {
           .attr("x", waterChartRadius + 250)
           .attr("y", 150)
           .attr("text-anchor", "start")
-          .style("font-size", "20px")
+          .style("font-size", "16px")
           .style("fill", "#333")
           .text("total agricultural water withdrawal");
 
@@ -444,7 +444,92 @@ observer.observe(document.querySelector("#emission_bar_chart"));
 
 
 //italy
-//food items
+//top food items
+const margipopularity = { top: 40, right: 20, bottom: 100, left: 80 };
+const fullWidthPOP = 1580;
+const fullHeightPOP = 650;
+const widthPOP = fullWidthPOP - margipopularity.left - margipopularity.right;
+const heightPOP = fullHeightPOP - margipopularity.top - margipopularity.bottom;
+
+d3.csv("site/final_data/italy_food_data.csv", d3.autoType).then(data => {
+
+  const cleanData = data.filter(d => d["Exposure hierarchy (L7)"] && d.Mean);
+
+  drawBarChart(cleanData);
+});
+
+function drawBarChart(data) {
+  d3.select("#chartSix").selectAll("*").remove();
+
+  const svg = d3.select("#chartSix")
+    .append("svg")
+    .attr("width", fullWidthPOP)
+    .attr("height", fullHeightPOP)
+    .append("g")
+    .attr("transform", `translate(${margipopularity.left},${margipopularity.top})`);
+
+  const x = d3.scaleBand()
+    .domain(data.map(d => d["Exposure hierarchy (L7)"]))
+    .range([0, widthPOP])
+    .padding(0.2);
+
+  const y = d3.scaleLinear()
+    .domain([0, d3.max(data, d => d.Mean)])
+    .nice()
+    .range([heightPOP, 0]);
+
+  // X Axis
+  svg.append("g")
+    .attr("transform", `translate(0, ${heightPOP})`)
+    .call(d3.axisBottom(x))
+    .selectAll("text")
+    .attr("transform", "rotate(-40)")
+    .style("text-anchor", "end")
+    .style("font-size", "14px");
+
+  // Y Axis
+  svg.append("g").call(d3.axisLeft(y));
+
+  // Bars
+  svg.selectAll("rect")
+    .data(data)
+    .enter()
+    .append("rect")
+    .attr("x", d => x(d["Exposure hierarchy (L7)"]))
+    .attr("width", x.bandwidth())
+    .attr("y", d => y(d.Mean))
+    .attr("height", d => heightPOP - y(d.Mean))
+    .attr("fill", "#5f9ea0")
+    .attr("stroke", "#333")
+    .attr("stroke-width", 1.2)
+    .attr("rx", 8)
+    .attr("ry", 8);
+
+  // Y-axis label
+  svg.append("text")
+    .attr("x", -heightPOP / 2)
+    .attr("y", -60)
+    .attr("transform", "rotate(-90)")
+    .attr("text-anchor", "middle")
+    .style("font-size", "16px")
+    .text("Mean Value");
+
+  // Value Labels
+  svg.selectAll("text.value-label")
+    .data(data)
+    .enter()
+    .append("text")
+    .attr("class", "value-label")
+    .attr("x", d => x(d["Exposure hierarchy (L7)"]) + x.bandwidth() / 2)
+    .attr("y", d => y(d.Mean) - 5)
+    .attr("text-anchor", "middle")
+    .style("font-size", "13px")
+    .style("fill", "#333")
+    .text(d => d.Mean.toFixed(1));
+}
+
+
+//food items emissions+water
 const margin = { top: 40, right: 20, bottom: 100, left: 80 };
 const fullWidth = 1580;
 const fullHeight = 650;
@@ -530,7 +615,6 @@ function drawChart(theme) {
   .style("font-size", "15px")
   .style("fill", "#333")
   .text(d => d[valueKey]);
-
 }
 
 
