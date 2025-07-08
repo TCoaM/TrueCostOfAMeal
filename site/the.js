@@ -97,7 +97,7 @@ function drawWaterChart() {
         .style("fill", "black")
         .html(function(d) {
   const fullLabel = d.data.Variable;
-  const firstWord = fullLabel.split(" ")[0];  // 👈 Grab first word
+  const firstWord = fullLabel.split(" ")[0];  
   const percent = Math.round(d.data.Value / d3.sum(data, d => d.Value) * 100) + "%";
   return `
     <tspan x="0" dy="-0.3em">${firstWord}</tspan>
@@ -445,20 +445,13 @@ observer.observe(document.querySelector("#emission_bar_chart"));
 
 //italy
 //top food items
-const margipopularity = { top: 40, right: 20, bottom: 100, left: 80 };
-const fullWidthPOP = 1580;
-const fullHeightPOP = 650;
-const widthPOP = fullWidthPOP - margipopularity.left - margipopularity.right;
-const heightPOP = fullHeightPOP - margipopularity.top - margipopularity.bottom;
+function drawPopularityChart(data) {
+  const marginPOP = { top: 40, right: 20, bottom: 100, left: 80 };
+  const fullWidthPOP = 1000;
+  const fullHeightPOP = 500;
+  const widthPOP = fullWidthPOP - marginPOP.left - marginPOP.right;
+  const heightPOP = fullHeightPOP - marginPOP.top - marginPOP.bottom;
 
-d3.csv("site/final_data/italy_food_data.csv", d3.autoType).then(data => {
-
-  const cleanData = data.filter(d => d["Exposure hierarchy (L7)"] && d.Mean);
-
-  drawBarChart(cleanData);
-});
-
-function drawBarChartPOP(data) {
   d3.select("#chartPopularity").selectAll("*").remove();
 
   const svg = d3.select("#chartPopularity")
@@ -466,26 +459,26 @@ function drawBarChartPOP(data) {
     .attr("width", fullWidthPOP)
     .attr("height", fullHeightPOP)
     .append("g")
-    .attr("transform", `translate(${margipopularity.left},${margipopularity.top})`);
+    .attr("transform", `translate(${marginPOP.left},${marginPOP.top})`);
 
   const x = d3.scaleBand()
-    .domain(data.map(d => d["Exposure hierarchy (L7)"]))
+    .domain(data.map(d => d.AGROVOC_label))
     .range([0, widthPOP])
     .padding(0.2);
 
   const y = d3.scaleLinear()
-    .domain([0, d3.max(data, d => d.Mean)])
+    .domain([0, d3.max(data, d => d.Mean_consumption_italy)])
     .nice()
     .range([heightPOP, 0]);
 
   // X Axis
   svg.append("g")
-    .attr("transform", `translate(0, ${heightPOP})`)
+    .attr("transform", `translate(0,${heightPOP})`)
     .call(d3.axisBottom(x))
     .selectAll("text")
     .attr("transform", "rotate(-40)")
     .style("text-anchor", "end")
-    .style("font-size", "14px");
+    .style("font-size", "13px");
 
   // Y Axis
   svg.append("g").call(d3.axisLeft(y));
@@ -495,38 +488,31 @@ function drawBarChartPOP(data) {
     .data(data)
     .enter()
     .append("rect")
-    .attr("x", d => x(d["Exposure hierarchy (L7)"]))
+    .attr("x", d => x(d.AGROVOC_label))
+    .attr("y", d => y(d.Mean_consumption_italy))
     .attr("width", x.bandwidth())
-    .attr("y", d => y(d.Mean))
-    .attr("height", d => heightPOP - y(d.Mean))
-    .attr("fill", "#5f9ea0")
+    .attr("height", d => heightPOP - y(d.Mean_consumption_italy))
+    .attr("fill", "#ffbf69")
     .attr("stroke", "#333")
     .attr("stroke-width", 1.2)
-    .attr("rx", 8)
-    .attr("ry", 8);
+    .attr("rx", 6)
+    .attr("ry", 6);
 
   // Y-axis label
   svg.append("text")
     .attr("x", -heightPOP / 2)
-    .attr("y", -60)
+    .attr("y", -50)
     .attr("transform", "rotate(-90)")
     .attr("text-anchor", "middle")
     .style("font-size", "16px")
-    .text("Mean Value");
+    .text("Mean Consumption (kg or L per year)");
 
-  // Value Labels
-  svg.selectAll("text.value-label")
-    .data(data)
-    .enter()
-    .append("text")
-    .attr("class", "value-label")
-    .attr("x", d => x(d["Exposure hierarchy (L7)"]) + x.bandwidth() / 2)
-    .attr("y", d => y(d.Mean) - 5)
-    .attr("text-anchor", "middle")
-    .style("font-size", "13px")
-    .style("fill", "#333")
-    .text(d => d.Mean.toFixed(1));
 }
+
+d3.csv("site/final_data/italy_food_data.csv", d3.autoType).then(data => {
+  const filtered = data.filter(d => d.AGROVOC_label && d.Mean_consumption_italy != null);
+  drawPopularityChart(filtered);
+});
 
 
 //food items emissions+water

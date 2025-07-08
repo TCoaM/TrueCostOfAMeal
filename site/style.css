@@ -17,7 +17,7 @@ h3{
    padding: 0.5% 0 2% 0;
 }
 
-h5{font-size: 18px;
+h5{font-size: 1rem;
    padding-top:2%;
    font-family: "Caveat", cursive !important;
    text-transform: uppercase}
@@ -38,7 +38,7 @@ h5{font-size: 18px;
 .ita{height:100vh}
 
 .cavText{
-   font-size: 20px;
+   font-size: 17px;
    font-family: "Caveat", cursive;
 }
 
@@ -101,6 +101,18 @@ h5{font-size: 18px;
 
 #graphSix{width: 100%;
   overflow: visible;}
+
+
+#chartPopularity svg {
+  width: 100%;
+  height: auto;
+  max-width: 1000px;
+  display: block;
+  margin: auto;
+}
+
+
+
 
 .onYourPlate {
   padding: 40px;
