@@ -20,7 +20,7 @@ function drawWaterChart() {
     ;
 
  
-  d3.csv("final_data/filtered_water_agrovoc.csv").then(data => {
+  d3.csv("site/final_data/filtered_water_agrovoc.csv").then(data => {
     data.forEach(d => d.Value = +d.Value);  
     const pie = d3.pie()
       .value(d => d.Value)
@@ -143,7 +143,7 @@ function drawLandChart() {
     .domain(["land area", "agriculture", "forest land"])
     .range(["#8dd3c7", "#ffffb3", "#bebada"]);
 
-  d3.csv("final_data/filtered_landuse_agrovoc.csv").then(data => {
+  d3.csv("site/final_data/filtered_landuse_agrovoc.csv").then(data => {
     data.forEach(d => d.Value = +d.Value);
 
     const pie = d3.pie().value(d => d.Value).padAngle(0.03);
@@ -251,7 +251,7 @@ function drawGroupedBarChart() {
     .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
     .append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);
-  d3.csv("final_data/emissions_sectors_agrovoc.csv").then(data => {
+  d3.csv("site/final_data/emissions_sectors_agrovoc.csv").then(data => {
     data = data.filter(d => d.Item && d.Value);
     data.forEach(d => d.Value = +d.Value);
 
@@ -453,7 +453,7 @@ const height = fullHeight - margin.top - margin.bottom;
 
 let rawData;
 
-d3.csv("final_data/italy_food_data.csv", d3.autoType).then(data => {
+d3.csv("site/final_data/italy_food_data.csv", d3.autoType).then(data => {
   rawData = data.filter(d => d["AGROVOC_label"]);
   drawChart("co2");
 
@@ -537,7 +537,7 @@ function drawChart(theme) {
 
 
 //meal game
-fetch('final_data/game_data.json')
+fetch('site/final_data/game_data.json')
   .then(res => res.json())
   .then(data => {
     const optionsDiv = document.getElementById('ingredient-options');
