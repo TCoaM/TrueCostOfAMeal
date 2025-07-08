@@ -27,7 +27,6 @@ h5{font-size: 18px;
   width: 100%;
   height: auto;
   display: block;
-
 }
 
 .section{
@@ -35,6 +34,8 @@ h5{font-size: 18px;
    padding-top:15%;
    margin:7%;
 }
+
+.ita{height:100vh}
 
 .cavText{
    font-size: 26px;
