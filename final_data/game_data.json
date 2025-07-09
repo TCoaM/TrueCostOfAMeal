@@ -7,8 +7,8 @@
     "water": 1260.5,
     "cost": 8.12,
     "meal_type": "Drinks",
-    "image" : "site/images/cowMilk.png",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/cowMilk.png"
+    "image" : "images/cowMilk.png",
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/cowMilk.png"
     
   },
   "coffee": {
@@ -20,7 +20,7 @@
     "cost": 16.94,
     "meal_type": "Drinks",
     "image": "",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/cofee.png"
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/cofee.png"
   },
   "apples": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_541",
@@ -30,8 +30,8 @@
     "water": 622.0,
     "cost": 2.54,
     "meal_type": "Desserts & Fruits",
-    "image": "site/images/apple.png",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/apple.png"
+    "image": "images/apple.png",
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/apple.png"
   },
   "tomatoes": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_7805",
@@ -41,8 +41,8 @@
     "water": 41.0,
     "cost": 6.66,
     "meal_type": "Side dishes",
-    "image": "site/images/tomatoe.png",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/tomatoe.png"
+    "image": "images/tomatoe.png",
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/tomatoe.png"
   },
   "potatoes": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_13551",
@@ -53,7 +53,7 @@
     "cost": 1.98,
     "meal_type": "Side dishes",
     "image": "",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/potatoe.png"
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/potatoe.png"
   },
   "bread": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_1071",
@@ -63,8 +63,8 @@
     "water": 667.0,
     "cost": 2.8666666666666667,
     "meal_type": "Extras",
-    "image": "site/images/bread.png",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/bread.png"
+    "image": "images/bread.png",
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/bread.png"
   },
   "red wines": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_28614",
@@ -74,8 +74,8 @@
     "water": 524.0,
     "cost": 2.32,
     "meal_type": "Drinks",
-    "image": "site/images/wine.png",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/wine.png"
+    "image": "images/wine.png",
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/wine.png"
   },
   "chicken meat": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_24000",
@@ -86,7 +86,7 @@
     "cost": 15.61,
     "meal_type": "Second courses",
     "image": "",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/chicken.png"
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/chicken.png"
   },
   "pasta": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_5621",
@@ -97,7 +97,7 @@
     "cost": 23.15,
     "meal_type": "First courses",
     "image": "",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/pasta.png"
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/pasta.png"
   },
 
   "olive oil": {
@@ -108,8 +108,8 @@
     "water": 14415.0,
     "cost": 8.27,
     "meal_type": "Extras",
-    "image": "site/images/oil.png",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/oil.png"
+    "image": "images/oil.png",
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/oil.png"
   },
   "beers": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_864",
@@ -119,8 +119,8 @@
     "water": 155.0,
     "cost": 1.9,
     "meal_type": "Drinks",
-    "image": "site/images/beer.png",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/beer.png"
+    "image": "images/beer.png",
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/beer.png"
   },
   "beef": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_861",
@@ -131,7 +131,7 @@
     "cost": 26.01,
     "meal_type": "Second courses",
     "image": "",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/beef.png"
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/beef.png"
   },
 
   "bananas": {
@@ -143,7 +143,7 @@
     "cost": 1.84,
     "meal_type": "Desserts & Fruits",
     "image": "",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/cowMilk.png"
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/banana.png"
   },
   "sweet oranges": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_7550",
@@ -154,7 +154,7 @@
     "cost": 2.48,
     "meal_type": "Desserts & Fruits",
     "image": "",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/orange.png"
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/orange.png"
   },
   "orange juice": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_25492",
@@ -164,8 +164,8 @@
     "water": 1019.0,
     "cost": 2.34,
     "meal_type": "Drinks",
-    "image": "site/images/orangeJuice.png",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/orangeJuice.png"
+    "image": "images/orangeJuice.png",
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/orangeJuice.png"
   },
   "pears": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_5645",
@@ -175,8 +175,8 @@
     "water": 922.0,
     "cost": 3.01,
     "meal_type": "Desserts & Fruits",
-    "image": "site/images/pear.png",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/pear.png"
+    "image": "images/pear.png",
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/pear.png"
   },
 
   "rice": {
@@ -187,8 +187,8 @@
     "water": 1597.0,
     "cost": 3.1,
     "meal_type": "First courses",
-    "image": "site/images/rice.png",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/rice.png"
+    "image": "images/rice.png",
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/rice.png"
   },
   "carrots": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_9640",
@@ -198,8 +198,8 @@
     "water": 195.0,
     "cost": 1.64,
     "meal_type": "Side dishes",
-    "image": "site/images/carrot.png",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/carrot.png"
+    "image": "images/carrot.png",
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/carrot.png"
   },
   "hams": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_3481",
@@ -210,7 +210,7 @@
     "cost": 29.47,
     "meal_type": "Second courses",
     "image": "",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/ham.png"
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/ham.png"
   },
   "cod": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_1717",
@@ -221,7 +221,7 @@
     "cost": 19.69,
     "meal_type": "Second courses",
     "image": "",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/cod.png"
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/cod.png"
   },
   "onions": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_12934",
@@ -231,8 +231,8 @@
     "water": 290.0,
     "cost": 2.1,
     "meal_type": "Side dishes",
-    "image": "site/images/onion.png",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/onion.png"
+    "image": "images/onion.png",
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/onion.png"
   },
   "soy milk": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_15563",
@@ -242,8 +242,8 @@
     "water": 2030.0,
     "cost": 1.98,
     "meal_type": "Drinks",
-    "image": "site/images/soyMilk.png",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/soyMilk.png"
+    "image": "images/soyMilk.png",
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/soyMilk.png"
   },
   "biscuits": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_16475",
@@ -254,7 +254,7 @@
     "cost": 4.24,
     "meal_type": "Desserts & Fruits",
     "image": "",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/biscuit.png"
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/biscuit.png"
   },
   "salmon": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_6756",
@@ -264,8 +264,8 @@
     "water": 2193.0,
     "cost": 18.3,
     "meal_type": "Second courses",
-    "image": "",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/salmon.png"
+    "image": "images/salmon.png",
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/salmon.png"
   },
   "tuna": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_8003",
@@ -276,7 +276,7 @@
     "cost": 13.84,
     "meal_type": "Second courses",
     "image": "",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/tuna.png"
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/tuna.png"
   },
   "chocolate": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_1582",
@@ -287,7 +287,7 @@
     "cost": 16.5,
     "meal_type": "Desserts & Fruits",
     "image": "",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/chocolate.png"
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/chocolate.png"
   },
   "peas": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_13177",
@@ -297,7 +297,8 @@
     "water": 1979.0,
     "cost": 3.41,
     "meal_type": "Side dishes",
-    "image": "site/images/peas.png",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/pea.png"
+    "image": "images/peas.png",
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/peas.png"
+    
   }
 }

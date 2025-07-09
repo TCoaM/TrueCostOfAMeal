@@ -1,23 +1,23 @@
-const waterChartWidth = 400;
+const waterChartWidth = 390;
 const waterChartHeight = 400;
 const waterChartRadius = Math.min(waterChartWidth, waterChartHeight) / 2;
 let waterChartDrawn = false;
 
 function drawWaterChart() {
-  const svg = d3.select("#svg3")
+  const svgRoot = d3.select("#svg3")
     .attr("width", waterChartWidth)
     .attr("height", waterChartHeight)
-    .append("g")
-
+    .style("overflow", "visible"); 
+  const svg = svgRoot.append("g")
     .attr("transform", `translate(${waterChartWidth / 2}, ${waterChartHeight / 2})`);
 
   const color = d3.scaleOrdinal()
     .domain(["Agricultural water withdrawal", "Industrial water withdrawal", "Municipal water withdrawal"])
-    .range(["#5465ff", "#9bb1ff", "#bfd7ff"])
-    ;
+    .range(["#5465ff", "#9bb1ff", "#bfd7ff"]);
 
-  d3.csv("site/final_data/filtered_water_agrovoc.csv").then(data => {
-    data.forEach(d => d.Value = +d.Value);  
+  d3.csv("final_data/filtered_water_agrovoc.csv").then(data => {
+    data.forEach(d => d.Value = +d.Value);
+
     const pie = d3.pie()
       .value(d => d.Value)
       .padAngle(0.03);
@@ -25,8 +25,7 @@ function drawWaterChart() {
     const arc = d3.arc()
       .innerRadius(20)
       .outerRadius(waterChartRadius)
-      .cornerRadius(8)
-      ;
+      .cornerRadius(8);
 
     const arcs = svg.selectAll("g.arc")
       .data(pie(data))
@@ -36,8 +35,8 @@ function drawWaterChart() {
 
     arcs.append("path")
       .attr("fill", d => color(d.data.Variable))
-      .attr("stroke", "#333")               
-      .attr("stroke-width", 1.2)  
+      .attr("stroke", "#333")
+      .attr("stroke-width", 1.2)
       .transition()
       .duration(1000)
       .attrTween("d", function(d) {
@@ -45,44 +44,44 @@ function drawWaterChart() {
         return t => arc(i(t));
       });
 
-      svg.append("path")
-        .attr("d", "M15,-60 C40,-80 200,-100 290, 50")  
-        .attr("fill", "none")
-        .attr("stroke", "#333")
-        .attr("stroke-width", 1.5)
-        .attr("marker-end", "url(#arrow)")           
-        .attr("transform", `translate(${waterChartRadius}, 0)`);
+    svg.append("defs")
+      .append("marker")
+      .attr("id", "arrow")
+      .attr("viewBox", "0 0 10 10")
+      .attr("refX", 10)
+      .attr("refY", 5)
+      .attr("markerWidth", 6)
+      .attr("markerHeight", 6)
+      .attr("orient", "auto")
+      .append("path")
+      .attr("d", "M 0 0 L 10 5 L 0 10 z")
+      .attr("fill", "#333");
 
-      d3.select("#svg3")
-        .append("defs")
-        .append("marker")
-        .attr("id", "arrow")
-        .attr("viewBox", "0 0 10 10")
-        .attr("refX", 10)
-        .attr("refY", 5)
-        .attr("markerWidth", 6)
-        .attr("markerHeight", 6)
-        .attr("orient", "auto")
-        .style("overflow", "visible")
-        .append("path")
-        .attr("d", "M 0 0 L 10 5 L 0 10 z")
-        .attr("fill", "#333");
+    svg.append("path")
+      .attr("class", "arrow-path")
+      .attr("d", "M15,-60 C40,-80 200,-100 290, 50")
+      .attr("fill", "none")
+      .attr("stroke", "#333")
+      .attr("stroke-width", 1.5)
+      .attr("marker-end", "url(#arrow)")
+      .attr("transform", `translate(${waterChartRadius}, 0)`);
 
-        svg.append("text")
-        .attr("x", waterChartRadius + 250)
-        .attr("y", 115)
-        .attr("text-anchor", "start")
-        .style("font-size", "20px")
-        .style("font-family", "sans-serif")
-        .text("23.60B L");
+    svg.append("text")
+      .attr("x", waterChartRadius + 250)
+      .attr("y", 115)
+      .attr("text-anchor", "start")
+      .style("font-size", "32px")
+      .style("font-family", "sans-serif")
+      .text("23.60B L");
 
-        svg.append("text")
-          .attr("x", waterChartRadius + 250)
-          .attr("y", 150)
-          .attr("text-anchor", "start")
-          .style("font-size", "16px")
-          .style("fill", "#333")
-          .text("total agricultural water withdrawal");
+    svg.append("text")
+      .attr("x", waterChartRadius + 250)
+      .attr("y", 150)
+      .attr("class", "arrow-path")
+      .attr("text-anchor", "start")
+      .style("font-size", "16px")
+      .style("fill", "#333")
+      .text("total agricultural water withdrawal");
 
     setTimeout(() => {
       arcs.append("text")
@@ -91,15 +90,14 @@ function drawWaterChart() {
         .style("font-size", "16px")
         .style("fill", "black")
         .html(function(d) {
-  const fullLabel = d.data.Variable;
-  const firstWord = fullLabel.split(" ")[0];  
-  const percent = Math.round(d.data.Value / d3.sum(data, d => d.Value) * 100) + "%";
-  return `
-    <tspan x="0" dy="-0.3em">${firstWord}</tspan>
-    <tspan x="0" dy="1.5em">${percent}</tspan>
-  `;
-});
-
+          const fullLabel = d.data.Variable;
+          const firstWord = fullLabel.split(" ")[0];
+          const percent = Math.round(d.data.Value / d3.sum(data, d => d.Value) * 100) + "%";
+          return `
+            <tspan x="0" dy="-0.3em">${firstWord}</tspan>
+            <tspan x="0" dy="1.5em">${percent}</tspan>
+          `;
+        });
     }, 1000);
   });
 }
@@ -122,37 +120,46 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 //land use
-const width4 = 400;
+const width4 = 390;
 const height4 = 400;
 const radius4 = Math.min(width4, height4) / 2;
 let landChartDrawn = false;
 
 function drawLandChart() {
-  const svg = d3.select("#svg4")
+  const svgRoot = d3.select("#svg4")
     .attr("width", width4)
     .attr("height", height4)
-    .append("g")
+    .style("overflow", "visible"); 
+
+  const svg = svgRoot.append("g")
     .attr("transform", `translate(${width4 / 2}, ${height4 / 2})`);
 
   const color = d3.scaleOrdinal()
     .domain(["land area", "agriculture", "forest land"])
     .range(["#8dd3c7", "#ffffb3", "#bebada"]);
 
-  d3.csv("site/final_data/filtered_landuse_agrovoc.csv").then(data => {
+  d3.csv("final_data/filtered_landuse_agrovoc.csv").then(data => {
     data.forEach(d => d.Value = +d.Value);
 
-    const pie = d3.pie().value(d => d.Value).padAngle(0.03);
-    const arc = d3.arc().innerRadius(20).outerRadius(radius4).cornerRadius(8);
+    const pie = d3.pie()
+      .value(d => d.Value)
+      .padAngle(0.03);
 
-    const arcs = svg.selectAll("g")
+    const arc = d3.arc()
+      .innerRadius(20)
+      .outerRadius(radius4)
+      .cornerRadius(8);
+
+    const arcs = svg.selectAll("g.arc")
       .data(pie(data))
       .enter()
-      .append("g");
+      .append("g")
+      .attr("class", "arc");
 
     arcs.append("path")
       .attr("fill", d => color(d.data.AGROVOC_label))
-      .attr("stroke", "#333")               
-      .attr("stroke-width", 1.2) 
+      .attr("stroke", "#333")
+      .attr("stroke-width", 1.2)
       .transition()
       .duration(1000)
       .attrTween("d", function(d) {
@@ -160,9 +167,7 @@ function drawLandChart() {
         return t => arc(i(t));
       });
 
-
-    d3.select("#svg4")
-      .append("defs")
+    svg.append("defs")
       .append("marker")
       .attr("id", "arrow2")
       .attr("viewBox", "0 0 10 10")
@@ -176,6 +181,7 @@ function drawLandChart() {
       .attr("fill", "#333");
 
     svg.append("path")
+      .attr("class", "arrow-path")
       .attr("d", "M10,-50 C30,-80 150,-100 240,30")
       .attr("fill", "none")
       .attr("stroke", "#333")
@@ -184,6 +190,7 @@ function drawLandChart() {
       .attr("transform", `translate(${radius4}, 0)`);
 
     svg.append("text")
+        .attr("class", "arrow-path")
       .attr("x", radius4 + 200)
       .attr("y", 95)
       .attr("text-anchor", "start")
@@ -246,7 +253,7 @@ function drawGroupedBarChart() {
     .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
     .append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);
-  d3.csv("site/final_data/emissions_sectors_agrovoc.csv").then(data => {
+  d3.csv("final_data/emissions_sectors_agrovoc.csv").then(data => {
     data = data.filter(d => d.Item && d.Value);
     data.forEach(d => d.Value = +d.Value);
 
@@ -336,7 +343,7 @@ function drawGroupedBarChart() {
       .append("text")
       .attr("class", "other-bar-label")
       .attr("x", d => x(d.label) + x.bandwidth() / 2)
-      .attr("y", d => y(d.value) - 5)  // position above the bar
+      .attr("y", d => y(d.value) - 5)  
       .attr("text-anchor", "middle")
       .style("font-size", "12px")
       .style("fill", "#333")
@@ -478,7 +485,7 @@ observer.observe(document.querySelector("#emission_bar_chart"));
 //italy
 //top food items
 function drawPopularityChart(data) {
-  const marginPOP = { top: 40, right: 20, bottom: 150, left: 80 };
+  const marginPOP = { top: 40, right: 40, bottom: 150, left: 80 };
   const fullWidthPOP = 1000;
   const fullHeightPOP = 500;
   const widthPOP = fullWidthPOP - marginPOP.left - marginPOP.right;
@@ -550,16 +557,16 @@ function drawPopularityChart(data) {
 
 }
 
-d3.csv("site/final_data/italy_food_data.csv", d3.autoType).then(data => {
+d3.csv("final_data/italy_food_data.csv", d3.autoType).then(data => {
   const filtered = data.filter(d => d.AGROVOC_label && d.Mean_consumption_italy != null);
   drawPopularityChart(filtered);
 });
 
 
 //food items emissions+water
-const margin = { top: 40, right: 20, bottom: 150, left: 80 };
-const fullWidth = 1580;
-const fullHeight = 650;
+const margin = { top: 40, right: 40, bottom: 150, left: 80 };
+const fullWidth = 1000;
+const fullHeight = 500;
 const width = fullWidth - margin.left - margin.right;
 const height = fullHeight - margin.top - margin.bottom;
 
@@ -635,7 +642,7 @@ function drawChart(theme) {
   .text(d => d[valueKey]);
 }
 
-d3.csv("site/final_data/italy_food_data.csv", d3.autoType).then(data => {
+d3.csv("final_data/italy_food_data.csv", d3.autoType).then(data => {
   rawData = data.filter(d => d["AGROVOC_label"]);
   drawChart("co2");
 
@@ -654,16 +661,17 @@ document.addEventListener("DOMContentLoaded", function () {
     "coffee", "orange juice", "beef", "salmon"
   ];
 
-  const chartSeven_svg = d3.select("#chartSeven");
-  const chartSeven_fullWidth = +chartSeven_svg.attr("width");
-  const chartSeven_fullHeight = +chartSeven_svg.attr("height");
-  const chartSeven_margin = { top: 40, right: 20, bottom: 150, left: 80 };
-  const chartSeven_width = chartSeven_fullWidth - chartSeven_margin.left - chartSeven_margin.right;
-  const chartSeven_height = chartSeven_fullHeight - chartSeven_margin.top - chartSeven_margin.bottom;
+  const chartSeven_svg = d3.select("#chartSeven")
+    .attr("width", 1000)
+    .attr("height", 500);
+
+  const chartSeven_margin = { top: 40, right: 40, bottom: 120, left: 80 };
+  const chartSeven_width = 1000 - chartSeven_margin.left - chartSeven_margin.right;
+  const chartSeven_height = 500 - chartSeven_margin.top - chartSeven_margin.bottom;
 
   let chartSeven_data = [];
 
-  d3.json("site/final_data/game_data.json").then(data => {
+  d3.json("final_data/game_data.json").then(data => {
     chartSeven_data = chartSeven_items.map(item => {
       if (data[item]) {
         return {
@@ -685,16 +693,14 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function drawChartSeven(theme) {
-    chartSeven_svg.selectAll("*").remove();
+    chartSeven_svg.selectAll("g").remove();
 
     const chart = chartSeven_svg.append("g")
       .attr("transform", `translate(${chartSeven_margin.left},${chartSeven_margin.top})`);
 
     const valueKey = theme === "water" ? "water" : "co2";
     const yLabel = theme === "water" ? "Liters / KG" : "kg CO₂ eq / KG";
-    const color = theme === "water" ? "#1f77b4" : "#db4c3f";
 
-    // Group items in pairs
     const groupedData = [];
     for (let i = 0; i < chartSeven_data.length; i += 2) {
       groupedData.push({
@@ -703,13 +709,11 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    // Scale for groups
     const xGroup = d3.scaleBand()
       .domain(groupedData.map(d => d.groupIndex))
       .range([0, chartSeven_width])
       .padding(0.3);
 
-    // Scale for items within each group
     const xItem = d3.scaleBand()
       .domain([0, 1])
       .range([0, xGroup.bandwidth()])
@@ -720,8 +724,10 @@ document.addEventListener("DOMContentLoaded", function () {
       .nice()
       .range([chartSeven_height, 0]);
 
+    const xLabels = chartSeven_data.map(d => d.name);
+
     const xAxis = d3.scaleBand()
-      .domain(chartSeven_data.map(d => d.name))
+      .domain(xLabels)
       .range([0, chartSeven_width])
       .padding(0.2);
 
@@ -729,11 +735,14 @@ document.addEventListener("DOMContentLoaded", function () {
       .attr("transform", `translate(0, ${chartSeven_height})`)
       .call(d3.axisBottom(xAxis))
       .selectAll("text")
-      .attr("transform", "rotate(-40)")
-      .style("text-anchor", "end")
-      .style("font-size", "13px");
+      .attr("transform", "rotate(-30)")
+      .attr("text-anchor", "end")
+      .attr("dx", "-0.6em")
+      .attr("dy", "0.3em")
+      .style("font-size", "12px");
 
-    chart.append("g").call(d3.axisLeft(y));
+    chart.append("g")
+      .call(d3.axisLeft(y));
 
     groupedData.forEach(group => {
       group.items.forEach((item, itemIndex) => {
@@ -751,9 +760,9 @@ document.addEventListener("DOMContentLoaded", function () {
         chart.append("text")
           .attr("class", "value-label")
           .attr("x", xGroup(group.groupIndex) + xItem(itemIndex) + xItem.bandwidth() / 2)
-          .attr("y", y(item[valueKey]) - 5)
+          .attr("y", y(item[valueKey]) - 6)
           .attr("text-anchor", "middle")
-          .style("font-size", "13px")
+          .style("font-size", "11px")
           .style("fill", "#333")
           .text(item[valueKey]);
       });
@@ -768,10 +777,95 @@ document.addEventListener("DOMContentLoaded", function () {
       .text(yLabel);
   }
 });
+//scatter plot
+document.addEventListener("DOMContentLoaded", function () {
+    const svg = d3.select("#chartEight");
+    const width = +svg.attr("width");
+    const height = +svg.attr("height");
+    const margin = { top: 40, right: 40, bottom: 60, left: 80 };
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
 
+    const tooltip = d3.select(".tooltip");
+
+    let data = [];
+
+    d3.json("final_data/game_data.json").then(rawData => {
+      data = Object.keys(rawData).map(item => {
+        return {
+          name: item,
+          water: rawData[item].water,
+          co2: rawData[item].carbon,
+          price: rawData[item].cost
+        };
+      }).filter(d => d.water != null && d.co2 != null && d.price != null);
+
+      drawScatter("co2");
+
+      d3.select("#theme-eight").on("change", function () {
+        drawScatter(this.value);
+      });
+    });
+
+    function drawScatter(theme) {
+      svg.selectAll("*").remove();
+
+      const g = svg.append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+      const xKey = theme === "water" ? "water" : "co2";
+      const xLabel = theme === "water" ? "Liters / KG" : "kg CO₂ eq / KG";
+
+      const x = d3.scaleLinear()
+        .domain([0, d3.max(data, d => d[xKey]) || 0])
+        .nice()
+        .range([0, innerWidth]);
+
+      const y = d3.scaleLinear()
+        .domain([0, d3.max(data, d => d.price) || 0])
+        .nice()
+        .range([innerHeight, 0]);
+
+      g.append("g")
+        .attr("transform", `translate(0, ${innerHeight})`)
+        .call(d3.axisBottom(x));
+
+      g.append("g")
+        .call(d3.axisLeft(y));
+
+      // Axes labels
+      g.append("text")
+        .attr("x", innerWidth / 2)
+        .attr("y", innerHeight + 40)
+        .attr("text-anchor", "middle")
+        .style("font-size", "14px")
+        .text(xLabel);
+
+      g.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", -50)
+        .attr("x", -innerHeight / 2)
+        .attr("text-anchor", "middle")
+        .style("font-size", "14px")
+        .text("Price (€/KG)");
+
+      // Dots
+      g.selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr("cx", d => x(d[xKey]))
+        .attr("cy", d => y(d.price))
+        .attr("r", 7)
+        .attr("fill", "#66C2A5")
+        .attr("stroke", "#333")
+        .attr("stroke-width", 1.2)
+     
+      }
+    });
 
 //meal game
-fetch('site/final_data/game_data.json')
+fetch('final_data/game_data.json')
   .then(res => res.json())
   .then(data => {
     const mealOrder = [
@@ -784,12 +878,12 @@ fetch('site/final_data/game_data.json')
     ];
 
     const mealTypePositions = {
-      "First courses":     { x: 48, y: 73, size: 180 },
-      "Extras":            { x: 10, y: 10, size: 120 },
-      "Second courses":    { x: 75, y: 30, size: 220 },
-      "Side dishes":       { x: 83, y: 30, size: 160 },
-      "Drinks":            { x: 30, y: 10, size: 90 },
-      "Desserts & Fruits": { x: 15, y: 40, size: 140 }
+      "First courses":     { x: 48, y: 60, size: 150 },
+      "Extras":            { x: 10, y: 10, size: 80 },
+      "Second courses":    { x: 77, y: 17, size: 100 },
+      "Side dishes":       { x: 80, y: 25, size: 85 },
+      "Drinks":            { x: 30, y: 10, size: 50 },
+      "Desserts & Fruits": { x: 13, y: 33, size: 55 }
     };
 
     const optionsDiv = document.getElementById('ingredient-options');
@@ -881,7 +975,6 @@ function showResults(data) {
       <a href="${info.link}" target="_blank">${item.charAt(0).toUpperCase() + item.slice(1)}</a><br>
       CO₂: ${info.carbon.toFixed(2)} kg<br>
       Water: ${info.water.toLocaleString()} liters<br>
-      Cost: ${info.cost.toFixed(2)} €<br>
     `;
     breakdownDiv.appendChild(div);
   });
