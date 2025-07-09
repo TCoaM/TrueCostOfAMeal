@@ -65,6 +65,7 @@ function drawWaterChart() {
         .attr("markerWidth", 6)
         .attr("markerHeight", 6)
         .attr("orient", "auto")
+        .style("overflow", "visible")
         .append("path")
         .attr("d", "M 0 0 L 10 5 L 0 10 z")
         .attr("fill", "#333");
@@ -280,8 +281,9 @@ function drawGroupedBarChart() {
       .nice()
       .range([height, 0]);
 
-    const color = d3.scaleOrdinal().domain(keys).range(d3.schemeSet2);
-
+    const color = d3.scaleOrdinal()
+    .domain(keys)
+    .range(["#66C2A5", "#FC8D62", "#8DA0CB", "#E78AC3", "#A6D854", "#FFD92F", "#FFAF2F", "#E5C494", "#B3B3B3" ]);
     const stack = d3.stack().keys(keys);
     const stackedSeries = stack([foodBar]);
 
@@ -338,7 +340,7 @@ function drawArrowToZoomedChart(barX, chartWidth, margin) {
 
   const arrowX = barX + margin.left + 60;   
   const startY = -60;                       
-  const endX = arrowX - 5;                
+  const endX = arrowX - 10;                
   const endY = 190;                         
   const controlX = arrowX - 100;            
   const controlY = 100;                     
@@ -535,15 +537,6 @@ const height = fullHeight - margin.top - margin.bottom;
 
 let rawData;
 
-d3.csv("site/final_data/italy_food_data.csv", d3.autoType).then(data => {
-  rawData = data.filter(d => d["AGROVOC_label"]);
-  drawChart("co2");
-
-  d3.select("#theme").on("change", function () {
-    const selected = this.value;
-    drawChart(selected);
-  });
-});
 
 function drawChart(theme) {
   d3.select("#chartSix").selectAll("*").remove();
@@ -556,8 +549,8 @@ function drawChart(theme) {
     .attr("transform", `translate(${margin.left},${margin.top})`);
 
   const valueKey = theme === "water"
-    ? "Carbon Footprint (g CO2eq/g o cc)"
-    : "(Water Footprint liters) water/kg o liter";
+    ? "Water Footprint liters (water/kg o liter)"
+    : "Carbon Footprint (g CO2eq/g o cc)";
 
   const x = d3.scaleBand()
     .domain(rawData.map(d => d["AGROVOC_label"]))
@@ -613,6 +606,16 @@ function drawChart(theme) {
   .style("fill", "#333")
   .text(d => d[valueKey]);
 }
+
+d3.csv("site/final_data/italy_food_data.csv", d3.autoType).then(data => {
+  rawData = data.filter(d => d["AGROVOC_label"]);
+  drawChart("co2");
+
+  d3.select("#theme").on("change", function () {
+    const selected = this.value;
+    drawChart(selected);
+  });
+});
 //alternatives chart
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -747,7 +750,8 @@ fetch('site/final_data/game_data.json')
     const mealOrder = [
       "First course",
       "Extras",
-      "Second courses & Side dishes",
+      "Second courses",
+      "Side dishes",
       "Drinks",
       "Desserts & Fruits"
     ];
