@@ -739,10 +739,10 @@ fetch('site/final_data/game_data.json')
 
     const mealTypePositions = {
       "First course":     { x: 43, y: 70 },
-      "Extras":           { x: 70, y: 30 },
+      "Extras":           { x: 10, y: 10 },
       "Second courses & Side dishes": { x: 50, y: 50 },
-      "Drinks":           { x: 30, y: 70 },
-      "Desserts & Fruits":{ x: 70, y: 70 }
+      "Drinks":           { x: 30, y: 10 },
+      "Desserts & Fruits":{ x: 15, y: 40 }
     };
 
     const optionsDiv = document.getElementById('ingredient-options');

@@ -1,49 +1,60 @@
+/* GENERAL RESET & BASE STYLING */
 * {
-   font-family: "Poppins", sans-serif;
-   font-weight: 300;
-   background-color: #FFFAF4!important;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  background-color: #FFFAF4;
 }
 
-p{
-   font-size: 15px;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFFAF4;
 }
 
-h2{
-   font-size: 40px !important;
-   padding: 0.5% 0 2% 0;
-}
-h3{
-   font-size:25px;
-   padding: 0.5% 0 2% 0;
+p {
+  font-size: 15px;
 }
 
-h5{font-size: 1rem;
-   padding-top:2%;
-   font-family: "Caveat", cursive !important;
-   text-transform: uppercase}
-
-
-
-
-.section{
-   height:100vh;
-   padding-top:15%;
-   margin:7%;
+h2 {
+  font-size: 2.5rem;
+  padding: 0.5em 0 1em 0;
 }
 
-.ita{height:100vh}
-
-.cavText{
-   font-size: 1rem;
-   font-family: "Caveat", cursive;
+h3 {
+  font-size: 1.5rem;
+  padding: 0.5em 0 1em 0;
 }
 
-.hero h1{
+h5 {
+  font-size: 1rem;
+  padding-top: 2%;
   font-family: "Caveat", cursive;
-  font-size: 50px;
-  font-weight: 500;
-  font-style: normal;}
+  text-transform: uppercase;
+}
 
+/* SECTION PADDING (AVOID 100vh WITH HUGE PADDING) */
+.section {
+  min-height: 100vh;
+  padding: 5% 7%;
+}
+
+.ita {
+  min-height: 100vh;
+}
+
+.cavText {
+  font-size: 1rem;
+  font-family: "Caveat", cursive;
+}
+
+.hero h1 {
+  font-family: "Caveat", cursive;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+/* CHART & SVG CONTAINERS */
 .chart_container,
 .arrow_container,
 .zoom_container {
@@ -53,54 +64,41 @@ h5{font-size: 1rem;
 
 .zoom_container {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  align-items: end;
-  gap:2%
+  align-items: flex-end;
+  gap: 2%;
 }
 
-#zoom_text{
-   display: flex;
-   flex-direction: column;
-   flex:10%;
-   padding-bottom:5%;
-   text-align: right;
+#zoom_text {
+  flex: 1 1 200px;
+  padding-bottom: 5%;
+  text-align: right;
 }
 
-#zoom_text p:first-child{font-size:40px}
+#zoom_text p:first-child {
+  font-size: 2.5rem;
+}
 
 #food_zoom_chart {
+  flex: 4 1 400px;
   width: 100%;
   height: auto;
-  display: block; 
-  flex: 80%; 
+  display: block;
 }
 
 .arrow_container {
   width: 100%;
-  height: auto;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin: 40px 0;
 }
 
-#arrow_svg {
-  display: block;
-  width: 100%;
-}
-
-
+#arrow_svg,
 .five svg {
   display: block;
   width: 100%;
   height: auto;
 }
 
-#graphSix{width: 100%;
-  overflow: visible;}
-
-.alternatives{
-  margin-top: 10vh;
-}
+#graphSix,
 #graphSeven {
   width: 100%;
   overflow: visible;
@@ -108,46 +106,63 @@ h5{font-size: 1rem;
 
 #chartPopularity svg {
   width: 100%;
-  height: auto;
   max-width: 1000px;
+  height: auto;
   display: block;
   margin: auto;
 }
 
-
-
-
-
+/* PLATE SECTION FIXES */
 .plate-menu-wrapper {
   display: flex;
-  gap: 7%;
-  align-items: flex-start;
   flex-wrap: wrap;
+  gap: 5%;
+  align-items: flex-start;
 }
 
 .plate-side {
   position: relative;
-  flex: 1;
-  max-width: 50%;
+  flex: 0 0 auto !important; 
+  width: 100%;
+  max-width: 500px; 
+  margin: 0 auto;
 }
 
-.plates {padding-right:10%;
+.plate-base {
   width: 100%;
-  max-width: 100px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  z-index: 1;
+  position: relative;
+}
+
+#ingredient-images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  max-width: 400;
+  max-height: 400;
+  pointer-events: none; 
+  background: none !important;
 }
 
 #ingredient-images img {
   position: absolute;
-  width: 200px;
-  transition: all 0.3s ease;
+  width: 60px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
 }
 
+
 .menu-side {
-  flex: 1;
-  max-width: 50%;
+  flex: 1 1 300px;
+  max-width: 600px;
 }
 
 .menu-side h1 {
@@ -174,10 +189,11 @@ h5{font-size: 1rem;
   margin-top: 20px;
   padding: 10px 20px;
   font-size: 16px;
-  background: #333 !important;
+  background: #333;
   color: #fff;
   border-radius: 20px;
   cursor: pointer;
+  border: none;
 }
 
 #confirm-btn:hover {
@@ -211,7 +227,6 @@ h5{font-size: 1rem;
   display: none;
 }
 
-
 .group-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -223,5 +238,4 @@ h5{font-size: 1rem;
   min-width: 200px;
   max-width: 250px;
 }
-
 
