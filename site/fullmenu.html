@@ -149,7 +149,7 @@ function displayMenuCategories() {
         foodBtn.setAttribute('data-value', item.key);
         foodBtn.onclick = function() { openModalBtn(this); };
 
-        const imageUrl = item.imageP;
+        const imageUrl = item.imageButton;
         const displayName = item.key.charAt(0).toUpperCase() + item.key.slice(1);
 
         foodBtn.innerHTML = `
