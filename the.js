@@ -777,8 +777,104 @@ document.addEventListener("DOMContentLoaded", function () {
       .text(yLabel);
   }
 });
+//scatter plot
+document.addEventListener("DOMContentLoaded", function () {
+    const svg = d3.select("#chartEight");
+    const width = +svg.attr("width");
+    const height = +svg.attr("height");
+    const margin = { top: 40, right: 40, bottom: 60, left: 80 };
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
 
+    const tooltip = d3.select(".tooltip");
 
+    let data = [];
+
+    d3.json("final_data/game_data.json").then(rawData => {
+      data = Object.keys(rawData).map(item => {
+        return {
+          name: item,
+          water: rawData[item].water,
+          co2: rawData[item].carbon,
+          price: rawData[item].cost
+        };
+      }).filter(d => d.water != null && d.co2 != null && d.price != null);
+
+      drawScatter("co2");
+
+      d3.select("#theme-eight").on("change", function () {
+        drawScatter(this.value);
+      });
+    });
+
+    function drawScatter(theme) {
+      svg.selectAll("*").remove();
+
+      const g = svg.append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+      const xKey = theme === "water" ? "water" : "co2";
+      const xLabel = theme === "water" ? "Liters / KG" : "kg CO₂ eq / KG";
+
+      const x = d3.scaleLinear()
+        .domain([0, d3.max(data, d => d[xKey]) || 0])
+        .nice()
+        .range([0, innerWidth]);
+
+      const y = d3.scaleLinear()
+        .domain([0, d3.max(data, d => d.price) || 0])
+        .nice()
+        .range([innerHeight, 0]);
+
+      g.append("g")
+        .attr("transform", `translate(0, ${innerHeight})`)
+        .call(d3.axisBottom(x));
+
+      g.append("g")
+        .call(d3.axisLeft(y));
+
+      // Axes labels
+      g.append("text")
+        .attr("x", innerWidth / 2)
+        .attr("y", innerHeight + 40)
+        .attr("text-anchor", "middle")
+        .style("font-size", "14px")
+        .text(xLabel);
+
+      g.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", -50)
+        .attr("x", -innerHeight / 2)
+        .attr("text-anchor", "middle")
+        .style("font-size", "14px")
+        .text("Price (€/KG)");
+
+      // Dots
+      g.selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr("cx", d => x(d[xKey]))
+        .attr("cy", d => y(d.price))
+        .attr("r", 7)
+        .attr("fill", "#66C2A5")
+        .attr("stroke", "#333")
+        .attr("stroke-width", 1.2)
+        .on("mouseover", function(event, d) {
+          tooltip.transition()
+            .duration(200)
+            .style("opacity", 1);
+          tooltip.html(`${d.name}<br/>${xLabel}: ${d[xKey]}<br/>Price: €${d.price}`)
+            .style("left", (event.pageX + 10) + "px")
+            .style("top", (event.pageY - 28) + "px");
+        })
+        .on("mouseout", function() {
+          tooltip.transition()
+            .duration(500)
+            .style("opacity", 0);
+        });
+      }
+    });
 
 //meal game
 fetch('final_data/game_data.json')
