@@ -860,19 +860,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .attr("fill", "#66C2A5")
         .attr("stroke", "#333")
         .attr("stroke-width", 1.2)
-        .on("mouseover", function(event, d) {
-          tooltip.transition()
-            .duration(200)
-            .style("opacity", 1);
-          tooltip.html(`${d.name}<br/>${xLabel}: ${d[xKey]}<br/>Price: €${d.price}`)
-            .style("left", (event.pageX + 10) + "px")
-            .style("top", (event.pageY - 28) + "px");
-        })
-        .on("mouseout", function() {
-          tooltip.transition()
-            .duration(500)
-            .style("opacity", 0);
-        });
+     
       }
     });
 

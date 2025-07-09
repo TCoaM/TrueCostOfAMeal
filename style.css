@@ -236,7 +236,8 @@ h5 {
 }
 
 #graphSix,
-#graphSeven {
+#graphSeven 
+#graphEight{
   width: 100%;
   overflow: visible;
 }
@@ -253,28 +254,18 @@ h5 {
 
 .chart_container_eight {
     
-    padding: 20px;
-    border-radius: 12px;
-    
-    margin-bottom: 30px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    overflow-x: auto;
-    overflow: visible;
+  padding: 20px;
+  border-radius: 12px;
+  
+  margin-bottom: 30px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: auto;
+  overflow: visible;
 }
 
-.tooltip {
-    position: absolute;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
+
 
 .controls {
     text-align: center;
