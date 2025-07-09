@@ -343,7 +343,7 @@ function drawGroupedBarChart() {
       .append("text")
       .attr("class", "other-bar-label")
       .attr("x", d => x(d.label) + x.bandwidth() / 2)
-      .attr("y", d => y(d.value) - 5)  // position above the bar
+      .attr("y", d => y(d.value) - 5)  
       .attr("text-anchor", "middle")
       .style("font-size", "12px")
       .style("fill", "#333")
@@ -485,7 +485,7 @@ observer.observe(document.querySelector("#emission_bar_chart"));
 //italy
 //top food items
 function drawPopularityChart(data) {
-  const marginPOP = { top: 40, right: 20, bottom: 150, left: 80 };
+  const marginPOP = { top: 40, right: 40, bottom: 150, left: 80 };
   const fullWidthPOP = 1000;
   const fullHeightPOP = 500;
   const widthPOP = fullWidthPOP - marginPOP.left - marginPOP.right;
@@ -564,9 +564,9 @@ d3.csv("final_data/italy_food_data.csv", d3.autoType).then(data => {
 
 
 //food items emissions+water
-const margin = { top: 40, right: 20, bottom: 150, left: 80 };
+const margin = { top: 40, right: 40, bottom: 150, left: 80 };
 const fullWidth = 1000;
-const fullHeight = 650;
+const fullHeight = 500;
 const width = fullWidth - margin.left - margin.right;
 const height = fullHeight - margin.top - margin.bottom;
 
@@ -661,12 +661,13 @@ document.addEventListener("DOMContentLoaded", function () {
     "coffee", "orange juice", "beef", "salmon"
   ];
 
-  const chartSeven_svg = d3.select("#chartSeven");
-  const chartSeven_fullWidth = +chartSeven_svg.attr("width");
-  const chartSeven_fullHeight = +chartSeven_svg.attr("height");
-  const chartSeven_margin = { top: 40, right: 20, bottom: 150, left: 80 };
-  const chartSeven_width = chartSeven_fullWidth - chartSeven_margin.left - chartSeven_margin.right;
-  const chartSeven_height = chartSeven_fullHeight - chartSeven_margin.top - chartSeven_margin.bottom;
+  const chartSeven_svg = d3.select("#chartSeven")
+    .attr("width", 1000)
+    .attr("height", 500);
+
+  const chartSeven_margin = { top: 40, right: 40, bottom: 120, left: 80 };
+  const chartSeven_width = 1000 - chartSeven_margin.left - chartSeven_margin.right;
+  const chartSeven_height = 500 - chartSeven_margin.top - chartSeven_margin.bottom;
 
   let chartSeven_data = [];
 
@@ -692,16 +693,14 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function drawChartSeven(theme) {
-    chartSeven_svg.selectAll("*").remove();
+    chartSeven_svg.selectAll("g").remove();
 
     const chart = chartSeven_svg.append("g")
       .attr("transform", `translate(${chartSeven_margin.left},${chartSeven_margin.top})`);
 
     const valueKey = theme === "water" ? "water" : "co2";
     const yLabel = theme === "water" ? "Liters / KG" : "kg CO₂ eq / KG";
-    const color = theme === "water" ? "#1f77b4" : "#db4c3f";
 
-    // Group items in pairs
     const groupedData = [];
     for (let i = 0; i < chartSeven_data.length; i += 2) {
       groupedData.push({
@@ -710,13 +709,11 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    // Scale for groups
     const xGroup = d3.scaleBand()
       .domain(groupedData.map(d => d.groupIndex))
       .range([0, chartSeven_width])
       .padding(0.3);
 
-    // Scale for items within each group
     const xItem = d3.scaleBand()
       .domain([0, 1])
       .range([0, xGroup.bandwidth()])
@@ -727,8 +724,10 @@ document.addEventListener("DOMContentLoaded", function () {
       .nice()
       .range([chartSeven_height, 0]);
 
+    const xLabels = chartSeven_data.map(d => d.name);
+
     const xAxis = d3.scaleBand()
-      .domain(chartSeven_data.map(d => d.name))
+      .domain(xLabels)
       .range([0, chartSeven_width])
       .padding(0.2);
 
@@ -736,11 +735,14 @@ document.addEventListener("DOMContentLoaded", function () {
       .attr("transform", `translate(0, ${chartSeven_height})`)
       .call(d3.axisBottom(xAxis))
       .selectAll("text")
-      .attr("transform", "rotate(-40)")
-      .style("text-anchor", "end")
-      .style("font-size", "13px");
+      .attr("transform", "rotate(-30)")
+      .attr("text-anchor", "end")
+      .attr("dx", "-0.6em")
+      .attr("dy", "0.3em")
+      .style("font-size", "12px");
 
-    chart.append("g").call(d3.axisLeft(y));
+    chart.append("g")
+      .call(d3.axisLeft(y));
 
     groupedData.forEach(group => {
       group.items.forEach((item, itemIndex) => {
@@ -758,9 +760,9 @@ document.addEventListener("DOMContentLoaded", function () {
         chart.append("text")
           .attr("class", "value-label")
           .attr("x", xGroup(group.groupIndex) + xItem(itemIndex) + xItem.bandwidth() / 2)
-          .attr("y", y(item[valueKey]) - 5)
+          .attr("y", y(item[valueKey]) - 6)
           .attr("text-anchor", "middle")
-          .style("font-size", "13px")
+          .style("font-size", "11px")
           .style("fill", "#333")
           .text(item[valueKey]);
       });
@@ -775,6 +777,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .text(yLabel);
   }
 });
+
 
 
 //meal game
