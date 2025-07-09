@@ -110,6 +110,9 @@ h5 {
   margin: auto;
 }
 
+
+.onYourPlate{padding: 2% 0}
+
 .plate-menu-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -127,13 +130,13 @@ h5 {
 }
 
 .menu-side {
-  flex: 0 0 55%;
+  flex: 0 0 60%;
   max-width: 60%;
 }
 
-.plates {
+.plates {padding-top: 7%;
   width: 100%;
-  max-width: 700px;
+  max-width: 100%;
   height: auto;
   display: block;
   z-index: 1;
