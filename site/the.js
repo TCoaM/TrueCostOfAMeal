@@ -778,7 +778,7 @@ fetch('site/final_data/game_data.json')
   .then(res => res.json())
   .then(data => {
     const mealOrder = [
-      "First course",
+      "First courses",
       "Extras",
       "Second courses",
       "Side dishes",
@@ -787,9 +787,10 @@ fetch('site/final_data/game_data.json')
     ];
 
     const mealTypePositions = {
-      "First course":     { x: 43, y: 70 },
+      "First courses":     { x: 43, y: 70 },
       "Extras":           { x: 10, y: 10 },
-      "Second courses & Side dishes": { x: 50, y: 50 },
+      "Second courses": { x: 50, y: 50 },
+      "Side dishes": { x: 50, y: 50 },
       "Drinks":           { x: 30, y: 10 },
       "Desserts & Fruits":{ x: 15, y: 40 }
     };
