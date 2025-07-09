@@ -65,7 +65,7 @@
 let data = {}; // Initialize data object
 
 // Fetch the JSON data from the external URL
-fetch("https://raw.githubusercontent.com/TCoaM/TrueCostOfAMeal/refs/heads/main/site/final_data/game_data.json")
+fetch("https://raw.githubusercontent.com/TCoaM/TrueCostOfAMeal/refs/heads/main/final_data/game_data.json")
   .then(res => res.json())
   .then(json => {
     data = json; // Assign fetched JSON to the data object
@@ -153,7 +153,9 @@ function displayMenuCategories() {
         const displayName = item.key.charAt(0).toUpperCase() + item.key.slice(1);
 
         foodBtn.innerHTML = `
+          <div class="food-img-cont">
           <img src="${imageUrl}" alt="${item.key}" class="food-img">
+          <div>
           <p class="food-name">${displayName}</p>
         `;
         foodGrid.appendChild(foodBtn);
