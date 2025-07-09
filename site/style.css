@@ -1,4 +1,3 @@
-/* GENERAL RESET & BASE STYLING */
 * {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
@@ -13,27 +12,26 @@ body {
 }
 
 p {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   padding: 0.5em 0 1em 0;
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   padding: 0.5em 0 1em 0;
 }
 
 h5 {
   font-size: 1rem;
   padding-top: 2%;
-  font-family: "Caveat", cursive;
+  font-family: "Caveat", sans-serif !important;
   text-transform: uppercase;
 }
 
-/* SECTION PADDING (AVOID 100vh WITH HUGE PADDING) */
 .section {
   min-height: 100vh;
   padding: 5% 7%;
@@ -44,17 +42,16 @@ h5 {
 }
 
 .cavText {
-  font-size: 1rem;
+  font-size: 1.4rem;
   font-family: "Caveat", cursive;
 }
 
-.hero h1 {
+.hero h1 {padding-top:15%;
   font-family: "Caveat", cursive;
   font-size: 3rem;
   font-weight: 500;
 }
 
-/* CHART & SVG CONTAINERS */
 .chart_container,
 .arrow_container,
 .zoom_container {
@@ -68,6 +65,8 @@ h5 {
   align-items: flex-end;
   gap: 2%;
 }
+
+.zoom_container div{width :80%}
 
 #zoom_text {
   flex: 1 1 200px;
@@ -88,7 +87,7 @@ h5 {
 
 .arrow_container {
   width: 100%;
-  margin: 40px 0;
+  margin: 40px 0 0 0;
 }
 
 #arrow_svg,
@@ -112,7 +111,6 @@ h5 {
   margin: auto;
 }
 
-/* PLATE SECTION FIXES */
 .plate-menu-wrapper {
   display: flex;
   flex-wrap: wrap;

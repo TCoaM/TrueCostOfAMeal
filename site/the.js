@@ -1,5 +1,5 @@
-const waterChartWidth = 400;
-const waterChartHeight = 500;
+const waterChartWidth = 300;
+const waterChartHeight = 400;
 const waterChartRadius = Math.min(waterChartWidth, waterChartHeight) / 2;
 let waterChartDrawn = false;
 
@@ -11,8 +11,6 @@ function drawWaterChart() {
 
     .attr("transform", `translate(${waterChartWidth / 2}, ${waterChartHeight / 2})`);
 
-
-  // Custom color 
   const color = d3.scaleOrdinal()
     .domain(["Agricultural water withdrawal", "Industrial water withdrawal", "Municipal water withdrawal"])
     .range(["#5465ff", "#9bb1ff", "#bfd7ff"])
@@ -87,8 +85,6 @@ function drawWaterChart() {
           .style("fill", "#333")
           .text("total agricultural water withdrawal");
 
-
-    //  labels after animation
     setTimeout(() => {
       arcs.append("text")
         .attr("transform", d => `translate(${arc.centroid(d)})`)
@@ -127,8 +123,8 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 //land use
-const width4 = 500;
-const height4 = 700;
+const width4 = 300;
+const height4 = 400;
 const radius4 = Math.min(width4, height4) / 2;
 let landChartDrawn = false;
 
@@ -245,7 +241,7 @@ function drawGroupedBarChart() {
 
   const margin = { top: 10, right: 85, bottom: 100, left: 80 },
         width = containerWidth - margin.left - margin.right,
-        height = 800 - margin.top - margin.bottom;
+        height = 500 - margin.top - margin.bottom;
 
   const svg = d3.select("#emission_bar_chart")
     .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
@@ -340,12 +336,13 @@ function drawArrowToZoomedChart(barX, chartWidth, margin) {
   const arrowSvg = d3.select("#arrow_svg");
   arrowSvg.selectAll("*").remove();
 
-  const arrowX = barX + margin.left + 60; 
-  const startY = -60;
-  const endY = 250;
-  const controlY = 120;
-
-  const pathData = `M${arrowX},${startY} Q${arrowX},${controlY} ${arrowX},${endY}`;
+  const arrowX = barX + margin.left + 60;   
+const startY = -60;                       
+const endX = arrowX - 10;                
+const endY = 190;                         
+const controlX = arrowX - 100;            
+const controlY = 100;                     
+const pathData = `M${arrowX},${startY} Q${controlX},${controlY} ${endX},${endY}`;
 
   arrowSvg
     .attr("viewBox", `0 0 ${chartWidth} 160`)
@@ -356,8 +353,8 @@ function drawArrowToZoomedChart(barX, chartWidth, margin) {
     .attr("viewBox", "0 0 10 10")
     .attr("refX", 10)
     .attr("refY", 5)
-    .attr("markerWidth", 6)
-    .attr("markerHeight", 6)
+    .attr("markerWidth", 4)
+    .attr("markerHeight", 4)
     .attr("orient", "auto")
     .append("path")
     .attr("d", "M 0 0 L 10 5 L 0 10 ")
@@ -371,11 +368,12 @@ function drawArrowToZoomedChart(barX, chartWidth, margin) {
     .attr("marker-end", "url(#arrowhead)");
 }
 
+
 function drawZoomedFoodChart(foodData, colorScale, containerWidth) {
   const svgZoom = d3.select("#food_zoom_chart");
   svgZoom.selectAll("*").remove();
 
-  const margin = { top: 5, right: 0, bottom: 0, left: 0 };
+  const margin = { top: 20, right: 40, bottom: 50, left: 100 };
   const width = containerWidth - margin.left - margin.right;
 
   const data = Object.entries(foodData).map(([key, val]) => ({
@@ -387,7 +385,9 @@ function drawZoomedFoodChart(foodData, colorScale, containerWidth) {
   const barPadding = 20;
   const chartHeight = data.length * (barHeight + barPadding);
 
-  svgZoom.attr("viewBox", `0 0 ${containerWidth} ${chartHeight + margin.top + margin.bottom + 80}`);
+  svgZoom
+    .attr("viewBox", `0 0 ${containerWidth} ${chartHeight + margin.top + margin.bottom}`)
+    .style("overflow", "visible");
 
   const g = svgZoom.append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);
@@ -399,6 +399,7 @@ function drawZoomedFoodChart(foodData, colorScale, containerWidth) {
 
   const x = d3.scaleLinear()
     .domain([0, d3.max(data, d => d.value)])
+    .nice()
     .range([0, width]);
 
   g.selectAll("rect")
@@ -408,7 +409,7 @@ function drawZoomedFoodChart(foodData, colorScale, containerWidth) {
     .attr("x", 0)
     .attr("y", d => y(d.key))
     .attr("width", d => x(d.value))
-    .attr("height", barHeight)
+    .attr("height", y.bandwidth())
     .attr("fill", d => colorScale(d.key))
     .attr("stroke", "#333")
     .attr("stroke-width", 1.2)
@@ -421,10 +422,24 @@ function drawZoomedFoodChart(foodData, colorScale, containerWidth) {
     .append("text")
     .attr("class", "label")
     .attr("x", d => x(d.value) + 10)
-    .attr("y", d => y(d.key) + barHeight / 2)
+    .attr("y", d => y(d.key) + y.bandwidth() / 2)
     .attr("alignment-baseline", "middle")
-    .style("font-size", "16px")
+    .style("font-size", "15px")
     .text(d => `${d.key}: ${Math.round(d.value).toLocaleString()}`);
+
+
+  g.append("g")
+    .attr("transform", `translate(0, ${chartHeight})`)
+    .call(d3.axisBottom(x).ticks(5))
+    .selectAll("text")
+    .style("font-size", "16px");
+
+  svgZoom.append("text")
+    .attr("x", margin.left + width / 2)
+    .attr("y", chartHeight + margin.top + 40)
+    .attr("text-anchor", "middle")
+    .style("font-size", "15px")
+    .text("Environmental Impact");
 
   const total = d3.sum(data, d => d.value);
 }
@@ -832,7 +847,7 @@ function showResults(data) {
       <a href="${info.link}" target="_blank">${item.charAt(0).toUpperCase() + item.slice(1)}</a><br>
       CO₂: ${info.carbon.toFixed(2)} kg<br>
       Water: ${info.water.toLocaleString()} liters<br>
-      Cost: ${info.cost.toFixed(2)} 
+      Cost: ${info.cost.toFixed(2)} €<br>
     `;
     breakdownDiv.appendChild(div);
   });
