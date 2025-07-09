@@ -37,7 +37,8 @@ h5 {
   padding: 5% 7%;
 }
 
-.ita {padding-top: 5%;
+.ita {
+  padding-top: 5%;
   min-height: 100vh;
 }
 
@@ -46,7 +47,8 @@ h5 {
   font-family: "Caveat", cursive;
 }
 
-.hero h1 {padding-top:15%;
+.hero h1 {
+  padding-top: 15%;
   font-family: "Caveat", cursive;
   font-size: 3rem;
   font-weight: 500;
@@ -66,7 +68,9 @@ h5 {
   gap: 2%;
 }
 
-.zoom_container div{width :70%}
+.zoom_container div {
+  width: 70%;
+}
 
 #zoom_text {
   flex: 0 1 100px;
@@ -109,6 +113,7 @@ h5 {
   display: block;
   margin: auto;
 }
+
 
 .onYourPlate {
   padding: 2% 0;
@@ -234,4 +239,100 @@ h5 {
 
 .hidden {
   display: none;
+}
+
+/* responsive stuff*/
+
+@media (max-width: 1024px) {
+  .plate-menu-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .plate-side,
+  .menu-side {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .plate-side {
+    margin-bottom: 30px;
+  }
+
+  .menu-side h1 {
+    text-align: center;
+  }
+
+  .group-wrapper {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+    padding-top: 20%;
+  }
+
+  #zoom_text p:first-child {
+    font-size: 2rem;
+  }
+
+  .cavText {
+    font-size: 1.2rem;
+  }
+
+  .food-group {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  #confirm-btn {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .results {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  body, p {
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  h3, h5 {
+    font-size: 0.9rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  #zoom_text {
+    text-align: center;
+    padding-bottom: 10%;
+  }
+
+  .zoom_container div {
+    width: 100%;
+  }
+
+  .plate-side,
+  .menu-side {
+    padding: 0 5%;
+  }
+
+  .food-group h3 {
+    text-align: center;
+  }
 }
