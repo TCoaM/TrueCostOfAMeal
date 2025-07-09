@@ -311,9 +311,11 @@ h5 {
   justify-content: space-between;
 }
 
-.menu-side h1 {
+.menu-side h2 {
+  font-family: "Caveat", cursive;
   font-size: 28px;
-  margin-bottom: 20px;
+  padding-left: 5%;
+  
 }
 
 .food-group {
@@ -335,10 +337,11 @@ h5 {
 }
 
 #confirm-btn {
-  margin-top: 20px;
+  float: right;
+  margin: 2%;
   padding: 10px 20px;
   font-size: 16px;
-  background: #333;
+  background: #333 !important;
   color: #fff;
   border-radius: 20px;
   cursor: pointer;
@@ -375,6 +378,97 @@ h5 {
 .hidden {
   display: none;
 }
+
+
+.plate-menu-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 80vh; 
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.plate-side {
+  flex: 0 0 40%; 
+  max-width: 40%;
+  position: relative;
+  height: 100%;
+}
+
+.menu-side {
+  flex: 0 0 55%; 
+  max-width: 55%;
+  height: 100%;
+  overflow-y: auto; 
+  border-left: 2px solid #ddd;
+  padding-left: 2%;
+  box-sizing: border-box;
+}
+
+.menu-side  h2{
+  padding: left 2%;}
+
+.group-wrapper {
+  display: block; 
+  gap: 2%;
+}
+
+.food-group {
+  margin-bottom: 25px;
+}
+
+.food-group h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 5px;
+}
+
+.ingredient {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.ingredient input {
+  margin-right: 8px;
+}
+
+.group-wrapper {padding-left:5%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 1%; 
+}
+
+.food-group {
+  margin-bottom: 0; 
+}
+
+
+
+
+@media (max-width: 768px) {
+  .plate-menu-wrapper {
+    flex-direction: column;
+    height: auto;
+  }
+  .plate-side,
+  .menu-side {
+    max-width: 100%;
+    flex: none;
+    height: auto;
+  }
+  .menu-side {
+    border-left: none;
+    padding-left: 0;
+    margin-top: 20px;
+    overflow-y: visible;
+  }
+}
+
+
 
 /* responsive stuff*/
 
