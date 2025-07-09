@@ -1,5 +1,5 @@
-const waterChartWidth = 300;
-const waterChartHeight = 400;
+const waterChartWidth = 400;
+const waterChartHeight = 450;
 const waterChartRadius = Math.min(waterChartWidth, waterChartHeight) / 2;
 let waterChartDrawn = false;
 
@@ -123,7 +123,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 //land use
-const width4 = 300;
+const width4 = 400;
 const height4 = 400;
 const radius4 = Math.min(width4, height4) / 2;
 let landChartDrawn = false;

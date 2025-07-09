@@ -7,7 +7,7 @@
     "water": 1260.5,
     "cost": 8.12,
     "meal_type": "Drinks",
-    "image": ""
+    "image": "site/images/cowMilk.png"
     
   },
   "coffee": {
@@ -28,7 +28,7 @@
     "water": 622.0,
     "cost": 2.54,
     "meal_type": "Desserts & Fruits",
-    "image": ""
+    "image": "site/images/apple.png"
   },
   "tomatoes": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_7805",
@@ -38,7 +38,7 @@
     "water": 41.0,
     "cost": 6.66,
     "meal_type": "Second courses & Side dishes",
-    "image": ""
+    "image": "site/images/tomatoe.png"
   },
   "potatoes": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_13551",
@@ -58,7 +58,7 @@
     "water": 667.0,
     "cost": 2.8666666666666667,
     "meal_type": "Extras",
-    "image": ""
+    "image": "site/images/bread.png"
   },
   "red wines": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_28614",
@@ -68,7 +68,7 @@
     "water": 524.0,
     "cost": 2.32,
     "meal_type": "Drinks",
-    "image": ""
+    "image": "site/images/wine.png"
   },
   "chicken meat": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_24000",
@@ -108,7 +108,7 @@
     "water": 14415.0,
     "cost": 8.27,
     "meal_type": "Extras",
-    "image": ""
+    "image": "site/images/oil.png"
   },
   "beers": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_864",
@@ -118,7 +118,7 @@
     "water": 155.0,
     "cost": 1.9,
     "meal_type": "Drinks",
-    "image": ""
+    "image": "site/images/beer.png"
   },
   "beef": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_861",
@@ -168,7 +168,7 @@
     "water": 1019.0,
     "cost": 2.34,
     "meal_type": "Drinks",
-    "image": ""
+    "image": "site/images/orangeJuice.png"
   },
   "pears": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_5645",
@@ -178,7 +178,7 @@
     "water": 922.0,
     "cost": 3.01,
     "meal_type": "Desserts & Fruits",
-    "image": ""
+    "image": "site/images/pear.png"
   },
   "ice cream": {
     "AGROVOC_uri": "NaN",
@@ -208,7 +208,7 @@
     "water": 195.0,
     "cost": 1.64,
     "meal_type": "Second courses & Side dishes",
-    "image": ""
+    "image": "site/images/carrot.png"
   },
   "hams": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_3481",
@@ -238,7 +238,7 @@
     "water": 290.0,
     "cost": 2.1,
     "meal_type": "Second courses & Side dishes",
-    "image": ""
+    "image": "site/images/onion.png"
   },
   "soy milk": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_15563",
@@ -248,7 +248,7 @@
     "water": 2030.0,
     "cost": 1.98,
     "meal_type": "Drinks",
-    "image": ""
+    "image": "site/images/soyMilk.png"
   },
   "biscuits": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_16475",
@@ -298,6 +298,6 @@
     "water": 1979.0,
     "cost": 3.41,
     "meal_type": "Second courses & Side dishes",
-    "image": ""
+    "image": "site/images/peas.png"
   }
 }
