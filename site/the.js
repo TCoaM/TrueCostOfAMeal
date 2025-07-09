@@ -1,5 +1,5 @@
 const waterChartWidth = 400;
-const waterChartHeight = 500;
+const waterChartHeight = 400;
 const waterChartRadius = Math.min(waterChartWidth, waterChartHeight) / 2;
 let waterChartDrawn = false;
 
@@ -11,15 +11,11 @@ function drawWaterChart() {
 
     .attr("transform", `translate(${waterChartWidth / 2}, ${waterChartHeight / 2})`);
 
-
-  // Custom color 
   const color = d3.scaleOrdinal()
     .domain(["Agricultural water withdrawal", "Industrial water withdrawal", "Municipal water withdrawal"])
     .range(["#5465ff", "#9bb1ff", "#bfd7ff"])
-    
     ;
 
- 
   d3.csv("site/final_data/filtered_water_agrovoc.csv").then(data => {
     data.forEach(d => d.Value = +d.Value);  
     const pie = d3.pie()
@@ -67,6 +63,7 @@ function drawWaterChart() {
         .attr("markerWidth", 6)
         .attr("markerHeight", 6)
         .attr("orient", "auto")
+        .style("overflow", "visible")
         .append("path")
         .attr("d", "M 0 0 L 10 5 L 0 10 z")
         .attr("fill", "#333");
@@ -87,8 +84,6 @@ function drawWaterChart() {
           .style("fill", "#333")
           .text("total agricultural water withdrawal");
 
-
-    //  labels after animation
     setTimeout(() => {
       arcs.append("text")
         .attr("transform", d => `translate(${arc.centroid(d)})`)
@@ -127,8 +122,8 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 //land use
-const width4 = 500;
-const height4 = 700;
+const width4 = 400;
+const height4 = 400;
 const radius4 = Math.min(width4, height4) / 2;
 let landChartDrawn = false;
 
@@ -243,9 +238,9 @@ function drawGroupedBarChart() {
   const container = document.querySelector("#emission_bar_chart").parentElement;
   const containerWidth = container.clientWidth;
 
-  const margin = { top: 10, right: 85, bottom: 100, left: 80 },
+  const margin = { top: 10, right: 85, bottom: 130, left: 80 },
         width = containerWidth - margin.left - margin.right,
-        height = 800 - margin.top - margin.bottom;
+        height = 500 - margin.top - margin.bottom;
 
   const svg = d3.select("#emission_bar_chart")
     .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
@@ -284,8 +279,9 @@ function drawGroupedBarChart() {
       .nice()
       .range([height, 0]);
 
-    const color = d3.scaleOrdinal().domain(keys).range(d3.schemeSet2);
-
+    const color = d3.scaleOrdinal()
+    .domain(keys)
+    .range(["#66C2A5", "#FC8D62", "#8DA0CB", "#E78AC3", "#A6D854", "#FFD92F", "#FFAF2F", "#E5C494", "#B3B3B3" ]);
     const stack = d3.stack().keys(keys);
     const stackedSeries = stack([foodBar]);
 
@@ -316,6 +312,8 @@ function drawGroupedBarChart() {
       .attr("rx", 4)
       .attr("ry", 4);
 
+      
+
     svg.selectAll(".other-bar")
       .data(otherBars)
       .enter()
@@ -331,6 +329,20 @@ function drawGroupedBarChart() {
       .attr("rx", 4)
       .attr("ry", 4);
 
+
+      svg.selectAll(".other-bar-label")
+      .data(otherBars)
+      .enter()
+      .append("text")
+      .attr("class", "other-bar-label")
+      .attr("x", d => x(d.label) + x.bandwidth() / 2)
+      .attr("y", d => y(d.value) - 5)  // position above the bar
+      .attr("text-anchor", "middle")
+      .style("font-size", "12px")
+      .style("fill", "#333")
+      .text(d => d.value.toFixed(1));
+
+
     drawZoomedFoodChart(foodEmissions, color, containerWidth);
     drawArrowToZoomedChart(x("Food Emissions"), width, margin);
   });
@@ -340,12 +352,13 @@ function drawArrowToZoomedChart(barX, chartWidth, margin) {
   const arrowSvg = d3.select("#arrow_svg");
   arrowSvg.selectAll("*").remove();
 
-  const arrowX = barX + margin.left + 60; 
-  const startY = -60;
-  const endY = 250;
-  const controlY = 120;
-
-  const pathData = `M${arrowX},${startY} Q${arrowX},${controlY} ${arrowX},${endY}`;
+  const arrowX = barX + margin.left + 60;   
+  const startY = -40;                       
+  const endX = arrowX - 10;                
+  const endY = 130;                         
+  const controlX = arrowX - 100;            
+  const controlY = 70;                     
+  const pathData = `M${arrowX},${startY} Q${controlX},${controlY} ${endX},${endY}`;
 
   arrowSvg
     .attr("viewBox", `0 0 ${chartWidth} 160`)
@@ -356,9 +369,10 @@ function drawArrowToZoomedChart(barX, chartWidth, margin) {
     .attr("viewBox", "0 0 10 10")
     .attr("refX", 10)
     .attr("refY", 5)
-    .attr("markerWidth", 6)
-    .attr("markerHeight", 6)
+    .attr("markerWidth", 4)
+    .attr("markerHeight", 4)
     .attr("orient", "auto")
+    .style("background-color", "transparent")
     .append("path")
     .attr("d", "M 0 0 L 10 5 L 0 10 ")
     .attr("fill", "#333");
@@ -371,11 +385,12 @@ function drawArrowToZoomedChart(barX, chartWidth, margin) {
     .attr("marker-end", "url(#arrowhead)");
 }
 
+
 function drawZoomedFoodChart(foodData, colorScale, containerWidth) {
   const svgZoom = d3.select("#food_zoom_chart");
   svgZoom.selectAll("*").remove();
 
-  const margin = { top: 5, right: 0, bottom: 0, left: 0 };
+  const margin = { top: -150, right: 40, bottom: 50, left: 100 };
   const width = containerWidth - margin.left - margin.right;
 
   const data = Object.entries(foodData).map(([key, val]) => ({
@@ -387,7 +402,9 @@ function drawZoomedFoodChart(foodData, colorScale, containerWidth) {
   const barPadding = 20;
   const chartHeight = data.length * (barHeight + barPadding);
 
-  svgZoom.attr("viewBox", `0 0 ${containerWidth} ${chartHeight + margin.top + margin.bottom + 80}`);
+  svgZoom
+    .attr("viewBox", `0 0 ${containerWidth} ${chartHeight + margin.top + margin.bottom}`)
+    .style("overflow", "visible");
 
   const g = svgZoom.append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);
@@ -399,6 +416,7 @@ function drawZoomedFoodChart(foodData, colorScale, containerWidth) {
 
   const x = d3.scaleLinear()
     .domain([0, d3.max(data, d => d.value)])
+    .nice()
     .range([0, width]);
 
   g.selectAll("rect")
@@ -408,7 +426,7 @@ function drawZoomedFoodChart(foodData, colorScale, containerWidth) {
     .attr("x", 0)
     .attr("y", d => y(d.key))
     .attr("width", d => x(d.value))
-    .attr("height", barHeight)
+    .attr("height", y.bandwidth())
     .attr("fill", d => colorScale(d.key))
     .attr("stroke", "#333")
     .attr("stroke-width", 1.2)
@@ -421,10 +439,24 @@ function drawZoomedFoodChart(foodData, colorScale, containerWidth) {
     .append("text")
     .attr("class", "label")
     .attr("x", d => x(d.value) + 10)
-    .attr("y", d => y(d.key) + barHeight / 2)
+    .attr("y", d => y(d.key) + y.bandwidth() / 2)
     .attr("alignment-baseline", "middle")
-    .style("font-size", "16px")
+    .style("font-size", "15px")
     .text(d => `${d.key}: ${Math.round(d.value).toLocaleString()}`);
+
+
+  g.append("g")
+    .attr("transform", `translate(0, ${chartHeight})`)
+    .call(d3.axisBottom(x).ticks(5))
+    .selectAll("text")
+    .style("font-size", "16px");
+
+  svgZoom.append("text")
+    .attr("x", margin.left + width / 2)
+    .attr("y", chartHeight + margin.top + 40)
+    .attr("text-anchor", "middle")
+    .style("font-size", "15px")
+    .text("Environmental Impact");
 
   const total = d3.sum(data, d => d.value);
 }
@@ -446,7 +478,7 @@ observer.observe(document.querySelector("#emission_bar_chart"));
 //italy
 //top food items
 function drawPopularityChart(data) {
-  const marginPOP = { top: 40, right: 20, bottom: 100, left: 80 };
+  const marginPOP = { top: 40, right: 20, bottom: 150, left: 80 };
   const fullWidthPOP = 1000;
   const fullHeightPOP = 500;
   const widthPOP = fullWidthPOP - marginPOP.left - marginPOP.right;
@@ -471,19 +503,16 @@ function drawPopularityChart(data) {
     .nice()
     .range([heightPOP, 0]);
 
-  // X Axis
   svg.append("g")
     .attr("transform", `translate(0,${heightPOP})`)
     .call(d3.axisBottom(x))
     .selectAll("text")
     .attr("transform", "rotate(-40)")
     .style("text-anchor", "end")
-    .style("font-size", "13px");
+    .style("font-size", "15px");
 
-  // Y Axis
   svg.append("g").call(d3.axisLeft(y));
 
-  // Bars
   svg.selectAll("rect")
     .data(data)
     .enter()
@@ -492,13 +521,25 @@ function drawPopularityChart(data) {
     .attr("y", d => y(d.Mean_consumption_italy))
     .attr("width", x.bandwidth())
     .attr("height", d => heightPOP - y(d.Mean_consumption_italy))
-    .attr("fill", "#ffbf69")
+    .attr("fill", "#FC8D62")
     .attr("stroke", "#333")
     .attr("stroke-width", 1.2)
     .attr("rx", 6)
     .attr("ry", 6);
+  
+    svg.selectAll("text.bar-label")
+    .data(data)
+    .enter()
+    .append("text")
+    .attr("class", "bar-label")
+    .attr("x", d => x(d.AGROVOC_label) + x.bandwidth() / 2)
+    .attr("y", d => y(d.Mean_consumption_italy) - 8) 
+    .attr("text-anchor", "middle")
+    .style("font-size", "13px")
+    .style("fill", "#000") 
+    .text(d => d.Mean_consumption_italy.toFixed(1)); 
 
-  // Y-axis label
+
   svg.append("text")
     .attr("x", -heightPOP / 2)
     .attr("y", -50)
@@ -516,7 +557,7 @@ d3.csv("site/final_data/italy_food_data.csv", d3.autoType).then(data => {
 
 
 //food items emissions+water
-const margin = { top: 40, right: 20, bottom: 100, left: 80 };
+const margin = { top: 40, right: 20, bottom: 150, left: 80 };
 const fullWidth = 1580;
 const fullHeight = 650;
 const width = fullWidth - margin.left - margin.right;
@@ -524,15 +565,6 @@ const height = fullHeight - margin.top - margin.bottom;
 
 let rawData;
 
-d3.csv("site/final_data/italy_food_data.csv", d3.autoType).then(data => {
-  rawData = data.filter(d => d["AGROVOC_label"]);
-  drawChart("co2");
-
-  d3.select("#theme").on("change", function () {
-    const selected = this.value;
-    drawChart(selected);
-  });
-});
 
 function drawChart(theme) {
   d3.select("#chartSix").selectAll("*").remove();
@@ -545,8 +577,8 @@ function drawChart(theme) {
     .attr("transform", `translate(${margin.left},${margin.top})`);
 
   const valueKey = theme === "water"
-    ? "Carbon Footprint (g CO2eq/g o cc)"
-    : "(Water Footprint liters) water/kg o liter";
+    ? "Water Footprint liters (water/kg o liter)"
+    : "Carbon Footprint (g CO2eq/g o cc)";
 
   const x = d3.scaleBand()
     .domain(rawData.map(d => d["AGROVOC_label"]))
@@ -576,7 +608,7 @@ function drawChart(theme) {
     .attr("width", x.bandwidth())
     .attr("y", d => y(d[valueKey] || 0))
     .attr("height", d => height - y(d[valueKey] || 0))
-    .attr("fill", theme === "co2" ? "#db4c3f" : "#1f77b4")
+    .attr("fill", theme === "co2" ? "#FFD92F" : "#5465FF")
     .attr("stroke", "#333")
     .attr("stroke-width", 1.2)
     .attr("rx", 8)
@@ -602,6 +634,18 @@ function drawChart(theme) {
   .style("fill", "#333")
   .text(d => d[valueKey]);
 }
+
+d3.csv("site/final_data/italy_food_data.csv", d3.autoType).then(data => {
+  rawData = data.filter(d => d["AGROVOC_label"]);
+  drawChart("co2");
+
+  d3.select("#theme").on("change", function () {
+    const selected = this.value;
+    drawChart(selected);
+  });
+});
+
+
 //alternatives chart
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -613,7 +657,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const chartSeven_svg = d3.select("#chartSeven");
   const chartSeven_fullWidth = +chartSeven_svg.attr("width");
   const chartSeven_fullHeight = +chartSeven_svg.attr("height");
-  const chartSeven_margin = { top: 40, right: 20, bottom: 100, left: 80 };
+  const chartSeven_margin = { top: 40, right: 20, bottom: 150, left: 80 };
   const chartSeven_width = chartSeven_fullWidth - chartSeven_margin.left - chartSeven_margin.right;
   const chartSeven_height = chartSeven_fullHeight - chartSeven_margin.top - chartSeven_margin.bottom;
 
@@ -676,7 +720,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .nice()
       .range([chartSeven_height, 0]);
 
-    // Create x-axis with all item names
     const xAxis = d3.scaleBand()
       .domain(chartSeven_data.map(d => d.name))
       .range([0, chartSeven_width])
@@ -692,7 +735,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     chart.append("g").call(d3.axisLeft(y));
 
-    // Draw bars for each group
     groupedData.forEach(group => {
       group.items.forEach((item, itemIndex) => {
         chart.append("rect")
@@ -700,13 +742,12 @@ document.addEventListener("DOMContentLoaded", function () {
           .attr("width", xItem.bandwidth())
           .attr("y", y(item[valueKey]))
           .attr("height", chartSeven_height - y(item[valueKey]))
-          .attr("fill", (group.groupIndex * 2 + itemIndex) % 2 === 0 ? "#f8b4b4" : "#b8e6b0")
+          .attr("fill", (group.groupIndex * 2 + itemIndex) % 2 === 0 ? "#FC8D62" : "#b8e6b0")
           .attr("stroke", "#333")
           .attr("stroke-width", 1.2)
           .attr("rx", 6)
           .attr("ry", 6);
 
-        // Add value labels
         chart.append("text")
           .attr("class", "value-label")
           .attr("x", xGroup(group.groupIndex) + xItem(itemIndex) + xItem.bandwidth() / 2)
@@ -733,59 +774,83 @@ document.addEventListener("DOMContentLoaded", function () {
 fetch('site/final_data/game_data.json')
   .then(res => res.json())
   .then(data => {
+    const mealOrder = [
+      "First courses",
+      "Extras",
+      "Second courses",
+      "Side dishes",
+      "Drinks",
+      "Desserts & Fruits"
+    ];
+
+    const mealTypePositions = {
+      "First courses":     { x: 48, y: 73, size: 180 },
+      "Extras":            { x: 10, y: 10, size: 120 },
+      "Second courses":    { x: 75, y: 30, size: 220 },
+      "Side dishes":       { x: 83, y: 30, size: 160 },
+      "Drinks":            { x: 30, y: 10, size: 90 },
+      "Desserts & Fruits": { x: 15, y: 40, size: 140 }
+    };
+
     const optionsDiv = document.getElementById('ingredient-options');
     const grouped = {};
 
-    // ingredients grouped by type
     Object.entries(data).forEach(([key, val]) => {
-      if (!grouped[val.type]) grouped[val.type] = {};
-      grouped[val.type][key] = val;
+      if (!grouped[val.meal_type]) grouped[val.meal_type] = {};
+      grouped[val.meal_type][key] = val;
     });
 
-    // become checkboxes
-    Object.entries(grouped).forEach(([type, items]) => {
+    const groupWrapper = document.createElement('div');
+    groupWrapper.className = 'group-wrapper';
+    optionsDiv.appendChild(groupWrapper);
+
+    mealOrder.forEach(meal_type => {
+      const items = grouped[meal_type];
+      if (!items) return;
+
       const groupDiv = document.createElement('div');
       groupDiv.className = 'food-group';
-      groupDiv.innerHTML = `<h3>${type.charAt(0).toUpperCase() + type.slice(1)}</h3>`;
+      groupDiv.innerHTML = `<h3>${meal_type}</h3>`;
+
       Object.keys(items).forEach(ingredient => {
         const label = document.createElement('label');
         label.className = 'ingredient';
         label.innerHTML = `
-          <input type="radio" value="${ingredient}"> 
+          <input type="radio" name="${meal_type}" value="${ingredient}">
           ${ingredient.charAt(0).toUpperCase() + ingredient.slice(1)}
         `;
         groupDiv.appendChild(label);
       });
-      optionsDiv.appendChild(groupDiv);
+
+      groupWrapper.appendChild(groupDiv);
     });
 
-    optionsDiv.addEventListener('change', () => updatePlate(data));
-
+    optionsDiv.addEventListener('change', () => updatePlate(data, mealTypePositions));
     document.getElementById('confirm-btn').addEventListener('click', () => {
       showResults(data);
     });
   });
 
-function updatePlate(data) {
+function updatePlate(data, mealTypePositions) {
   const selected = Array.from(document.querySelectorAll('input[type="radio"]:checked'))
-    .map(cb => cb.value);
+    .map(cb => ({ name: cb.value, meal_type: cb.name }));
 
   const imageDiv = document.getElementById('ingredient-images');
   imageDiv.innerHTML = '';
 
-  selected.forEach((item, index) => {
-    const info = data[item];
+  selected.forEach(({ name, meal_type }) => {
+    const info = data[name];
+    const config = mealTypePositions[meal_type];
+    if (!info || !config) return;
+
+    const { x, y, size } = config;
+
     const img = document.createElement('img');
     img.src = info.image;
-    img.alt = item;
-
-    const angle = (index / selected.length) * 360;
-    const radius = 80;
-    const rad = angle * (Math.PI / 180);
-    const x = 50 + radius * Math.cos(rad);
-    const y = 50 + radius * Math.sin(rad);
+    img.alt = name;
     img.style.left = `${x}%`;
     img.style.top = `${y}%`;
+    img.style.width = `${size}px`;
 
     imageDiv.appendChild(img);
   });
@@ -804,7 +869,7 @@ function showResults(data) {
 
   selected.forEach(item => {
     const info = data[item];
-    if (!info) return; 
+    if (!info) return;
 
     total.co2 += info.co2;
     total.water += info.water;
@@ -816,7 +881,7 @@ function showResults(data) {
       <a href="${info.link}" target="_blank">${item.charAt(0).toUpperCase() + item.slice(1)}</a><br>
       CO₂: ${info.carbon.toFixed(2)} kg<br>
       Water: ${info.water.toLocaleString()} liters<br>
-      Cost: ${info.cost.toFixed(2)} m²
+      Cost: ${info.cost.toFixed(2)} €<br>
     `;
     breakdownDiv.appendChild(div);
   });

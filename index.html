@@ -28,7 +28,7 @@
         <a class="nav-link" href="#plate">What's on your Plate</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="fullmenu.html">Full Menu</a>
+        <a class="nav-link" href="site/fullmenu.html">Full Menu</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#credits">Credits</a>
@@ -58,7 +58,7 @@
 
   <div class="section three">
     <div>
-      <h4 class="cavText">Water</h4>
+      <h4 class="cavText">water</h4>
       <h3>How much water does the food sector use compared to others?</h3>
       <p>Water scarcity is a global issue and the way food is produced plays a major role. Agriculture and food systems account for around 70% of global water withdrawals, making it the most water-intensive sector on the planet. Industrial processes and municipal (household) uses follow far behind.
       </p>
@@ -105,7 +105,9 @@
           <p>13.754.713</p>
           <p>total food emissions</p>
         </div>
-        <svg id="food_zoom_chart"></svg>
+        <div>
+          <svg id="food_zoom_chart"></svg>
+        </div>
       </div>
   </div>
 
@@ -153,16 +155,21 @@
   </div>
 
 
+  <div class="plateIntro">
+    <h2>What's on your Plate?</h2>
+    <p>Some foods are heavier on the Earth, want to see how yours compares?</p>
+    <p>Select your ingredients and see how much each of them impacts the environment or look through the <a href=site/fullmenu.html>complete menu</a>.</p>
+  </div>
 
-  <div class="section onYourPlate" id="plate">
+  <div class="onYourPlate" id="plate">
     <div class="plate-menu-wrapper">
       <div class="plate-side">
-        <img src="images/plate.png" alt="Plate" class="plate-base" />
+        <img src="site/images/plates.png" alt="Plates" class="plates" />
         <div id="ingredient-images"></div>
       </div>
       
       <div class="menu-side">
-        <h1>What's on your Plate?</h1>
+        <h2>Menu</h2>
         <div id="ingredient-options"></div>
         <button id="confirm-btn">Confirm My Plate</button>
       </div>
@@ -173,7 +180,7 @@
     <h2>Total Environmental Impact</h2>
     <p>CO₂: <span id="co2-value">0</span> kg</p>
     <p>Water: <span id="water-value">0</span> liters</p>
-    <p>Cost: <span id="cost-value">0</span> m²</p>
+    <p>Cost: <span id="cost-value">0</span> €</p>
 
     <div id="breakdown"></div>
   </div>

@@ -82,8 +82,8 @@ function openModalBtn(btn) {
     const displayName = key.charAt(0).toUpperCase() + key.slice(1);
     document.getElementById("modalTitle").textContent = displayName;
     // Use a placeholder image if entry.image is empty or null
-    const imageUrl = entry.image && entry.image !== "" ? entry.image : 'https://via.placeholder.com/200x150/f0f0f0/666666?text=' + encodeURIComponent(key);
-    document.getElementById("modalImg").src = imageUrl;
+    const imageUrlplate = entry.imageplate;
+    document.getElementById("modalImg").src = imageUrlplate;
     document.getElementById("modalImg").alt = key;
     document.getElementById("modalDescription").innerHTML = `
         <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Agrovoc URI:</span> ${entry.AGROVOC_uri || 'Data not available'}<br>
@@ -149,7 +149,7 @@ function displayMenuCategories() {
         foodBtn.setAttribute('data-value', item.key);
         foodBtn.onclick = function() { openModalBtn(this); };
 
-        const imageUrl = item.image && item.image !== "" ? item.image : 'https://via.placeholder.com/150x100/f0f0f0/666666?text=' + encodeURIComponent(item.key.charAt(0).toUpperCase() + item.key.slice(1));
+        const imageUrl = item.imageButton;
         const displayName = item.key.charAt(0).toUpperCase() + item.key.slice(1);
 
         foodBtn.innerHTML = `
