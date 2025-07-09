@@ -16,25 +16,18 @@
 
 </head>
 <body>
-  <header>
-    <ul class="nav justify-content-end">
-      <li class="nav-item">
-        <a class="nav-link active" href="#world">World</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#italy">Italy</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#plate">What's on your Plate</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="site/fullmenu.html">Full Menu</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#credits">Credits</a>
-      </li>
+  <header class="main-header">
+  <nav class="nav-bar">
+    <ul class="nav-links">
+      <li><a href="#world">World</a></li>
+      <li><a href="#italy">Italy</a></li>
+      <li><a href="#plate">What's on your Plate</a></li>
+      <li><a href="site/fullmenu.html">Full Menu</a></li>
+      <li><a href="#credits">Credits</a></li>
     </ul>
-  </header>
+  </nav>
+</header>
+
   <div class =" section hero">
     <h1>The True Cost of a Meal</h1>
     <p>Discover the environmental impact of your food</p>
@@ -161,7 +154,7 @@
     <p>Select your ingredients and see how much each of them impacts the environment or look through the <a href=site/fullmenu.html>complete menu</a>.</p>
   </div>
 
-  <div class="section onYourPlate" id="plate">
+  <div class="onYourPlate" id="plate">
     <div class="plate-menu-wrapper">
       <div class="plate-side">
         <img src="site/images/plates.png" alt="Plates" class="plates" />
@@ -169,6 +162,7 @@
       </div>
       
       <div class="menu-side">
+        <h2>Menu</h2>
         <div id="ingredient-options"></div>
         <button id="confirm-btn">Confirm My Plate</button>
       </div>
@@ -183,6 +177,32 @@
 
     <div id="breakdown"></div>
   </div>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section team">
+        <h4>Our Team</h4>
+        <p><strong>Maria Rossi</strong> – Designer</p>
+        <p><strong>Luca Bianchi</strong> – Developer</p>
+        <p><strong>Giulia Verdi</strong> – Research & Content</p>
+      </div>
+
+      <div class="footer-section credits">
+        <h4>Credits</h4>
+        <p>Data provided by FAO & ISTAT.</p>
+        <p>Icons from Feather Icons.</p>
+      </div>
+
+      <div class="footer-section links">
+        <h4>Links</h4>
+        <p><a href="https://github.com/your-repo" target="_blank">GitHub Repository</a></p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Your Project Name. All rights reserved.</p>
+    </div>
+</footer>
 
   <script src="site/the.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

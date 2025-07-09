@@ -720,7 +720,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .nice()
       .range([chartSeven_height, 0]);
 
-    // Create x-axis with all item names
     const xAxis = d3.scaleBand()
       .domain(chartSeven_data.map(d => d.name))
       .range([0, chartSeven_width])
@@ -736,7 +735,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     chart.append("g").call(d3.axisLeft(y));
 
-    // Draw bars for each group
     groupedData.forEach(group => {
       group.items.forEach((item, itemIndex) => {
         chart.append("rect")
@@ -750,7 +748,6 @@ document.addEventListener("DOMContentLoaded", function () {
           .attr("rx", 6)
           .attr("ry", 6);
 
-        // Add value labels
         chart.append("text")
           .attr("class", "value-label")
           .attr("x", xGroup(group.groupIndex) + xItem(itemIndex) + xItem.bandwidth() / 2)
@@ -787,12 +784,12 @@ fetch('site/final_data/game_data.json')
     ];
 
     const mealTypePositions = {
-      "First courses":     { x: 43, y: 70 },
-      "Extras":           { x: 10, y: 10 },
-      "Second courses": { x: 50, y: 50 },
-      "Side dishes": { x: 50, y: 50 },
-      "Drinks":           { x: 30, y: 10 },
-      "Desserts & Fruits":{ x: 15, y: 40 }
+      "First courses":     { x: 48, y: 73, size: 150 },
+      "Extras":            { x: 10, y: 10, size: 120 },
+      "Second courses":    { x: 75, y: 30, size: 220 },
+      "Side dishes":       { x: 83, y: 30, size: 100 },
+      "Drinks":            { x: 30, y: 10, size: 50 },
+      "Desserts & Fruits": { x: 15, y: 40, size: 90 }
     };
 
     const optionsDiv = document.getElementById('ingredient-options');
@@ -803,7 +800,7 @@ fetch('site/final_data/game_data.json')
       grouped[val.meal_type][key] = val;
     });
 
-    const groupWrapper = document.createElement('div');  
+    const groupWrapper = document.createElement('div');
     groupWrapper.className = 'group-wrapper';
     optionsDiv.appendChild(groupWrapper);
 
@@ -843,15 +840,17 @@ function updatePlate(data, mealTypePositions) {
 
   selected.forEach(({ name, meal_type }) => {
     const info = data[name];
-    if (!info || !mealTypePositions[meal_type]) return;
+    const config = mealTypePositions[meal_type];
+    if (!info || !config) return;
 
-    const { x, y } = mealTypePositions[meal_type];
+    const { x, y, size } = config;
+
     const img = document.createElement('img');
     img.src = info.image;
     img.alt = name;
-
     img.style.left = `${x}%`;
     img.style.top = `${y}%`;
+    img.style.width = `${size}px`;
 
     imageDiv.appendChild(img);
   });
