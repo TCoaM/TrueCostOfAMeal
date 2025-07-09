@@ -151,7 +151,7 @@ h5 {
 
 .question-block {align-items: center;
   flex: 1 1 45%;
-  padding: 2% 5%;
+  padding: 2% 0;
   min-width: 280px;
   margin-bottom: 30px;
   background: none;
