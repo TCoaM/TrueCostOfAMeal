@@ -82,7 +82,7 @@ function openModalBtn(btn) {
     const displayName = key.charAt(0).toUpperCase() + key.slice(1);
     document.getElementById("modalTitle").textContent = displayName;
     // Use a placeholder image if entry.image is empty or null
-    const imageUrlplate = entry.imageplate;
+    const imageUrlplate = entry.imageButton;
     document.getElementById("modalImg").src = imageUrlplate;
     document.getElementById("modalImg").alt = key;
     document.getElementById("modalDescription").innerHTML = `
