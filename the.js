@@ -1,23 +1,23 @@
-const waterChartWidth = 400;
+const waterChartWidth = 390;
 const waterChartHeight = 400;
 const waterChartRadius = Math.min(waterChartWidth, waterChartHeight) / 2;
 let waterChartDrawn = false;
 
 function drawWaterChart() {
-  const svg = d3.select("#svg3")
+  const svgRoot = d3.select("#svg3")
     .attr("width", waterChartWidth)
     .attr("height", waterChartHeight)
-    .append("g")
-
+    .style("overflow", "visible"); 
+  const svg = svgRoot.append("g")
     .attr("transform", `translate(${waterChartWidth / 2}, ${waterChartHeight / 2})`);
 
   const color = d3.scaleOrdinal()
     .domain(["Agricultural water withdrawal", "Industrial water withdrawal", "Municipal water withdrawal"])
-    .range(["#5465ff", "#9bb1ff", "#bfd7ff"])
-    ;
+    .range(["#5465ff", "#9bb1ff", "#bfd7ff"]);
 
   d3.csv("final_data/filtered_water_agrovoc.csv").then(data => {
-    data.forEach(d => d.Value = +d.Value);  
+    data.forEach(d => d.Value = +d.Value);
+
     const pie = d3.pie()
       .value(d => d.Value)
       .padAngle(0.03);
@@ -25,8 +25,7 @@ function drawWaterChart() {
     const arc = d3.arc()
       .innerRadius(20)
       .outerRadius(waterChartRadius)
-      .cornerRadius(8)
-      ;
+      .cornerRadius(8);
 
     const arcs = svg.selectAll("g.arc")
       .data(pie(data))
@@ -36,8 +35,8 @@ function drawWaterChart() {
 
     arcs.append("path")
       .attr("fill", d => color(d.data.Variable))
-      .attr("stroke", "#333")               
-      .attr("stroke-width", 1.2)  
+      .attr("stroke", "#333")
+      .attr("stroke-width", 1.2)
       .transition()
       .duration(1000)
       .attrTween("d", function(d) {
@@ -45,44 +44,44 @@ function drawWaterChart() {
         return t => arc(i(t));
       });
 
-      svg.append("path")
-        .attr("d", "M15,-60 C40,-80 200,-100 290, 50")  
-        .attr("fill", "none")
-        .attr("stroke", "#333")
-        .attr("stroke-width", 1.5)
-        .attr("marker-end", "url(#arrow)")           
-        .attr("transform", `translate(${waterChartRadius}, 0)`);
+    svg.append("defs")
+      .append("marker")
+      .attr("id", "arrow")
+      .attr("viewBox", "0 0 10 10")
+      .attr("refX", 10)
+      .attr("refY", 5)
+      .attr("markerWidth", 6)
+      .attr("markerHeight", 6)
+      .attr("orient", "auto")
+      .append("path")
+      .attr("d", "M 0 0 L 10 5 L 0 10 z")
+      .attr("fill", "#333");
 
-      d3.select("#svg3")
-        .append("defs")
-        .append("marker")
-        .attr("id", "arrow")
-        .attr("viewBox", "0 0 10 10")
-        .attr("refX", 10)
-        .attr("refY", 5)
-        .attr("markerWidth", 6)
-        .attr("markerHeight", 6)
-        .attr("orient", "auto")
-        .style("overflow", "visible")
-        .append("path")
-        .attr("d", "M 0 0 L 10 5 L 0 10 z")
-        .attr("fill", "#333");
+    svg.append("path")
+      .attr("class", "arrow-path")
+      .attr("d", "M15,-60 C40,-80 200,-100 290, 50")
+      .attr("fill", "none")
+      .attr("stroke", "#333")
+      .attr("stroke-width", 1.5)
+      .attr("marker-end", "url(#arrow)")
+      .attr("transform", `translate(${waterChartRadius}, 0)`);
 
-        svg.append("text")
-        .attr("x", waterChartRadius + 250)
-        .attr("y", 115)
-        .attr("text-anchor", "start")
-        .style("font-size", "20px")
-        .style("font-family", "sans-serif")
-        .text("23.60B L");
+    svg.append("text")
+      .attr("x", waterChartRadius + 250)
+      .attr("y", 115)
+      .attr("text-anchor", "start")
+      .style("font-size", "32px")
+      .style("font-family", "sans-serif")
+      .text("23.60B L");
 
-        svg.append("text")
-          .attr("x", waterChartRadius + 250)
-          .attr("y", 150)
-          .attr("text-anchor", "start")
-          .style("font-size", "16px")
-          .style("fill", "#333")
-          .text("total agricultural water withdrawal");
+    svg.append("text")
+      .attr("x", waterChartRadius + 250)
+      .attr("y", 150)
+      .attr("class", "arrow-path")
+      .attr("text-anchor", "start")
+      .style("font-size", "16px")
+      .style("fill", "#333")
+      .text("total agricultural water withdrawal");
 
     setTimeout(() => {
       arcs.append("text")
@@ -91,15 +90,14 @@ function drawWaterChart() {
         .style("font-size", "16px")
         .style("fill", "black")
         .html(function(d) {
-  const fullLabel = d.data.Variable;
-  const firstWord = fullLabel.split(" ")[0];  
-  const percent = Math.round(d.data.Value / d3.sum(data, d => d.Value) * 100) + "%";
-  return `
-    <tspan x="0" dy="-0.3em">${firstWord}</tspan>
-    <tspan x="0" dy="1.5em">${percent}</tspan>
-  `;
-});
-
+          const fullLabel = d.data.Variable;
+          const firstWord = fullLabel.split(" ")[0];
+          const percent = Math.round(d.data.Value / d3.sum(data, d => d.Value) * 100) + "%";
+          return `
+            <tspan x="0" dy="-0.3em">${firstWord}</tspan>
+            <tspan x="0" dy="1.5em">${percent}</tspan>
+          `;
+        });
     }, 1000);
   });
 }
@@ -122,16 +120,18 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 //land use
-const width4 = 400;
+const width4 = 390;
 const height4 = 400;
 const radius4 = Math.min(width4, height4) / 2;
 let landChartDrawn = false;
 
 function drawLandChart() {
-  const svg = d3.select("#svg4")
+  const svgRoot = d3.select("#svg4")
     .attr("width", width4)
     .attr("height", height4)
-    .append("g")
+    .style("overflow", "visible"); 
+
+  const svg = svgRoot.append("g")
     .attr("transform", `translate(${width4 / 2}, ${height4 / 2})`);
 
   const color = d3.scaleOrdinal()
@@ -141,18 +141,25 @@ function drawLandChart() {
   d3.csv("final_data/filtered_landuse_agrovoc.csv").then(data => {
     data.forEach(d => d.Value = +d.Value);
 
-    const pie = d3.pie().value(d => d.Value).padAngle(0.03);
-    const arc = d3.arc().innerRadius(20).outerRadius(radius4).cornerRadius(8);
+    const pie = d3.pie()
+      .value(d => d.Value)
+      .padAngle(0.03);
 
-    const arcs = svg.selectAll("g")
+    const arc = d3.arc()
+      .innerRadius(20)
+      .outerRadius(radius4)
+      .cornerRadius(8);
+
+    const arcs = svg.selectAll("g.arc")
       .data(pie(data))
       .enter()
-      .append("g");
+      .append("g")
+      .attr("class", "arc");
 
     arcs.append("path")
       .attr("fill", d => color(d.data.AGROVOC_label))
-      .attr("stroke", "#333")               
-      .attr("stroke-width", 1.2) 
+      .attr("stroke", "#333")
+      .attr("stroke-width", 1.2)
       .transition()
       .duration(1000)
       .attrTween("d", function(d) {
@@ -160,9 +167,7 @@ function drawLandChart() {
         return t => arc(i(t));
       });
 
-
-    d3.select("#svg4")
-      .append("defs")
+    svg.append("defs")
       .append("marker")
       .attr("id", "arrow2")
       .attr("viewBox", "0 0 10 10")
@@ -176,6 +181,7 @@ function drawLandChart() {
       .attr("fill", "#333");
 
     svg.append("path")
+      .attr("class", "arrow-path")
       .attr("d", "M10,-50 C30,-80 150,-100 240,30")
       .attr("fill", "none")
       .attr("stroke", "#333")
@@ -184,6 +190,7 @@ function drawLandChart() {
       .attr("transform", `translate(${radius4}, 0)`);
 
     svg.append("text")
+        .attr("class", "arrow-path")
       .attr("x", radius4 + 200)
       .attr("y", 95)
       .attr("text-anchor", "start")

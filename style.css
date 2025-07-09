@@ -434,6 +434,14 @@ h5 {
   .results {
     padding: 20px;
   }
+
+  .arrow-path {
+    display: none;
+  }
+
+  marker#arrow2 {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -471,3 +479,5 @@ h5 {
     text-align: center;
   }
 }
+
+
