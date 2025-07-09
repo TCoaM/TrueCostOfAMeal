@@ -337,12 +337,12 @@ function drawArrowToZoomedChart(barX, chartWidth, margin) {
   arrowSvg.selectAll("*").remove();
 
   const arrowX = barX + margin.left + 60;   
-const startY = -60;                       
-const endX = arrowX - 10;                
-const endY = 190;                         
-const controlX = arrowX - 100;            
-const controlY = 100;                     
-const pathData = `M${arrowX},${startY} Q${controlX},${controlY} ${endX},${endY}`;
+  const startY = -60;                       
+  const endX = arrowX - 5;                
+  const endY = 190;                         
+  const controlX = arrowX - 100;            
+  const controlY = 100;                     
+  const pathData = `M${arrowX},${startY} Q${controlX},${controlY} ${endX},${endY}`;
 
   arrowSvg
     .attr("viewBox", `0 0 ${chartWidth} 160`)
