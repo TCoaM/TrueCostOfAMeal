@@ -16,7 +16,7 @@ function drawWaterChart() {
     .range(["#5465ff", "#9bb1ff", "#bfd7ff"])
     ;
 
-  d3.csv("site/final_data/filtered_water_agrovoc.csv").then(data => {
+  d3.csv("final_data/filtered_water_agrovoc.csv").then(data => {
     data.forEach(d => d.Value = +d.Value);  
     const pie = d3.pie()
       .value(d => d.Value)
@@ -138,7 +138,7 @@ function drawLandChart() {
     .domain(["land area", "agriculture", "forest land"])
     .range(["#8dd3c7", "#ffffb3", "#bebada"]);
 
-  d3.csv("site/final_data/filtered_landuse_agrovoc.csv").then(data => {
+  d3.csv("final_data/filtered_landuse_agrovoc.csv").then(data => {
     data.forEach(d => d.Value = +d.Value);
 
     const pie = d3.pie().value(d => d.Value).padAngle(0.03);
@@ -246,7 +246,7 @@ function drawGroupedBarChart() {
     .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
     .append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);
-  d3.csv("site/final_data/emissions_sectors_agrovoc.csv").then(data => {
+  d3.csv("final_data/emissions_sectors_agrovoc.csv").then(data => {
     data = data.filter(d => d.Item && d.Value);
     data.forEach(d => d.Value = +d.Value);
 
@@ -550,7 +550,7 @@ function drawPopularityChart(data) {
 
 }
 
-d3.csv("site/final_data/italy_food_data.csv", d3.autoType).then(data => {
+d3.csv("final_data/italy_food_data.csv", d3.autoType).then(data => {
   const filtered = data.filter(d => d.AGROVOC_label && d.Mean_consumption_italy != null);
   drawPopularityChart(filtered);
 });
@@ -635,7 +635,7 @@ function drawChart(theme) {
   .text(d => d[valueKey]);
 }
 
-d3.csv("site/final_data/italy_food_data.csv", d3.autoType).then(data => {
+d3.csv("final_data/italy_food_data.csv", d3.autoType).then(data => {
   rawData = data.filter(d => d["AGROVOC_label"]);
   drawChart("co2");
 
@@ -663,7 +663,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let chartSeven_data = [];
 
-  d3.json("site/final_data/game_data.json").then(data => {
+  d3.json("final_data/game_data.json").then(data => {
     chartSeven_data = chartSeven_items.map(item => {
       if (data[item]) {
         return {
@@ -771,7 +771,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 //meal game
-fetch('site/final_data/game_data.json')
+fetch('final_data/game_data.json')
   .then(res => res.json())
   .then(data => {
     const mealOrder = [
