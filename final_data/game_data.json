@@ -264,7 +264,7 @@
     "water": 2193.0,
     "cost": 18.3,
     "meal_type": "Second courses",
-    "image": "",
+    "image": "images/salmon.png",
     "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/salmon.png"
   },
   "tuna": {
