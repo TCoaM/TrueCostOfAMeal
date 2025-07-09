@@ -878,12 +878,12 @@ fetch('final_data/game_data.json')
     ];
 
     const mealTypePositions = {
-      "First courses":     { x: 48, y: 73, size: 150 },
-      "Extras":            { x: 10, y: 10, size: 120 },
-      "Second courses":    { x: 75, y: 30, size: 220 },
-      "Side dishes":       { x: 83, y: 30, size: 100 },
+      "First courses":     { x: 48, y: 60, size: 150 },
+      "Extras":            { x: 10, y: 10, size: 80 },
+      "Second courses":    { x: 77, y: 17, size: 100 },
+      "Side dishes":       { x: 80, y: 25, size: 85 },
       "Drinks":            { x: 30, y: 10, size: 50 },
-      "Desserts & Fruits": { x: 15, y: 40, size: 90 }
+      "Desserts & Fruits": { x: 13, y: 33, size: 55 }
     };
 
     const optionsDiv = document.getElementById('ingredient-options');
@@ -975,7 +975,6 @@ function showResults(data) {
       <a href="${info.link}" target="_blank">${item.charAt(0).toUpperCase() + item.slice(1)}</a><br>
       CO₂: ${info.carbon.toFixed(2)} kg<br>
       Water: ${info.water.toLocaleString()} liters<br>
-      Cost: ${info.cost.toFixed(2)} €<br>
     `;
     breakdownDiv.appendChild(div);
   });

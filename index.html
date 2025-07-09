@@ -17,16 +17,16 @@
 </head>
 <body>
   <header class="main-header">
-  <nav class="nav-bar">
-    <ul class="nav-links">
-      <li><a href="#world">World</a></li>
-      <li><a href="#italy">Italy</a></li>
-      <li><a href="#plate">What's on your Plate</a></li>
-      <li><a href="fullmenu.html">Full Menu</a></li>
-      <li><a href="#credits">Credits</a></li>
-    </ul>
-  </nav>
-</header>
+    <nav class="nav-bar">
+      <ul class="nav-links">
+        <li><a href="#world">World</a></li>
+        <li><a href="#italy">Italy</a></li>
+        <li><a href="#plate">What's on your Plate</a></li>
+        <li><a href="fullmenu.html">Full Menu</a></li>
+        <li><a href="#credits">Credits</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <div class =" section hero">
     <h1>The True Cost of a Meal</h1>
@@ -35,34 +35,52 @@
   <div class=" section intro">
     <p>Every time you sit down to eat, you make a choice, not just about taste or health but also about the environment. 
     </p>
-    <p>This project explores the hidden environmental costs of our food to help change our consumption habits and improve our planet’s health. </p>
-    <p></p>
+    <p>Making food is a process that consumes massive resources: land to grow crops, water to hydrate animals and process meat, fuel to transport goods across countries. It's a chain of actions that begins on farms and ends at your fork. Along the way, it pumps greenhouse gases into the air: cows digesting and farting in industrial farms, factories processing snacks, trucks rumbling toward your supermarket.</p>
+    <p>So, how much does food impact our planet? How much is the coffee you’re drinking right now, reading these lines, contributing to environmental collapse?</p>
+    <p>If you're here, perhaps you want to do something about it. After all, you live on planet Earth, and we think you care at least a little about it.But what can you do?</p>
   </div>
-  <section class="research-section" id="research">
-   <h4 class="cavText">The questions</h4>
-  <p class="section-intro">We asked a few key questions to help us understand what’s really on our plate which have shaped our exploration of food's environmental impact globally and in Italy.</p>
+  <div class="section introText">
+    <h2>What’s Really On Your Plate?</h2>
+    <p>
+      Surely, having the chance to change the world by going to the supermarket and picking up the less impactful (and most delicious, we hope) food item is thrilling.
+      But first, you need answers, or better, you need questions to be answered about what you eat.
+    </p>
+    <p>We asked a few key questions to help you and ourselves understand what’s really on your plate.</p>
+    <h3>We started globally:</h3>
+    <ul class="question-list">
+      <li>What’s the environmental impact of food globally?</li>
+      <li>How much water does the food sector use compared to others?</li>
+      <li>Which sectors emit the most greenhouse gases?</li>
+      <li>How much land is used to grow our food?</li>
+    </ul>
 
-  <div class="questions-container">
-    <div class="question-block" data-aos="fade-up" data-aos-delay="100">
-      <h3 class="main-question">What’s the environmental impact of food globally?</h3>
-      <ul class="subquestions">
-        <li>How much water does the food sector use compared to others?</li>
-        <li>Which sectors emit the most greenhouse gases?</li>
-        <li>How much land is used to produce our food?</li>
-      </ul>
-    </div>
+    <h3>Then, we zoomed into Italy:</h3>
+    <p>
+      We believe in a world without boundaries, but cultural differences are beautiful and must be preserved. Consumption habits change from place to place. 
+      That’s why we decided to focus on a single country, to understand what’s good and what’s bad about how we eat.
+    </p>
+    <p>We chose Italy, it’s where we come from. In the end, our questions arose from our own plates.</p>
+    <ul class="question-list">
+      <li>What are the most commonly consumed foods in Italy?</li>
+      <li>What are their water and carbon footprints?</li>
+    </ul>
 
-    <div class="question-block" data-aos="fade-up" data-aos-delay="200">
-      <h3 class="main-question">What about Italy?</h3>
-      <ul class="subquestions">
-        <li>What are the most commonly consumed foods in Italy?</li>
-        <li>What is the carbon footprint of those foods? And the water footprint?</li>
-        <li>Are there any substitutes that reduce the environmental impact?</li>
-        <li>Is there correlation between the environmental cost and the monetary cost?</li>
-      </ul>
-    </div>
+    <h3>Looking forward:</h3>
+    <p>
+      We offer data-grounded substitutes to help reduce the environmental impact of your meals, without sacrificing taste.
+      We also explore whether high-impact foods come with higher prices.
+    </p>
+    <p><strong>More money in your pocket, less burden on the planet.</strong></p>
   </div>
-</section>
+
+  <div class="section">
+    <h2>Methodology</h2>
+    <p>Behind the scenes, there was a lot of work to turn messy numbers from different sources into clean, comparable, and meaningful insights.</p>
+    <p>We took data from trusted sources like FAOSTAT, EFSA, and the FAO. Some of it was easy to download. Others — like food prices — had to be  <strong>scraped from websites</strong> . Once collected, we cleaned everything up, removed the irrelevant bits, and organized it all into neat tables.</p>
+    <p>Every source had its own way of naming food. So, to  <strong>match "beef" with "cow meat"</strong>, we used a mix of smart algorithms and a powerful vocabulary from the FAO called  <strong>AGROVOC</strong>. This helped us connect the dots and make sure everything meant the same thing across datasets. When tech couldn’t do it,  <strong>we fixed it by hand. Because accuracy matters.</p>
+    <p>We then filtered the data to focus on what’s relevant: solid foods with a significant environmental footprint. We also removed things like bottled water. This helped us build <strong>clear, readable charts </strong> and gave structure to the final interactive experience.</p>
+    <p> <strong>And yes, we did it twice</strong>. Once to get a solid base with Italy’s most consumed foods. Then again, with more items, to spot patterns like whether <strong>eco-friendly food is also cheaper</strong>and to power the game at the end.</p>
+  </div>
 
   <div class="section two" id="world">
     <h2>The World</h2>
@@ -213,7 +231,6 @@
     <h2>Total Environmental Impact</h2>
     <p>CO₂: <span id="co2-value">0</span> kg</p>
     <p>Water: <span id="water-value">0</span> liters</p>
-    <p>Cost: <span id="cost-value">0</span> €</p>
 
     <div id="breakdown"></div>
   </div>
