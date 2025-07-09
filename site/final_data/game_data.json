@@ -87,7 +87,7 @@
     "carbon": 1.2055,
     "water": 1508.0,
     "cost": 23.15,
-    "meal_type": "First course",
+    "meal_type": "First courses",
     "image": ""
   },
   "soft Drinks": {
@@ -197,7 +197,7 @@
     "carbon": 2.188780487804878,
     "water": 1597.0,
     "cost": 3.1,
-    "meal_type": "First course",
+    "meal_type": "First courses",
     "image": "site/images/rice.png"
   },
   "carrots": {
