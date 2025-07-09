@@ -744,7 +744,7 @@ document.addEventListener("DOMContentLoaded", function () {
           .attr("width", xItem.bandwidth())
           .attr("y", y(item[valueKey]))
           .attr("height", chartSeven_height - y(item[valueKey]))
-          .attr("fill", (group.groupIndex * 2 + itemIndex) % 2 === 0 ? "#f8b4b4" : "#b8e6b0")
+          .attr("fill", (group.groupIndex * 2 + itemIndex) % 2 === 0 ? "#FC8D62" : "#b8e6b0")
           .attr("stroke", "#333")
           .attr("stroke-width", 1.2)
           .attr("rx", 6)

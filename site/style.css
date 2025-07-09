@@ -16,7 +16,7 @@ p {
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   padding: 0.5em 0 1em 0;
 }
 
@@ -27,7 +27,7 @@ h3 {
 
 h5 {
   font-size: 1rem;
-  padding-top: 2%;
+  padding: 2% 0;
   font-family: "Caveat", sans-serif !important;
   text-transform: uppercase;
 }
@@ -37,7 +37,7 @@ h5 {
   padding: 5% 7%;
 }
 
-.ita {
+.ita {padding-top: 5%;
   min-height: 100vh;
 }
 
