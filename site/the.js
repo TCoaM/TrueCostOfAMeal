@@ -14,9 +14,7 @@ function drawWaterChart() {
   const color = d3.scaleOrdinal()
     .domain(["Agricultural water withdrawal", "Industrial water withdrawal", "Municipal water withdrawal"])
     .range(["#5465ff", "#9bb1ff", "#bfd7ff"])
-    
     ;
-
 
   d3.csv("site/final_data/filtered_water_agrovoc.csv").then(data => {
     data.forEach(d => d.Value = +d.Value);  
@@ -523,11 +521,24 @@ function drawPopularityChart(data) {
     .attr("y", d => y(d.Mean_consumption_italy))
     .attr("width", x.bandwidth())
     .attr("height", d => heightPOP - y(d.Mean_consumption_italy))
-    .attr("fill", "#ffbf69")
+    .attr("fill", "#FC8D62")
     .attr("stroke", "#333")
     .attr("stroke-width", 1.2)
     .attr("rx", 6)
     .attr("ry", 6);
+  
+    svg.selectAll("text.bar-label")
+    .data(data)
+    .enter()
+    .append("text")
+    .attr("class", "bar-label")
+    .attr("x", d => x(d.AGROVOC_label) + x.bandwidth() / 2)
+    .attr("y", d => y(d.Mean_consumption_italy) - 8) 
+    .attr("text-anchor", "middle")
+    .style("font-size", "13px")
+    .style("fill", "#000") 
+    .text(d => d.Mean_consumption_italy.toFixed(1)); 
+
 
   svg.append("text")
     .attr("x", -heightPOP / 2)
@@ -597,7 +608,7 @@ function drawChart(theme) {
     .attr("width", x.bandwidth())
     .attr("y", d => y(d[valueKey] || 0))
     .attr("height", d => height - y(d[valueKey] || 0))
-    .attr("fill", theme === "co2" ? "#db4c3f" : "#1f77b4")
+    .attr("fill", theme === "co2" ? "#FFD92F" : "#5465FF")
     .attr("stroke", "#333")
     .attr("stroke-width", 1.2)
     .attr("rx", 8)
