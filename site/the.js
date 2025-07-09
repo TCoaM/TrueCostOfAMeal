@@ -1,5 +1,5 @@
 const waterChartWidth = 400;
-const waterChartHeight = 450;
+const waterChartHeight = 400;
 const waterChartRadius = Math.min(waterChartWidth, waterChartHeight) / 2;
 let waterChartDrawn = false;
 
@@ -17,7 +17,7 @@ function drawWaterChart() {
     
     ;
 
- 
+
   d3.csv("site/final_data/filtered_water_agrovoc.csv").then(data => {
     data.forEach(d => d.Value = +d.Value);  
     const pie = d3.pie()
@@ -240,7 +240,7 @@ function drawGroupedBarChart() {
   const container = document.querySelector("#emission_bar_chart").parentElement;
   const containerWidth = container.clientWidth;
 
-  const margin = { top: 10, right: 85, bottom: 100, left: 80 },
+  const margin = { top: 10, right: 85, bottom: 130, left: 80 },
         width = containerWidth - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
@@ -314,6 +314,8 @@ function drawGroupedBarChart() {
       .attr("rx", 4)
       .attr("ry", 4);
 
+      
+
     svg.selectAll(".other-bar")
       .data(otherBars)
       .enter()
@@ -329,6 +331,20 @@ function drawGroupedBarChart() {
       .attr("rx", 4)
       .attr("ry", 4);
 
+
+      svg.selectAll(".other-bar-label")
+      .data(otherBars)
+      .enter()
+      .append("text")
+      .attr("class", "other-bar-label")
+      .attr("x", d => x(d.label) + x.bandwidth() / 2)
+      .attr("y", d => y(d.value) - 5)  // position above the bar
+      .attr("text-anchor", "middle")
+      .style("font-size", "12px")
+      .style("fill", "#333")
+      .text(d => d.value.toFixed(1));
+
+
     drawZoomedFoodChart(foodEmissions, color, containerWidth);
     drawArrowToZoomedChart(x("Food Emissions"), width, margin);
   });
@@ -339,11 +355,11 @@ function drawArrowToZoomedChart(barX, chartWidth, margin) {
   arrowSvg.selectAll("*").remove();
 
   const arrowX = barX + margin.left + 60;   
-  const startY = -60;                       
+  const startY = -40;                       
   const endX = arrowX - 10;                
-  const endY = 190;                         
+  const endY = 130;                         
   const controlX = arrowX - 100;            
-  const controlY = 100;                     
+  const controlY = 70;                     
   const pathData = `M${arrowX},${startY} Q${controlX},${controlY} ${endX},${endY}`;
 
   arrowSvg
@@ -358,6 +374,7 @@ function drawArrowToZoomedChart(barX, chartWidth, margin) {
     .attr("markerWidth", 4)
     .attr("markerHeight", 4)
     .attr("orient", "auto")
+    .style("background-color", "transparent")
     .append("path")
     .attr("d", "M 0 0 L 10 5 L 0 10 ")
     .attr("fill", "#333");
@@ -375,7 +392,7 @@ function drawZoomedFoodChart(foodData, colorScale, containerWidth) {
   const svgZoom = d3.select("#food_zoom_chart");
   svgZoom.selectAll("*").remove();
 
-  const margin = { top: 20, right: 40, bottom: 50, left: 100 };
+  const margin = { top: -150, right: 40, bottom: 50, left: 100 };
   const width = containerWidth - margin.left - margin.right;
 
   const data = Object.entries(foodData).map(([key, val]) => ({
@@ -463,7 +480,7 @@ observer.observe(document.querySelector("#emission_bar_chart"));
 //italy
 //top food items
 function drawPopularityChart(data) {
-  const marginPOP = { top: 40, right: 20, bottom: 100, left: 80 };
+  const marginPOP = { top: 40, right: 20, bottom: 150, left: 80 };
   const fullWidthPOP = 1000;
   const fullHeightPOP = 500;
   const widthPOP = fullWidthPOP - marginPOP.left - marginPOP.right;
@@ -529,7 +546,7 @@ d3.csv("site/final_data/italy_food_data.csv", d3.autoType).then(data => {
 
 
 //food items emissions+water
-const margin = { top: 40, right: 20, bottom: 100, left: 80 };
+const margin = { top: 40, right: 20, bottom: 150, left: 80 };
 const fullWidth = 1580;
 const fullHeight = 650;
 const width = fullWidth - margin.left - margin.right;
@@ -616,6 +633,8 @@ d3.csv("site/final_data/italy_food_data.csv", d3.autoType).then(data => {
     drawChart(selected);
   });
 });
+
+
 //alternatives chart
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -627,7 +646,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const chartSeven_svg = d3.select("#chartSeven");
   const chartSeven_fullWidth = +chartSeven_svg.attr("width");
   const chartSeven_fullHeight = +chartSeven_svg.attr("height");
-  const chartSeven_margin = { top: 40, right: 20, bottom: 100, left: 80 };
+  const chartSeven_margin = { top: 40, right: 20, bottom: 150, left: 80 };
   const chartSeven_width = chartSeven_fullWidth - chartSeven_margin.left - chartSeven_margin.right;
   const chartSeven_height = chartSeven_fullHeight - chartSeven_margin.top - chartSeven_margin.bottom;
 
