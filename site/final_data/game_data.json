@@ -143,7 +143,7 @@
     "cost": 1.84,
     "meal_type": "Desserts & Fruits",
     "image": "",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/cowMilk.png"
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/banana.png"
   },
   "sweet oranges": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_7550",
@@ -298,6 +298,6 @@
     "cost": 3.41,
     "meal_type": "Side dishes",
     "image": "site/images/peas.png",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/pea.png"
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/peas.png"
   }
 }

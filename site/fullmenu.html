@@ -153,7 +153,9 @@ function displayMenuCategories() {
         const displayName = item.key.charAt(0).toUpperCase() + item.key.slice(1);
 
         foodBtn.innerHTML = `
+          <div class="food-img-cont">
           <img src="${imageUrl}" alt="${item.key}" class="food-img">
+          <div>
           <p class="food-name">${displayName}</p>
         `;
         foodGrid.appendChild(foodBtn);
