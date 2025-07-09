@@ -565,7 +565,7 @@ d3.csv("final_data/italy_food_data.csv", d3.autoType).then(data => {
 
 //food items emissions+water
 const margin = { top: 40, right: 20, bottom: 150, left: 80 };
-const fullWidth = 1580;
+const fullWidth = 1000;
 const fullHeight = 650;
 const width = fullWidth - margin.left - margin.right;
 const height = fullHeight - margin.top - margin.bottom;
