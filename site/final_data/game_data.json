@@ -7,7 +7,7 @@
     "water": 1260.5,
     "cost": 8.12,
     "meal_type": "Drinks",
-    "image": "site/images/cowMilk.png"
+    "image": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/cowMilk.png"
     
   },
   "coffee": {
@@ -28,7 +28,7 @@
     "water": 622.0,
     "cost": 2.54,
     "meal_type": "Desserts & Fruits",
-    "image": "site/images/apple.png"
+    "image": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/site/images/apples.png"
   },
   "tomatoes": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_7805",
