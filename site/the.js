@@ -737,6 +737,14 @@ fetch('site/final_data/game_data.json')
       "Desserts & Fruits"
     ];
 
+    const mealTypePositions = {
+      "First course":     { x: 43, y: 70 },
+      "Extras":           { x: 70, y: 30 },
+      "Second courses & Side dishes": { x: 50, y: 50 },
+      "Drinks":           { x: 30, y: 70 },
+      "Desserts & Fruits":{ x: 70, y: 70 }
+    };
+
     const optionsDiv = document.getElementById('ingredient-options');
     const grouped = {};
 
@@ -745,7 +753,6 @@ fetch('site/final_data/game_data.json')
       grouped[val.meal_type][key] = val;
     });
 
-    // become checkboxes
     const groupWrapper = document.createElement('div');  
     groupWrapper.className = 'group-wrapper';
     optionsDiv.appendChild(groupWrapper);
@@ -758,46 +765,41 @@ fetch('site/final_data/game_data.json')
       groupDiv.className = 'food-group';
       groupDiv.innerHTML = `<h3>${meal_type}</h3>`;
 
-  Object.keys(items).forEach(ingredient => {
-    const label = document.createElement('label');
-    label.className = 'ingredient';
-    label.innerHTML = `
-      <input type="radio" name="${meal_type}" value="${ingredient}">
-      ${ingredient.charAt(0).toUpperCase() + ingredient.slice(1)}
-    `;
-    groupDiv.appendChild(label);
-  });
+      Object.keys(items).forEach(ingredient => {
+        const label = document.createElement('label');
+        label.className = 'ingredient';
+        label.innerHTML = `
+          <input type="radio" name="${meal_type}" value="${ingredient}">
+          ${ingredient.charAt(0).toUpperCase() + ingredient.slice(1)}
+        `;
+        groupDiv.appendChild(label);
+      });
 
-  groupWrapper.appendChild(groupDiv);
-});
+      groupWrapper.appendChild(groupDiv);
+    });
 
-    
-
-    optionsDiv.addEventListener('change', () => updatePlate(data));
-
+    optionsDiv.addEventListener('change', () => updatePlate(data, mealTypePositions));
     document.getElementById('confirm-btn').addEventListener('click', () => {
       showResults(data);
     });
   });
 
-function updatePlate(data) {
+function updatePlate(data, mealTypePositions) {
   const selected = Array.from(document.querySelectorAll('input[type="radio"]:checked'))
-    .map(cb => cb.value);
+    .map(cb => ({ name: cb.value, meal_type: cb.name }));
 
   const imageDiv = document.getElementById('ingredient-images');
   imageDiv.innerHTML = '';
 
-  selected.forEach((item, index) => {
-    const info = data[item];
+  selected.forEach(({ name, meal_type }) => {
+    const info = data[name];
+    if (!info || !mealTypePositions[meal_type]) return;
+
+    const { x, y } = mealTypePositions[meal_type];
     const img = document.createElement('img');
     img.src = info.image;
-    img.alt = item;
+    img.alt = name;
 
-    const angle = (index / selected.length) * 360;
-    const radius = 80;
-    const rad = angle * (Math.PI / 180);
-    const x = 50 + radius * Math.cos(rad);
-    const y = 50 + radius * Math.sin(rad);
     img.style.left = `${x}%`;
     img.style.top = `${y}%`;
 
@@ -818,7 +820,7 @@ function showResults(data) {
 
   selected.forEach(item => {
     const info = data[item];
-    if (!info) return; 
+    if (!info) return;
 
     total.co2 += info.co2;
     total.water += info.water;
