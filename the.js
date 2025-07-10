@@ -942,6 +942,7 @@ function updatePlate(data, mealTypePositions) {
     const img = document.createElement('img');
     img.src = info.image;
     img.alt = name;
+    img.style.position = 'absolute';
     img.style.left = `${x}%`;
     img.style.top = `${y}%`;
     img.style.width = `${size}px`;
@@ -956,7 +957,7 @@ function showResults(data) {
 
   if (selected.length === 0) return;
 
-  let total = { co2: 0, water: 0, land: 0 };
+  let total = { co2: 0, water: 0, cost: 0 };
 
   const breakdownDiv = document.getElementById('breakdown');
   breakdownDiv.innerHTML = '';
@@ -965,23 +966,29 @@ function showResults(data) {
     const info = data[item];
     if (!info) return;
 
-    total.co2 += info.co2;
-    total.water += info.water;
-    total.land += info.land;
+    // Use fallback values if properties are missing
+    const carbon = info.carbon ?? 0;
+    const water = info.water ?? 0;
+    const cost = info.cost ?? 0;
+
+    total.co2 += carbon;
+    total.water += water;
+    total.cost += cost;
 
     const div = document.createElement('div');
     div.className = 'breakdown-item';
     div.innerHTML = `
       <a href="${info.link}" target="_blank">${item.charAt(0).toUpperCase() + item.slice(1)}</a><br>
-      CO₂: ${info.carbon.toFixed(2)} kg<br>
-      Water: ${info.water.toLocaleString()} liters<br>
+      CO₂: ${carbon.toFixed(2)} kg<br>
+      Water: ${water.toLocaleString()} liters<br>
+      Cost: ${cost.toFixed(2)} €<br>
     `;
     breakdownDiv.appendChild(div);
   });
 
   document.getElementById('co2-value').textContent = total.co2.toFixed(2);
   document.getElementById('water-value').textContent = total.water.toLocaleString();
-  document.getElementById('cost-value').textContent = total.land.toFixed(2);
+  document.getElementById('cost-value').textContent = total.cost.toFixed(2);
 
   const resultsSection = document.getElementById('results-section');
   if (resultsSection) {
