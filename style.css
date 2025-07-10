@@ -216,6 +216,13 @@ h5 {
   margin: auto;
 }
 
+
+.tooltip {
+  position: absolute;
+  z-index: 1000;
+}
+
+
 /* scatter plot*/
 
 .chart_container_eight {
