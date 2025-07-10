@@ -19,7 +19,7 @@
     "water": 19956.0,
     "cost": 16.94,
     "meal_type": "Drinks",
-    "image": "",
+    "image": "images/coffe.png",
     "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/cofee.png"
   },
   "apples": {
@@ -96,7 +96,7 @@
     "water": 1508.0,
     "cost": 23.15,
     "meal_type": "First courses",
-    "image": "",
+    "image": "images/pasta.png",
     "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/pasta.png"
   },
 
@@ -142,7 +142,7 @@
     "water": 748.0,
     "cost": 1.84,
     "meal_type": "Desserts & Fruits",
-    "image": "",
+    "image": "images/banana.png",
     "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/banana.png"
   },
   "sweet oranges": {
@@ -153,7 +153,7 @@
     "water": 654.0,
     "cost": 2.48,
     "meal_type": "Desserts & Fruits",
-    "image": "",
+    "image": "images/orange.png",
     "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/orange.png"
   },
   "orange juice": {
@@ -253,7 +253,7 @@
     "water": 2902.0,
     "cost": 4.24,
     "meal_type": "Desserts & Fruits",
-    "image": "",
+    "image": "images/biscuits.png",
     "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/biscuit.png"
   },
   "salmon": {

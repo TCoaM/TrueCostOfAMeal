@@ -252,7 +252,6 @@ h5 {
     cursor: pointer;
 }
 
-    /* scatter plot*/
 .onYourPlate {
   padding: 2% 0;
 }
@@ -447,6 +446,59 @@ h5 {
 
 .food-group {
   margin-bottom: 0; 
+}
+
+.results {
+  margin-top: 60px;
+  padding: 40px;
+  border-top: 2px dashed #333;
+  background-color: #fffefc;
+  font-family: "Courier New", Courier, monospace;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+.results h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  border-bottom: 2px dashed #ccc;
+  padding-bottom: 10px;
+}
+
+#breakdown {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+.breakdown-item {
+  min-width: 220px;
+  background-color: #f9f9f9;
+  border: 1px dashed #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+  flex-shrink: 0;
+}
+
+.breakdown-item a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.breakdown-item p {
+  margin: 4px 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.results-summary {
+  border-top: 2px dashed #ccc;
+  padding-top: 20px;
+  font-size: 16px;
 }
 
 
