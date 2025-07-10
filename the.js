@@ -557,9 +557,11 @@ function drawPopularityChart(data) {
 
 }
 
-d3.csv("final_data\italy_food_data.csv", d3.autoType).then(data => {
-  const filtered = data.filter(d => d.AGROVOC_label && d.Mean_consumption_italy != null);
-  drawPopularityChart(filtered);
+document.addEventListener("DOMContentLoaded", () => {
+  d3.csv("final_data/italy_food_data.csv", d3.autoType).then(data => {
+    const filtered = data.filter(d => d.AGROVOC_label && d.Mean_consumption_italy != null);
+    drawPopularityChart(filtered);
+  });
 });
 
 
