@@ -319,8 +319,6 @@ function drawGroupedBarChart() {
       .attr("rx", 4)
       .attr("ry", 4);
 
-      
-
     svg.selectAll(".other-bar")
       .data(otherBars)
       .enter()
@@ -397,7 +395,7 @@ function drawZoomedFoodChart(foodData, colorScale, containerWidth) {
   const svgZoom = d3.select("#food_zoom_chart");
   svgZoom.selectAll("*").remove();
 
-  const margin = { top: -150, right: 40, bottom: 50, left: 100 };
+  const margin = { top: -150, right: 40, bottom: 150, left: 100 };
   const width = containerWidth - margin.left - margin.right;
 
   const data = Object.entries(foodData).map(([key, val]) => ({
