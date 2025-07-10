@@ -484,6 +484,23 @@ observer.observe(document.querySelector("#emission_bar_chart"));
 
 //italy
 //top food items
+function loadPage(hash) {
+  let content;
+
+  // Handle different page sections
+  if (hash === "#chartPopularity") {
+    content = document.getElementById("chartPopularity").innerHTML;
+    main.innerHTML = content;
+
+    // Now that the content is in the DOM, load the chart
+    d3.csv("final_data/italy_food_data.csv", d3.autoType).then(data => {
+      const filtered = data.filter(d => d.AGROVOC_label && d.Mean_consumption_italy != null);
+      drawPopularityChart(filtered);  // Call the function when the content is loaded
+    });
+  }
+
+}
+
 function drawPopularityChart(data) {
   const marginPOP = { top: 40, right: 40, bottom: 150, left: 80 };
   const fullWidthPOP = 1000;
@@ -557,7 +574,7 @@ function drawPopularityChart(data) {
 
 }
 
-d3.csv("final_data/italy_food_data.csv", d3.autoType).then(data => {
+d3.csv("final_data\italy_food_data.csv", d3.autoType).then(data => {
   const filtered = data.filter(d => d.AGROVOC_label && d.Mean_consumption_italy != null);
   drawPopularityChart(filtered);
 });
