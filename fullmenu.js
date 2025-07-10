@@ -36,6 +36,8 @@ function openModalBtn(btn) {
     document.getElementById("modalDescription").textContent = `No data for ${key}`;
     document.getElementById("modal").style.display = "block";
   }
+
+  
 }
 
 function closeModal() {
@@ -108,6 +110,50 @@ function displayMenuCategories() {
     }
   });
 }
+
+let radarChartInstance = null;
+
+function drawRadarChart(carbon, water, cost) {
+  const ctx = document.getElementById('impactRadarChart').getContext('2d');
+
+  // Destroy previous chart instance to avoid duplicate overlays
+  if (radarChartInstance) {
+    radarChartInstance.destroy();
+  }
+
+  radarChartInstance = new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels: ['Carbon (g CO₂eq/g)', 'Water (L/kg)', 'Cost (€/kg)'],
+      datasets: [{
+        label: 'Environmental Impact',
+        data: [carbon, water, cost],
+        backgroundColor:"rgba(236, 238, 206, 1)",
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 2,
+        pointBackgroundColor: 'rgba(255, 99, 132, 1)'
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        r: {
+          suggestedMin: 0,
+          suggestedMax: Math.max(carbon, water, cost) * 1.2 || 10,
+          ticks: {
+            stepSize: 1
+          }
+        }
+      },
+      plugins: {
+        legend: {
+          display: false
+        }
+      }
+    }
+  });
+}
+
 
 
 // Close modal when clicking outside of it
