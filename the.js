@@ -495,8 +495,8 @@ function drawPopularityChart(data) {
 
   const svg = d3.select("#chartPopularity")
     .append("svg")
-    .attr("width", fullWidthPOP)
-    .attr("height", fullHeightPOP)
+    .attr("viewBox", `0 0 ${fullWidthPOP} ${fullHeightPOP}`)
+    .attr("preserveAspectRatio", "xMidYMid meet")
     .append("g")
     .attr("transform", `translate(${marginPOP.left},${marginPOP.top})`);
 
@@ -512,13 +512,16 @@ function drawPopularityChart(data) {
 
   svg.append("g")
     .attr("transform", `translate(0,${heightPOP})`)
-    .call(d3.axisBottom(x))
+    .call(d3.axisBottom(x).tickFormat(label => 
+      label.length > 12 ? label.slice(0, 12) + "…" : label
+    ))
     .selectAll("text")
     .attr("transform", "rotate(-40)")
     .style("text-anchor", "end")
-    .style("font-size", "15px");
+    .style("font-size", "13px");
 
-  svg.append("g").call(d3.axisLeft(y));
+  svg.append("g")
+    .call(d3.axisLeft(y).ticks(6));
 
   svg.selectAll("rect")
     .data(data)
@@ -533,36 +536,40 @@ function drawPopularityChart(data) {
     .attr("stroke-width", 1.2)
     .attr("rx", 6)
     .attr("ry", 6);
-  
-    svg.selectAll("text.bar-label")
+
+  svg.selectAll("text.bar-label")
     .data(data)
     .enter()
     .append("text")
     .attr("class", "bar-label")
     .attr("x", d => x(d.AGROVOC_label) + x.bandwidth() / 2)
-    .attr("y", d => y(d.Mean_consumption_italy) - 8) 
+    .attr("y", d => y(d.Mean_consumption_italy) - 5)
     .attr("text-anchor", "middle")
-    .style("font-size", "13px")
-    .style("fill", "#000") 
-    .text(d => d.Mean_consumption_italy.toFixed(1)); 
-
+    .style("font-size", "12px")
+    .style("fill", "#000")
+    .text(d => d.Mean_consumption_italy.toFixed(1));
 
   svg.append("text")
     .attr("x", -heightPOP / 2)
     .attr("y", -50)
     .attr("transform", "rotate(-90)")
     .attr("text-anchor", "middle")
-    .style("font-size", "16px")
+    .style("font-size", "15px")
     .text("Mean Consumption (kg or L per year)");
-
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   d3.csv("final_data/italy_food_data.csv", d3.autoType).then(data => {
-    const filtered = data.filter(d => d.AGROVOC_label && d.Mean_consumption_italy != null);
+    const filtered = data
+      .filter(d => d.AGROVOC_label && d["Mean_consumption_italy_(g/day)"] != null)
+      .map(d => ({
+        AGROVOC_label: d.AGROVOC_label,
+        Mean_consumption_italy: d["Mean_consumption_italy_(g/day)"]
+      }));
     drawPopularityChart(filtered);
   });
 });
+
 
 
 //food items emissions+water
@@ -883,7 +890,7 @@ fetch('final_data/game_data.json')
       "First courses":     { x: 48, y: 60, size: 150 },
       "Extras":            { x: 10, y: 10, size: 80 },
       "Second courses":    { x: 77, y: 17, size: 100 },
-      "Side dishes":       { x: 80, y: 25, size: 85 },
+      "Side dishes":       { x: 78, y: 25, size: 90 },
       "Drinks":            { x: 30, y: 10, size: 50 },
       "Desserts & Fruits": { x: 13, y: 33, size: 55 }
     };
