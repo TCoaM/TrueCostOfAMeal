@@ -186,7 +186,10 @@ h5 {
 
 #zoom_text p:first-child {
   font-size: 2.5rem;
+  font-family: "caveat";
+  font-weight: "bold";
 }
+
 
 #food_zoom_chart {
   width: 100%;

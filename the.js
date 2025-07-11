@@ -70,10 +70,10 @@ function drawWaterChart() {
       .attr("x", waterChartRadius + 250)
       .attr("y", 115)
       .attr("text-anchor", "start")
-      .style("font-size", "32px")
+      .style("font-size", "2.5rem")
       .style("font-family", "caveat")
       .style("font-weight", "bold")
-      .text("2.85 QUADRILLION LITERS PER YEAR");
+      .text("2.85 Quadrillion Liters per Year");
 
     svg.append("text")
       .attr("x", waterChartRadius + 250)
@@ -196,10 +196,10 @@ function drawLandChart() {
       .attr("x", radius4 + 200)
       .attr("y", 95)
       .attr("text-anchor", "start")
-      .style("font-size", "32px")
+      .style("font-size", "2.5rem")
       .style("font-family", "caveat")
       .style("font-weight", "bold")
-      .text("~4.84 MILLION HECTARES");
+      .text("~4.84 Million Hectares");
 
     svg.append("text")
       .attr("x", radius4 + 200)
