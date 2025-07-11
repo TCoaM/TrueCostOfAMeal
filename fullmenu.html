@@ -5,9 +5,12 @@
   <title>True Cost of a Meal</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="menustyle.css">
-  
+  <link rel="icon" href="images/favicon.png" type="image/png" />
+  <script src="fullmenu.js"></script>
 
   <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,23 +22,16 @@
 
 <body>
   <header>
-    <ul class="nav justify-content-end">
-      <li class="nav-item">
-        <a class="nav-link" href="index.html#world">World</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="index.html#italy">Italy</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="index.html#plate">What's on your Plate</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Full Menu</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="index.html#credits">Credits</a>
-      </li>
-    </ul>
+  <header class="main-header">
+    <nav class="nav-bar">
+      <ul class="nav-links">
+        <li><a href="index.html">World</a></li>
+        <li><a href="index.html">Italy</a></li>
+        <li><a href="index.html">What's on your Plate</a></li>
+        <li><a href="fullmenu.html">Full Menu</a></li>
+        <li><a href="index.html">Credits</a></li>
+      </ul>
+    </nav>
   </header>
 
 <div id="modal">
@@ -44,10 +40,11 @@
     <div id= "modalImg-container">
       <img id="modalImg" src="" alt="Food image" />
     </div>
-    
+
     <h2 id="modalTitle"></h2>
     <hr id = "category-separator">
     <p id="modalDescription"></p>
+    <canvas id="impactRadarChart" width="300" height="300"></canvas>
   </div>
 </div>
 
@@ -64,126 +61,33 @@
 </div>
 
 
-<script>
-let data = {}; // Initialize data object
-
-// Fetch the JSON data from the external URL
-fetch("https://raw.githubusercontent.com/TCoaM/TrueCostOfAMeal/refs/heads/main/final_data/game_data.json")
-  .then(res => res.json())
-  .then(json => {
-    data = json; // Assign fetched JSON to the data object
-    displayMenuCategories(); // Call function to generate menu categories and items
-  })
-  .catch(error => console.error('Error loading JSON data:', error)); // Log any errors
-
-function openModalBtn(btn) {
-  const key = btn.getAttribute("data-value");
-  const entry = data[key];
-
-  if (entry) {
-    // Capitalize first letter of key for display
-    const displayName = key.charAt(0).toUpperCase() + key.slice(1);
-    document.getElementById("modalTitle").textContent = displayName;
-    // Use a placeholder image if entry.image is empty or null
-    const imageUrlplate = entry.imageButton;
-    document.getElementById("modalImg").src = imageUrlplate;
-    document.getElementById("modalImg").alt = key;
-    document.getElementById("modalDescription").innerHTML = `
-        <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Agrovoc URI:</span> ${entry.AGROVOC_uri || 'Data not available'}<br>
-        <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Type:</span> ${entry.type || 'Data not available'}<br>
-        <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Consumption (g/day):</span> ${entry.consumption || 'Data not available'}<br>
-        <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Carbon (g CO₂eq/g):</span> ${entry.carbon || 'Data not available'}<br>
-        <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Water (L/kg):</span> ${entry.water || 'Data not available'}<br>
-        <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Cost (€/kg):</span> ${entry.cost || 'Data not available'}
-      `;
-    document.getElementById("modal").style.display = "block";
-  } else {
-    document.getElementById("modalTitle").textContent = "Not found";
-    document.getElementById("modalDescription").textContent = `No data for ${key}`;
-    document.getElementById("modal").style.display = "block";
-  }
-}
-
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-}
-
-function displayMenuCategories() {
-  const menuContentDiv = document.getElementById('menuContent');
-  menuContentDiv.innerHTML = ''; // Clear previous content
-
-  // Group items by their exact type from the JSON
-  const groupedData = Object.keys(data).reduce((acc, key) => {
-    const entry = data[key];
-    // Use 'Unknown' or a similar string for items where type is 'NaN' or missing
-    const meal_type = entry.meal_type && entry.meal_type !== "NaN" ? entry.meal_type : 'Unknown'; 
-    
-    if (!acc[meal_type]) {
-      acc[meal_type] = [];
-    }
-    acc[meal_type].push({ key: key, ...entry });
-    return acc;
-  }, {});
-
-  // Get unique categories and sort them alphabetically
-  const categories = Object.keys(groupedData).sort();
-
-  // Add categories and their items to the page
-  categories.forEach((category, index) => {
-    if (groupedData[category] && groupedData[category].length > 0) {
-      // Add category heading
-      const categoryHeading = document.createElement('h2');
-      categoryHeading.className = 'category-heading';
-      // Capitalize the first letter of the category name for display
-      categoryHeading.textContent = category.charAt(0).toUpperCase() + category.slice(1).toLowerCase(); 
-      menuContentDiv.appendChild(categoryHeading);
-
-      // Create a grid container for items in this category
-      const foodGrid = document.createElement('div');
-      foodGrid.className = 'food-grid';
-
-      // Sort items within the category alphabetically by key for consistent display
-      groupedData[category].sort((a, b) => a.key.localeCompare(b.key));
-
-      // Append food buttons for this category
-      groupedData[category].forEach(item => {
-        const foodBtn = document.createElement('div');
-        foodBtn.className = 'foodBtn';
-        foodBtn.setAttribute('data-value', item.key);
-        foodBtn.onclick = function() { openModalBtn(this); };
-
-        const imageUrl = item.imageButton;
-        const displayName = item.key.charAt(0).toUpperCase() + item.key.slice(1);
-
-        foodBtn.innerHTML = `
-          <div class="food-img-cont">
-          <img src="${imageUrl}" alt="${item.key}" class="food-img">
-          <div>
-          <p class="food-name">${displayName}</p>
-        `;
-        foodGrid.appendChild(foodBtn);
-      });
-      menuContentDiv.appendChild(foodGrid);
-
-      // Add a separator after each category except the last one
-      if (index < categories.length - 1) {
-          const separator = document.createElement('hr');
-          separator.className = 'category-separator';
-          menuContentDiv.appendChild(separator);
-      }
-    }
-  });
-}
 
 
-// Close modal when clicking outside of it
-window.onclick = function(event) {
-  const modal = document.getElementById("modal");
-  if (event.target == modal) {
-    closeModal();
-  }
-}
-</script>
+<footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section team">
+        <h4>Our Team</h4>
+        <p><strong>Pietro Tisci</strong> – COSA</p>
+        <p><strong>Simone Casazza</strong> – COSA</p>
+        <p><strong>Giorgia Umana</strong> – Web Development</p>
+      </div>
+
+      <div class="footer-section credits">
+        <h4>Credits</h4>
+        <p>Data provided by FAO & ISTAT.</p>
+        <p>Icons from Feather Icons.</p>
+      </div>
+
+      <div class="footer-section links">
+        <h4>Links</h4>
+        <p><a href="https://github.com/TCoaM/TrueCostOfAMeal" target="_blank">GitHub Repository</a></p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 The True Cost of a Meal. All rights reserved.</p>
+    </div>
+</footer>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

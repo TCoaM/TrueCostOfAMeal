@@ -319,8 +319,6 @@ function drawGroupedBarChart() {
       .attr("rx", 4)
       .attr("ry", 4);
 
-      
-
     svg.selectAll(".other-bar")
       .data(otherBars)
       .enter()
@@ -397,7 +395,7 @@ function drawZoomedFoodChart(foodData, colorScale, containerWidth) {
   const svgZoom = d3.select("#food_zoom_chart");
   svgZoom.selectAll("*").remove();
 
-  const margin = { top: -150, right: 40, bottom: 50, left: 100 };
+  const margin = { top: -150, right: 40, bottom: 150, left: 100 };
   const width = containerWidth - margin.left - margin.right;
 
   const data = Object.entries(foodData).map(([key, val]) => ({
@@ -495,8 +493,8 @@ function drawPopularityChart(data) {
 
   const svg = d3.select("#chartPopularity")
     .append("svg")
-    .attr("width", fullWidthPOP)
-    .attr("height", fullHeightPOP)
+    .attr("viewBox", `0 0 ${fullWidthPOP} ${fullHeightPOP}`)
+    .attr("preserveAspectRatio", "xMidYMid meet")
     .append("g")
     .attr("transform", `translate(${marginPOP.left},${marginPOP.top})`);
 
@@ -512,13 +510,16 @@ function drawPopularityChart(data) {
 
   svg.append("g")
     .attr("transform", `translate(0,${heightPOP})`)
-    .call(d3.axisBottom(x))
+    .call(d3.axisBottom(x).tickFormat(label => 
+      label.length > 12 ? label.slice(0, 12) + "…" : label
+    ))
     .selectAll("text")
     .attr("transform", "rotate(-40)")
     .style("text-anchor", "end")
-    .style("font-size", "15px");
+    .style("font-size", "13px");
 
-  svg.append("g").call(d3.axisLeft(y));
+  svg.append("g")
+    .call(d3.axisLeft(y).ticks(6));
 
   svg.selectAll("rect")
     .data(data)
@@ -533,36 +534,40 @@ function drawPopularityChart(data) {
     .attr("stroke-width", 1.2)
     .attr("rx", 6)
     .attr("ry", 6);
-  
-    svg.selectAll("text.bar-label")
+
+  svg.selectAll("text.bar-label")
     .data(data)
     .enter()
     .append("text")
     .attr("class", "bar-label")
     .attr("x", d => x(d.AGROVOC_label) + x.bandwidth() / 2)
-    .attr("y", d => y(d.Mean_consumption_italy) - 8) 
+    .attr("y", d => y(d.Mean_consumption_italy) - 5)
     .attr("text-anchor", "middle")
-    .style("font-size", "13px")
-    .style("fill", "#000") 
-    .text(d => d.Mean_consumption_italy.toFixed(1)); 
-
+    .style("font-size", "12px")
+    .style("fill", "#000")
+    .text(d => d.Mean_consumption_italy.toFixed(1));
 
   svg.append("text")
     .attr("x", -heightPOP / 2)
     .attr("y", -50)
     .attr("transform", "rotate(-90)")
     .attr("text-anchor", "middle")
-    .style("font-size", "16px")
+    .style("font-size", "15px")
     .text("Mean Consumption (kg or L per year)");
-
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   d3.csv("final_data/italy_food_data.csv", d3.autoType).then(data => {
-    const filtered = data.filter(d => d.AGROVOC_label && d.Mean_consumption_italy != null);
+    const filtered = data
+      .filter(d => d.AGROVOC_label && d["Mean_consumption_italy_(g/day)"] != null)
+      .map(d => ({
+        AGROVOC_label: d.AGROVOC_label,
+        Mean_consumption_italy: d["Mean_consumption_italy_(g/day)"]
+      }));
     drawPopularityChart(filtered);
   });
 });
+
 
 
 //food items emissions+water
@@ -641,7 +646,8 @@ function drawChart(theme) {
   .attr("text-anchor", "middle")
   .style("font-size", "15px")
   .style("fill", "#333")
-  .text(d => d[valueKey]);
+  .text(d => Math.ceil(d[valueKey]))
+;
 }
 
 d3.csv("final_data/italy_food_data.csv", d3.autoType).then(data => {
@@ -665,11 +671,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const chartSeven_svg = d3.select("#chartSeven")
     .attr("width", 1000)
-    .attr("height", 500);
+    .attr("height", 550); 
 
-  const chartSeven_margin = { top: 40, right: 40, bottom: 120, left: 80 };
-  const chartSeven_width = 1000 - chartSeven_margin.left - chartSeven_margin.right;
-  const chartSeven_height = 500 - chartSeven_margin.top - chartSeven_margin.bottom;
+  const margin = { top: 40, right: 40, bottom: 120, left: 80 };
+  const width = 1000 - margin.left - margin.right;
+  const height = 500 - margin.top - margin.bottom;
+
+  const colorEven = "#FC8D62";
+  const colorOdd = "#b8e6b0";
 
   let chartSeven_data = [];
 
@@ -695,90 +704,113 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function drawChartSeven(theme) {
-    chartSeven_svg.selectAll("g").remove();
+    chartSeven_svg.selectAll("*").remove();
 
     const chart = chartSeven_svg.append("g")
-      .attr("transform", `translate(${chartSeven_margin.left},${chartSeven_margin.top})`);
+      .attr("transform", `translate(${margin.left},${margin.top})`);
 
     const valueKey = theme === "water" ? "water" : "co2";
     const yLabel = theme === "water" ? "Liters / KG" : "kg CO₂ eq / KG";
 
-    const groupedData = [];
-    for (let i = 0; i < chartSeven_data.length; i += 2) {
-      groupedData.push({
-        groupIndex: i / 2,
-        items: chartSeven_data.slice(i, i + 2)
-      });
-    }
-
-    const xGroup = d3.scaleBand()
-      .domain(groupedData.map(d => d.groupIndex))
-      .range([0, chartSeven_width])
-      .padding(0.3);
-
-    const xItem = d3.scaleBand()
-      .domain([0, 1])
-      .range([0, xGroup.bandwidth()])
-      .padding(0.1);
-
-    const y = d3.scaleLinear()
-      .domain([0, d3.max(chartSeven_data, d => d[valueKey]) || 0])
-      .nice()
-      .range([chartSeven_height, 0]);
-
-    const xLabels = chartSeven_data.map(d => d.name);
-
-    const xAxis = d3.scaleBand()
-      .domain(xLabels)
-      .range([0, chartSeven_width])
+    const x = d3.scaleBand()
+      .domain(chartSeven_data.map(d => d.name))
+      .range([0, width])
       .padding(0.2);
 
+    const y = d3.scaleLinear()
+      .domain([0, d3.max(chartSeven_data, d => d[valueKey])])
+      .nice()
+      .range([height, 0]);
+
     chart.append("g")
-      .attr("transform", `translate(0, ${chartSeven_height})`)
-      .call(d3.axisBottom(xAxis))
+      .attr("transform", `translate(0, ${height})`)
+      .call(d3.axisBottom(x))
       .selectAll("text")
       .attr("transform", "rotate(-30)")
       .attr("text-anchor", "end")
       .attr("dx", "-0.6em")
       .attr("dy", "0.3em")
-      .style("font-size", "12px");
+      .style("font-size", "15px");
 
-    chart.append("g")
-      .call(d3.axisLeft(y));
+    chart.append("g").call(d3.axisLeft(y));
 
-    groupedData.forEach(group => {
-      group.items.forEach((item, itemIndex) => {
-        chart.append("rect")
-          .attr("x", xGroup(group.groupIndex) + xItem(itemIndex))
-          .attr("width", xItem.bandwidth())
-          .attr("y", y(item[valueKey]))
-          .attr("height", chartSeven_height - y(item[valueKey]))
-          .attr("fill", (group.groupIndex * 2 + itemIndex) % 2 === 0 ? "#FC8D62" : "#b8e6b0")
-          .attr("stroke", "#333")
-          .attr("stroke-width", 1.2)
-          .attr("rx", 6)
-          .attr("ry", 6);
+    chart.selectAll("rect")
+      .data(chartSeven_data)
+      .enter()
+      .append("rect")
+      .attr("x", d => x(d.name))
+      .attr("y", height)
+      .attr("width", x.bandwidth())
+      .attr("height", 0)
+      .attr("fill", (d, i) => i % 2 === 0 ? colorEven : colorOdd)
+      .attr("stroke", "#333")
+      .attr("stroke-width", 1.2)
+      .attr("rx", 6)
+      .attr("ry", 6)
+      
+      .transition()
+      .duration(800)
+      .attr("y", d => y(d[valueKey]))
+      .attr("height", d => height - y(d[valueKey]));
 
-        chart.append("text")
-          .attr("class", "value-label")
-          .attr("x", xGroup(group.groupIndex) + xItem(itemIndex) + xItem.bandwidth() / 2)
-          .attr("y", y(item[valueKey]) - 6)
-          .attr("text-anchor", "middle")
-          .style("font-size", "11px")
-          .style("fill", "#333")
-          .text(item[valueKey]);
-      });
-    });
+    chart.selectAll("text.value-label")
+      .data(chartSeven_data)
+      .enter()
+      .append("text")
+      .attr("class", "value-label")
+      .attr("x", d => x(d.name) + x.bandwidth() / 2)
+      .attr("y", d => y(d[valueKey]) - 6)
+      .attr("text-anchor", "middle")
+      .style("font-size", "15px")
+      .style("fill", "#333")
+      .text(d => Math.round(d[valueKey]));
 
     chart.append("text")
-      .attr("x", -chartSeven_height / 2)
+      .attr("x", -height / 2)
       .attr("y", -60)
       .attr("transform", "rotate(-90)")
       .attr("text-anchor", "middle")
-      .style("font-size", "14px")
+      .style("font-size", "15px")
       .text(yLabel);
+
+    const legend = chartSeven_svg.append("g")
+      .attr("transform", `translate(${width - 80}, 20)`);
+
+    legend.append("rect")
+      .attr("x", 47)
+      .attr("y", 0)
+      .attr("width", 16)
+      .attr("height", 16)
+      .attr("fill", colorEven)
+      .attr("stroke", "#333")
+      .attr("rx", 4)   
+      .attr("ry", 4)
+      .style("border-radious","8px");
+
+    legend.append("text")
+      .attr("x", 70)
+      .attr("y", 12)
+      .text("Popular food")
+      .style("font-size", "14px");
+
+    legend.append("rect")
+      .attr("x", 47)
+      .attr("y", 25)
+      .attr("width", 16)
+      .attr("height", 16)
+      .attr("fill", colorOdd)
+      .attr("stroke", "#333")
+      .attr("rx", 4)   
+      .attr("ry", 4); 
+
+    legend.append("text")
+      .attr("x", 70)
+      .attr("y", 38)
+      .text("Alternative")
+      .style("font-size", "14px");
   }
 });
+
 //scatter plot
 document.addEventListener("DOMContentLoaded", function () {
     const svg = d3.select("#chartEight");
@@ -883,7 +915,7 @@ fetch('final_data/game_data.json')
       "First courses":     { x: 48, y: 60, size: 150 },
       "Extras":            { x: 10, y: 10, size: 80 },
       "Second courses":    { x: 77, y: 17, size: 100 },
-      "Side dishes":       { x: 80, y: 25, size: 85 },
+      "Side dishes":       { x: 78, y: 25, size: 90 },
       "Drinks":            { x: 30, y: 10, size: 50 },
       "Desserts & Fruits": { x: 13, y: 33, size: 55 }
     };

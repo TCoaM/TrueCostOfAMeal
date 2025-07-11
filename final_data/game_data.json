@@ -130,7 +130,7 @@
     "water": 15139.0,
     "cost": 26.01,
     "meal_type": "Second courses",
-    "image": "",
+    "image": "images/beef.png",
     "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/beef.png"
   },
 
@@ -198,7 +198,7 @@
     "water": 195.0,
     "cost": 1.64,
     "meal_type": "Side dishes",
-    "image": "images/carrot.png",
+    "image": "images/carrots.png",
     "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/carrot.png"
   },
   "hams": {
