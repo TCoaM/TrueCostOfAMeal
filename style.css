@@ -183,6 +183,18 @@ h5 {
   padding-bottom:0.5%
 }
 
+.dataSource{
+  width:auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  gap: 1%;
+}
+
+.dataSource p{padding-top:1%}
+
+.dataSource a{padding: 16px; background-color: #4caf50  !important ;color: white; text-decoration: none; 
+  border-radius: 15px;}
 
 .chart_container,
 .arrow_container,
