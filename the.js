@@ -646,7 +646,7 @@ function drawChart(theme) {
   .attr("text-anchor", "middle")
   .style("font-size", "15px")
   .style("fill", "#333")
-  .text(d => Math.ceil(d[valueKey]))
+  .text(d => d[valueKey].toFixed(1))
 ;
 }
 
@@ -710,7 +710,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .attr("transform", `translate(${margin.left},${margin.top})`);
 
     const valueKey = theme === "water" ? "water" : "co2";
-    const yLabel = theme === "water" ? "Liters / KG" : "kg CO₂ eq / KG";
+    const yLabel = theme === "water" ? "Liters / kg" : "g CO₂ eq / g";
 
     const x = d3.scaleBand()
       .domain(chartSeven_data.map(d => d.name))
@@ -763,7 +763,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .attr("text-anchor", "middle")
       .style("font-size", "15px")
       .style("fill", "#333")
-      .text(d => Math.round(d[valueKey]));
+      .text(d => d[valueKey].toFixed(1));
 
     chart.append("text")
       .attr("x", -height / 2)
@@ -848,7 +848,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
       const xKey = theme === "water" ? "water" : "co2";
-      const xLabel = theme === "water" ? "Liters / KG" : "kg CO₂ eq / KG";
+      const xLabel = theme === "water" ? "Liters / kg" : "g CO₂ eq / g";
 
       const x = d3.scaleLinear()
         .domain([0, d3.max(data, d => d[xKey]) || 0])
