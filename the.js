@@ -917,7 +917,7 @@ fetch('final_data/game_data.json')
       "Second courses":    { x: 77, y: 17, size: 100 },
       "Side dishes":       { x: 78, y: 25, size: 90 },
       "Drinks":            { x: 30, y: 10, size: 50 },
-      "Desserts & Fruits": { x: 13, y: 33, size: 55 }
+      "Desserts & Fruits": { x: 13, y: 33, size: 80 }
     };
 
     const optionsDiv = document.getElementById('ingredient-options');
