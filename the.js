@@ -637,7 +637,7 @@ function drawChart(theme) {
     .attr("transform", "rotate(-90)")
     .attr("text-anchor", "middle")
     .style("font-size", "16px")
-    .text(theme === "co2" ? "g CO₂-eq per g or mL of Food" : "Liters per kg or L of Food");
+    .text(theme === "co2" ? "kg CO₂-eq per kg or L of Food" : "Liters per kg or L of Food");
   
   svg.selectAll("text.value-label")
   .data(rawData)
@@ -713,7 +713,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .attr("transform", `translate(${margin.left},${margin.top})`);
 
     const valueKey = theme === "water" ? "water" : "co2";
-    const yLabel = theme === "water" ? "Liters per kg or L of Food" : "g CO₂-eq per g or mL of Food";
+    const yLabel = theme === "water" ? "Liters per kg or L of Food" : "kg CO₂-eq per kg or L of Food";
 
     const x = d3.scaleBand()
       .domain(chartSeven_data.map(d => d.name))
@@ -767,6 +767,21 @@ document.addEventListener("DOMContentLoaded", function () {
       .style("font-size", "15px")
       .style("fill", "#333")
       .text(d => d[valueKey].toFixed(1));
+
+    const dividerIndexes = [2, 4, 6]; // Between bars 2–3, 4–5, 6–7
+
+      dividerIndexes.forEach(index => {
+        const xPos = (x(chartSeven_data[index - 1].name) + x(chartSeven_data[index].name)) / 2 + x.bandwidth() / 2;
+
+        chart.append("line")
+          .attr("x1", xPos)
+          .attr("x2", xPos)
+          .attr("y1", 0)
+          .attr("y2", height)
+          .attr("stroke", "#555")
+          .attr("stroke-width", 1)
+          .attr("stroke-dasharray", "4,4"); // dotted line
+      });
 
     chart.append("text")
       .attr("x", -height / 2)
@@ -851,7 +866,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
       const xKey = theme === "water" ? "water" : "co2";
-      const xLabel = theme === "water" ? "Liters per kg or L of Food" : "g CO₂-eq per g or mL of Food";
+      const xLabel = theme === "water" ? "Liters per kg or L of Food" : "kg CO₂-eq per kg or L of Food";
 
       const x = d3.scaleLinear()
         .domain([0, d3.max(data, d => d[xKey]) || 0])

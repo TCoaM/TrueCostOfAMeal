@@ -1,4 +1,12 @@
 {
+  "farmland": {
+    "label": "farmland",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2808",
+    "altLabels": [
+      "agricultural land",
+      "cropland"
+    ]
+  },
   "land area": {
     "label": "land area",
     "uri": "http://aims.fao.org/aos/agrovoc/c_298db0d3",
@@ -1080,5 +1088,17 @@
     "label": "tuna",
     "uri": "http://aims.fao.org/aos/agrovoc/c_8003",
     "altLabels": []
+  },
+  "other land use": {
+    "label": "land use",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_4182",
+    "altLabels": []
+  },
+  "agricultural land": {
+    "label": "farmland",
+    "uri": "http://aims.fao.org/aos/agrovoc/c_2808",
+    "altLabels": [
+      "agricultural land"
+    ]
   }
 }
