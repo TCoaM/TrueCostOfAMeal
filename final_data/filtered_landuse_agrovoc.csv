@@ -1,4 +1,4 @@
-,Item,Value,AGROVOC_label,AGROVOC_uri
-0,Agricultural land,4841328.9464,farmland,http://aims.fao.org/aos/agrovoc/c_2808
-1,Forest land,4068923.9842,forest land,http://aims.fao.org/aos/agrovoc/c_24843
-2,Other land use,4121270.625400001,land use,http://aims.fao.org/aos/agrovoc/c_4182
+Item,Value,AGROVOC_label,AGROVOC_uri
+Agricultural land,4841328.9464,farmland,http://aims.fao.org/aos/agrovoc/c_2808
+Forest land,4068923.9842,forest land,http://aims.fao.org/aos/agrovoc/c_24843
+Other land use,4121270.625400001, other land use,http://aims.fao.org/aos/agrovoc/c_4182
