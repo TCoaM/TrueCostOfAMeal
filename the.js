@@ -465,7 +465,7 @@ function drawZoomedFoodChart(foodData, colorScale, containerWidth) {
     .attr("y", chartHeight + margin.top + 40)
     .attr("text-anchor", "middle")
     .style("font-size", "15px")
-    .text("(CO₂ equivalent emissions in kilotons");
+    .text("CO₂ equivalent emissions in kilotons");
 
   const total = d3.sum(data, d => d.value);
 }
