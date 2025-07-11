@@ -1,0 +1,86 @@
+#credit-container{
+    padding: 7%;
+}
+
+.credit-intro{
+    padding-bottom: 2%;
+}
+#methodology-text{
+    padding-bottom: 10%
+}
+
+#datasets{
+    padding-bottom: 10%;
+    width: 100%;
+}
+#dataset-table{
+    width: 100%;
+}
+
+table thead {
+  border-bottom: 2px solid #ccc;
+}
+
+td{
+    padding: 1%;
+}
+
+td a{
+    font-weight: bold;
+    color: #FFAF2F!important;
+}
+
+#cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 1.5rem;
+  height: fit-content;
+}
+
+.card {
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  background-color: rgba(236, 238, 206, 1)!important;
+  height: 50vh;
+  padding: 1rem;
+  border-radius: 12px;
+  
+}
+
+.card-img{
+    display: flex;
+    align-items: center;
+    background-color: rgba(236, 238, 206, 1)!important;
+}
+.card-img img{
+    background-color: transparent;
+    width: 25%;
+    height: 30%;
+}
+.card-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color:rgba(236, 238, 206, 1)!important;
+}
+
+.card-name{
+    padding-left: 10%;
+    padding-top: 7%;
+    background-color:rgba(236, 238, 206, 1)!important;
+}
+.card-name h5{
+    background-color:rgba(236, 238, 206, 1)!important;
+}
+
+.card-role  {
+    background-color:rgba(236, 238, 206, 1)!important;
+}
+.card-role ul {
+    background-color:rgba(236, 238, 206, 1)!important;
+    padding-right: 10%;
+    padding-top: 10%;
+}
+.card-role ul li {
+    background-color:rgba(236, 238, 206, 1)!important;
+    padding: 1%;
+}
