@@ -20,7 +20,7 @@
     "cost": 16.94,
     "meal_type": "Drinks",
     "image": "images/coffe.png",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/cofee.png"
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/coffe.png"
   },
   "apples": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_541",
@@ -210,7 +210,7 @@
     "cost": 29.47,
     "meal_type": "Second courses",
     "image": "images/hams.png",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/ham.png"
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/hams.png"
   },
   "cod": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_1717",
@@ -254,7 +254,7 @@
     "cost": 4.24,
     "meal_type": "Desserts & Fruits",
     "image": "images/biscuits.png",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/biscuit.png"
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/biscuits.png"
   },
   "salmon": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_6756",

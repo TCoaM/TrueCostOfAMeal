@@ -71,8 +71,9 @@ function drawWaterChart() {
       .attr("y", 115)
       .attr("text-anchor", "start")
       .style("font-size", "32px")
-      .style("font-family", "sans-serif")
-      .text("23.60B L");
+      .style("font-family", "caveat")
+      .style("font-weight", "bold")
+      .text("2.85 QUADRILLION LITERS PER YEAR");
 
     svg.append("text")
       .attr("x", waterChartRadius + 250)
@@ -81,7 +82,8 @@ function drawWaterChart() {
       .attr("text-anchor", "start")
       .style("font-size", "16px")
       .style("fill", "#333")
-      .text("total agricultural water withdrawal");
+      .text("just for the agricultural sector");
+      
 
     setTimeout(() => {
       arcs.append("text")
@@ -301,6 +303,7 @@ function drawGroupedBarChart() {
       .attr("transform", "rotate(-40)")
       .style("text-anchor", "end")
       .style("font-size", "15px");
+      
 
     svg.append("g").call(d3.axisLeft(y));
 
@@ -553,7 +556,7 @@ function drawPopularityChart(data) {
     .attr("transform", "rotate(-90)")
     .attr("text-anchor", "middle")
     .style("font-size", "15px")
-    .text("Mean Consumption (kg or L per year)");
+    .text("Mean Daily Consumption (g or mL)");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -634,7 +637,7 @@ function drawChart(theme) {
     .attr("transform", "rotate(-90)")
     .attr("text-anchor", "middle")
     .style("font-size", "16px")
-    .text(theme === "co2" ? "g CO₂ eq / g" : "Liters / kg");
+    .text(theme === "co2" ? "g CO₂-eq per g or mL of Food" : "Liters per kg or L of Food");
   
   svg.selectAll("text.value-label")
   .data(rawData)
@@ -710,7 +713,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .attr("transform", `translate(${margin.left},${margin.top})`);
 
     const valueKey = theme === "water" ? "water" : "co2";
-    const yLabel = theme === "water" ? "Liters / kg" : "g CO₂ eq / g";
+    const yLabel = theme === "water" ? "Liters per kg or L of Food" : "g CO₂-eq per g or mL of Food";
 
     const x = d3.scaleBand()
       .domain(chartSeven_data.map(d => d.name))
@@ -848,7 +851,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
       const xKey = theme === "water" ? "water" : "co2";
-      const xLabel = theme === "water" ? "Liters / kg" : "g CO₂ eq / g";
+      const xLabel = theme === "water" ? "Liters per kg or L of Food" : "g CO₂-eq per g or mL of Food";
 
       const x = d3.scaleLinear()
         .domain([0, d3.max(data, d => d[xKey]) || 0])
@@ -881,7 +884,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .attr("x", -innerHeight / 2)
         .attr("text-anchor", "middle")
         .style("font-size", "14px")
-        .text("Price (€/KG)");
+        .text("Price (€ per kg or L)");
 
       // Dots
       g.selectAll("circle")
