@@ -70,10 +70,10 @@ function drawWaterChart() {
       .attr("x", waterChartRadius + 250)
       .attr("y", 115)
       .attr("text-anchor", "start")
-      .style("font-size", "2.5rem")
+      .style("font-size", "32px")
       .style("font-family", "caveat")
       .style("font-weight", "bold")
-      .text("2.85 Quadrillion Liters per Year");
+      .text("2.85 QUADRILLION LITERS PER YEAR");
 
     svg.append("text")
       .attr("x", waterChartRadius + 250)
@@ -196,10 +196,9 @@ function drawLandChart() {
       .attr("x", radius4 + 200)
       .attr("y", 95)
       .attr("text-anchor", "start")
-      .style("font-size", "2.5rem")
-      .style("font-family", "caveat")
-      .style("font-weight", "bold")
-      .text("~4.84 Million Hectares");
+      .style("font-size", "32px")
+      .style("font-family", "sans-serif")
+      .text("49.8M ha");
 
     svg.append("text")
       .attr("x", radius4 + 200)
@@ -207,7 +206,7 @@ function drawLandChart() {
       .attr("text-anchor", "start")
       .style("font-size", "16px")
       .style("fill", "#333")
-      .text("of land used for agriculture");
+      .text("total agricultural land");
 
     setTimeout(() => {
       arcs.append("text")
@@ -465,7 +464,7 @@ function drawZoomedFoodChart(foodData, colorScale, containerWidth) {
     .attr("y", chartHeight + margin.top + 40)
     .attr("text-anchor", "middle")
     .style("font-size", "15px")
-    .text("CO₂ equivalent emissions in kilotons");
+    .text("Environmental Impact");
 
   const total = d3.sum(data, d => d.value);
 }
@@ -638,7 +637,7 @@ function drawChart(theme) {
     .attr("transform", "rotate(-90)")
     .attr("text-anchor", "middle")
     .style("font-size", "16px")
-    .text(theme === "co2" ? "kg CO₂-eq per kg or L of Food" : "Liters per kg or L of Food");
+    .text(theme === "co2" ? "g CO₂-eq per g or mL of Food" : "Liters per kg or L of Food");
   
   svg.selectAll("text.value-label")
   .data(rawData)
@@ -714,7 +713,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .attr("transform", `translate(${margin.left},${margin.top})`);
 
     const valueKey = theme === "water" ? "water" : "co2";
-    const yLabel = theme === "water" ? "Liters per kg or L of Food" : "kg CO₂-eq per kg or L of Food";
+    const yLabel = theme === "water" ? "Liters per kg or L of Food" : "g CO₂-eq per g or mL of Food";
 
     const x = d3.scaleBand()
       .domain(chartSeven_data.map(d => d.name))
@@ -768,21 +767,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .style("font-size", "15px")
       .style("fill", "#333")
       .text(d => d[valueKey].toFixed(1));
-
-    const dividerIndexes = [2, 4, 6]; // Between bars 2–3, 4–5, 6–7
-
-      dividerIndexes.forEach(index => {
-        const xPos = (x(chartSeven_data[index - 1].name) + x(chartSeven_data[index].name)) / 2 + x.bandwidth() / 2;
-
-        chart.append("line")
-          .attr("x1", xPos)
-          .attr("x2", xPos)
-          .attr("y1", 0)
-          .attr("y2", height)
-          .attr("stroke", "#555")
-          .attr("stroke-width", 1)
-          .attr("stroke-dasharray", "4,4"); // dotted line
-      });
 
     chart.append("text")
       .attr("x", -height / 2)
@@ -867,7 +851,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
       const xKey = theme === "water" ? "water" : "co2";
-      const xLabel = theme === "water" ? "Liters per kg or L of Food" : "kg CO₂-eq per kg or L of Food";
+      const xLabel = theme === "water" ? "Liters per kg or L of Food" : "g CO₂-eq per g or mL of Food";
 
       const x = d3.scaleLinear()
         .domain([0, d3.max(data, d => d[xKey]) || 0])
@@ -934,7 +918,7 @@ fetch('final_data/game_data.json')
       "First courses":     { x: 48, y: 60, size: 150 },
       "Extras":            { x: 10, y: 10, size: 78 },
       "Second courses":    { x: 77, y: 17, size: 100 },
-      "Side dishes":       { x: 80, y: 23, size: 85},
+      "Side dishes":       { x: 85, y: 24, size: 85},
       "Drinks":            { x: 30, y: 10, size: 50 },
       "Desserts & Fruits": { x: 13, y: 33, size: 80 }
     };

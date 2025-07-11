@@ -293,6 +293,12 @@ h5 {
   padding: 2% 0;
 }
 
+.plateIntro a, .plateIntro a:hover{
+  color: #4caf50;
+  font-weight: 500;
+  text-decoration: none;
+}
+
 .plate-menu-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -352,7 +358,7 @@ h5 {
 
 .menu-side h2 {
   font-family: "Caveat", cursive;
-  font-size: 28px;
+  font-size: 35px !important;
   padding-left: 5%;
   
 }
@@ -365,7 +371,7 @@ h5 {
 }
 
 .food-group h3 {
-  font-size: 20px;
+  font-size: 17px;
   margin-bottom: 10px;
   padding-bottom: 5px;
 }
@@ -374,10 +380,13 @@ h5 {
   display: block;
   margin-bottom: 6px;
 }
+input[type="radio"] {
+            accent-color:#4caf50; 
+        }
 
 #confirm-btn {
   float: right;
-  margin: 2%;
+  margin:3% 2%;
   padding: 10px 20px;
   font-size: 16px;
   background: #333 !important;
