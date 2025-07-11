@@ -197,8 +197,9 @@ function drawLandChart() {
       .attr("y", 95)
       .attr("text-anchor", "start")
       .style("font-size", "32px")
-      .style("font-family", "sans-serif")
-      .text("49.8M ha");
+      .style("font-family", "caveat")
+      .style("font-weight", "bold")
+      .text("~4.84 MILLION HECTARES");
 
     svg.append("text")
       .attr("x", radius4 + 200)
@@ -206,7 +207,7 @@ function drawLandChart() {
       .attr("text-anchor", "start")
       .style("font-size", "16px")
       .style("fill", "#333")
-      .text("total agricultural land");
+      .text("of land used for agriculture");
 
     setTimeout(() => {
       arcs.append("text")
@@ -464,7 +465,7 @@ function drawZoomedFoodChart(foodData, colorScale, containerWidth) {
     .attr("y", chartHeight + margin.top + 40)
     .attr("text-anchor", "middle")
     .style("font-size", "15px")
-    .text("Environmental Impact");
+    .text("(CO₂ equivalent emissions in kilotons");
 
   const total = d3.sum(data, d => d.value);
 }
