@@ -131,7 +131,7 @@ h5 {
   font-family: "Caveat", cursive;
 }
 
-.hero h1 {  
+.hero h1 {background-color: transparent !important;
   padding-top: 15%;
   font-family: "Caveat", cursive;
   font-size: 3em;
@@ -139,6 +139,11 @@ h5 {
 }
 
 .hero{  height: 100vh;
+  background-color: transparent !important;
+  background-image: url("images/backgroundhero.png");
+  
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; 
 }
 
 .introText{font-size: 1.5em;

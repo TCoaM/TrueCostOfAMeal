@@ -913,11 +913,11 @@ fetch('final_data/game_data.json')
 
     const mealTypePositions = {
       "First courses":     { x: 48, y: 60, size: 150 },
-      "Extras":            { x: 10, y: 10, size: 80 },
+      "Extras":            { x: 10, y: 10, size: 78 },
       "Second courses":    { x: 77, y: 17, size: 100 },
-      "Side dishes":       { x: 78, y: 25, size: 90 },
+      "Side dishes":       { x: 80, y: 23, size: 85},
       "Drinks":            { x: 30, y: 10, size: 50 },
-      "Desserts & Fruits": { x: 13, y: 33, size: 55 }
+      "Desserts & Fruits": { x: 13, y: 33, size: 80 }
     };
 
     const optionsDiv = document.getElementById('ingredient-options');
