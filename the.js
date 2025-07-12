@@ -138,7 +138,7 @@ function drawLandChart() {
 
   const color = d3.scaleOrdinal()
     .domain(["land area", "agriculture", "forest land"])
-    .range(["#8dd3c7", "#ffffb3", "#bebada"]);
+    .range(["#4caf50", "#ffffb3", "#dda15e"]);
 
   d3.csv("final_data/filtered_landuse_agrovoc.csv").then(data => {
     data.forEach(d => d.Value = +d.Value);

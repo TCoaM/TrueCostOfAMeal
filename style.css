@@ -118,8 +118,9 @@ h3 {
 }
 
 h5 {
-  font-size: 1.7rem;
+  font-size: 1.5rem !important;
   padding-top: 2%;
+  font-weight: bold !important;
   font-family: "Caveat", sans-serif !important;
  
 }
