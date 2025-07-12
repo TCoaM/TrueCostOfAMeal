@@ -73,7 +73,7 @@ function drawWaterChart() {
       .style("font-size", "32px")
       .style("font-family", "caveat")
       .style("font-weight", "bold")
-      .text("2.85 QUADRILLION LITERS PER YEAR");
+      .text("2.85 quadrillion liters per year");
 
     svg.append("text")
       .attr("x", waterChartRadius + 250)
@@ -138,7 +138,7 @@ function drawLandChart() {
 
   const color = d3.scaleOrdinal()
     .domain(["land area", "agriculture", "forest land"])
-    .range(["#8dd3c7", "#ffffb3", "#bebada"]);
+    .range(["#4caf50", "#ffffb3", "#dda15e"]);
 
   d3.csv("final_data/filtered_landuse_agrovoc.csv").then(data => {
     data.forEach(d => d.Value = +d.Value);
@@ -197,7 +197,9 @@ function drawLandChart() {
       .attr("y", 95)
       .attr("text-anchor", "start")
       .style("font-size", "32px")
-      .style("font-family", "sans-serif")
+      .style("font-size", "32px")
+      .style("font-family", "caveat")
+      .style("font-weight", "bold")
       .text("49.8M ha");
 
     svg.append("text")
@@ -247,7 +249,7 @@ function drawGroupedBarChart() {
   const container = document.querySelector("#emission_bar_chart").parentElement;
   const containerWidth = container.clientWidth;
 
-  const margin = { top: 10, right: 85, bottom: 130, left: 80 },
+  const margin = { top: 25, right: 85, bottom: 130, left: 80 },
         width = containerWidth - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
@@ -725,6 +727,21 @@ document.addEventListener("DOMContentLoaded", function () {
       .nice()
       .range([height, 0]);
 
+      const groupCount = Math.floor(chartSeven_data.length / 2);
+      for (let i = 1; i < groupCount; i++) {
+        const sepX = x(chartSeven_data[i * 2].name) - x.paddingInner() * x.step() / 2;
+
+        chart.append("line")
+          .attr("x1", sepX)
+          .attr("x2", sepX)
+          .attr("y1", 0)
+          .attr("y2", height)
+          .attr("stroke", "#999")
+          .attr("stroke-width", 1)
+          .attr("stroke-dasharray", "4 3");
+      }
+
+
     chart.append("g")
       .attr("transform", `translate(0, ${height})`)
       .call(d3.axisBottom(x))
@@ -918,7 +935,7 @@ fetch('final_data/game_data.json')
       "First courses":     { x: 48, y: 60, size: 150 },
       "Extras":            { x: 10, y: 10, size: 78 },
       "Second courses":    { x: 77, y: 17, size: 100 },
-      "Side dishes":       { x: 85, y: 24, size: 85},
+      "Side dishes":       { x: 85, y: 24, size: 85 },
       "Drinks":            { x: 30, y: 10, size: 60 },
       "Desserts & Fruits": { x: 13, y: 33, size: 80 }
     };
@@ -993,7 +1010,7 @@ function showResults(data) {
 
   if (selected.length === 0) return;
 
-  let total = { co2: 0, water: 0, land: 0 };
+  let total = { co2: 0, water: 0, cost: 0 };
 
   const breakdownDiv = document.getElementById('breakdown');
   breakdownDiv.innerHTML = '';
@@ -1002,23 +1019,31 @@ function showResults(data) {
     const info = data[item];
     if (!info) return;
 
-    total.co2 += info.co2;
-    total.water += info.water;
-    total.land += info.land;
+    const grams = info.consumption || 0; 
+    const kg = grams / 1000;
+
+    const co2 = info.carbon * grams;      
+    const water = info.water * kg;        
+    const cost = info.cost * kg;           
+
+    total.co2 += co2 / 1000;             
+    total.water += water;
+    total.cost += cost;
 
     const div = document.createElement('div');
     div.className = 'breakdown-item';
     div.innerHTML = `
       <a href="${info.link}" target="_blank">${item.charAt(0).toUpperCase() + item.slice(1)}</a><br>
-      CO₂: ${info.carbon.toFixed(2)} kg<br>
-      Water: ${info.water.toLocaleString()} liters<br>
+      CO₂: ${(co2 / 1000).toFixed(2)} kg<br>
+      Water: ${Math.round(water).toLocaleString()} liters<br>
+      Cost: €${cost.toFixed(2)}<br>
     `;
     breakdownDiv.appendChild(div);
   });
 
   document.getElementById('co2-value').textContent = total.co2.toFixed(2);
-  document.getElementById('water-value').textContent = total.water.toLocaleString();
-  document.getElementById('cost-value').textContent = total.land.toFixed(2);
+  document.getElementById('water-value').textContent = Math.round(total.water).toLocaleString();
+  document.getElementById('cost-value').textContent = total.cost.toFixed(2);
 
   const resultsSection = document.getElementById('results-section');
   if (resultsSection) {
