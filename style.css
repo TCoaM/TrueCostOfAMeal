@@ -155,22 +155,24 @@ h5 {
   font-size:15px;
   text-decoration: none;
   color:#333;
-  border: 1px solid #333;
-  padding: 1% 1.5%;
+  border-bottom: 1px solid #333;
   font-weight:500;
+  padding-bottom:5% !important;
+  transition: ease 0.5s;
+
   
-  border-radius: 20px;
 }
-.introText div{padding-top:1%}
+.introText div{
+  float:right;
+}
 
 .introText a:hover{
   transition: ease 0.5s;
   text-decoration: none;
-  color:#FFFAF4;
-  padding: 1% 1.5%;
-  font-weight:500;
-  background-color: #4caf50 !important;
-  border-radius: 20px;
+  color: #4caf50 !important;
+  border-bottom: 1px solid #4caf50 ;
+
+
 }
 .introText h3{
   font-size: 1.2rem;

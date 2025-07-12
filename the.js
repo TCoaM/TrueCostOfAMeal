@@ -486,7 +486,7 @@ observer.observe(document.querySelector("#emission_bar_chart"));
 //italy
 //top food items
 function drawPopularityChart(data) {
-  const marginPOP = { top: 40, right: 40, bottom: 150, left: 80 };
+  const marginPOP = { top: 40, right: 40, bottom: 90, left: 80 };
   const fullWidthPOP = 1000;
   const fullHeightPOP = 500;
   const widthPOP = fullWidthPOP - marginPOP.left - marginPOP.right;
@@ -574,9 +574,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 //food items emissions+water
-const margin = { top: 40, right: 40, bottom: 150, left: 80 };
+const margin = { top: 40, right: 40, bottom: 90, left: 80 };
 const fullWidth = 1000;
-const fullHeight = 500;
+const fullHeight = 400;
 const width = fullWidth - margin.left - margin.right;
 const height = fullHeight - margin.top - margin.bottom;
 
@@ -674,9 +674,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const chartSeven_svg = d3.select("#chartSeven")
     .attr("width", 1000)
-    .attr("height", 550); 
+    .attr("height", 450); 
 
-  const margin = { top: 40, right: 40, bottom: 120, left: 80 };
+  const margin = { top: 40, right: 40, bottom: 50, left: 80 };
   const width = 1000 - margin.left - margin.right;
   const height = 500 - margin.top - margin.bottom;
 
