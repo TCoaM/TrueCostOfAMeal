@@ -674,9 +674,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const chartSeven_svg = d3.select("#chartSeven")
     .attr("width", 1000)
-    .attr("height", 450); 
+    .attr("height", 580); 
 
-  const margin = { top: 40, right: 45, bottom: 70, left: 85 };
+  const margin = { top: 40, right: 45, bottom: 90, left: 85 };
   const width = 1000 - margin.left - margin.right;
   const height = 500 - margin.top - margin.bottom;
 
