@@ -919,7 +919,7 @@ fetch('final_data/game_data.json')
       "Extras":            { x: 10, y: 10, size: 78 },
       "Second courses":    { x: 77, y: 17, size: 100 },
       "Side dishes":       { x: 85, y: 24, size: 85},
-      "Drinks":            { x: 30, y: 10, size: 50 },
+      "Drinks":            { x: 30, y: 10, size: 60 },
       "Desserts & Fruits": { x: 13, y: 33, size: 80 }
     };
 

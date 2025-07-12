@@ -131,9 +131,9 @@ h5 {
   display: flex;}
 
 .introIta img{
-  width:25% !important;
-  height:25% !important;
-  flex:40% !important}
+  width:30% !important;
+  height:30% !important;
+  flex:50% !important}
 
 .cavText {
   font-size: 1.4rem;
