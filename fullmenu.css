@@ -94,12 +94,15 @@ background-color: rgba(236, 238, 206, 1)!important
   margin-bottom: 10px;
   padding: 5%;
 }
+
+
 #impactRadarChart{
-position: absolute;
-  top: 25%;
+  position: absolute;
+  top: 130px;
   right: 25px;
-  background-color: blue;
+  background-color: transparent !important;
 }
+
 .food-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
