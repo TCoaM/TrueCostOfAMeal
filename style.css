@@ -5,6 +5,15 @@
   background-color: #FFFAF4 !important;
 }
 
+.hiddenThing{
+  opacity:0;
+  transition: all 2s;
+}
+
+.show{
+  opacity:1;
+}
+
 .leftPadding{ 
   border-left: 2px solid #4caf50; 
   padding-left: 15px; 
@@ -434,6 +443,7 @@ input[type="radio"] {
         }
 
 #confirm-btn {
+  text-decoration: none;
   float: right;
   margin:3% 2%;
   padding: 10px 20px;

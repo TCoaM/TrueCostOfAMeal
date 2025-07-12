@@ -1049,4 +1049,26 @@ function showResults(data) {
   if (resultsSection) {
     resultsSection.classList.remove('hidden');
   }
+  document.querySelector('.results-summary')?.scrollIntoView({ behavior: 'smooth' });
+  setTimeout(() => {
+    document.querySelector('.results-summary')?.scrollIntoView({ behavior: 'smooth' });
+  }, 100); 
+
 }
+
+
+//animations 
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      } else {
+        entry.target.classList.remove("show");
+      }
+    });
+  });
+
+  const hiddenElements = document.querySelectorAll(".hiddenThing"); 
+  hiddenElements.forEach((el) => observer.observe(el));
+});
