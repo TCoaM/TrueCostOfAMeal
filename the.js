@@ -676,7 +676,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .attr("width", 1000)
     .attr("height", 450); 
 
-  const margin = { top: 40, right: 40, bottom: 50, left: 80 };
+  const margin = { top: 40, right: 45, bottom: 70, left: 85 };
   const width = 1000 - margin.left - margin.right;
   const height = 500 - margin.top - margin.bottom;
 
@@ -819,7 +819,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const svg = d3.select("#chartEight");
     const width = +svg.attr("width");
     const height = +svg.attr("height");
-    const margin = { top: 40, right: 40, bottom: 60, left: 80 };
+    const margin = { top: 40, right: 40, bottom: 50, left: 80 };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
 
