@@ -20,11 +20,8 @@ function openModalBtn(btn) {
     document.getElementById("modalTitle").textContent = displayName;
 
     // Use a placeholder image if entry.image is empty or null
-    const imageUrlplate = entry.imageButton;
-    document.getElementById("modalImg").src = imageUrlplate;
-    document.getElementById("modalImg").alt = key;
+  
 
-    const waterHL = entry.water ? (parseFloat(entry.water) / 100).toFixed(2) : 'Data not available';
 
     document.getElementById("modalDescription").innerHTML = `
       <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Agrovoc URI:</span> ${entry.AGROVOC_uri || 'Data not available'}<br>
@@ -38,12 +35,12 @@ function openModalBtn(btn) {
     document.getElementById("modal").style.display = "block";
 
     
-    const carbon = parseFloat(entry.carbon) || 0;
-    const water = parseFloat(entry.water) || 0;
-    const cost = parseFloat(entry.cost) || 0;
-    const waterdaLNum = water / 10;
+    const carbon = parseFloat(entry.carbon).toFixed(2) || 0;
+    const water = parseFloat(entry.water).toFixed(2) || 0;
+    const cost = parseFloat(entry.cost).toFixed(2) || 0;
+    const waterkL = (parseFloat(entry.water) / 1000).toFixed(2)|| 0;
 
-    drawRadarChart(carbon, waterdaLNum, cost);
+    drawRadarChart(carbon, waterkL, cost);
 
   } else {
     document.getElementById("modalTitle").textContent = "Not found";
@@ -138,7 +135,7 @@ function drawRadarChart(carbon, water, cost) {
     data: {
       labels: [
         'Carbon (g CO₂eq/g)',
-        'Water (daL/kg)',
+        'Water (m³/kg)',
         'Cost (€/kg)'
       ],
       datasets: [{
@@ -167,7 +164,7 @@ function drawRadarChart(carbon, water, cost) {
           pointLabels: {
             font: {
               size: 14,
-              weight: 'bold'
+              
             },
             callback: function(label, index) {
               // Keep only unit at the axis, rounded already
@@ -175,7 +172,7 @@ function drawRadarChart(carbon, water, cost) {
             }
           },
           grid: {
-            color: 'rgba(200, 200, 200, 0.3)'
+            color: 'rgba(150, 150, 150, 0.2)'
           },
           angleLines: {
             color: 'rgba(150, 150, 150, 0.2)'
