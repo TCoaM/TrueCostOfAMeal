@@ -920,7 +920,7 @@ fetch('final_data/game_data.json')
       "First courses":     { x: 48, y: 60, size: 150 },
       "Extras":            { x: 10, y: 10, size: 78 },
       "Second courses":    { x: 77, y: 17, size: 100 },
-      "Side dishes":       { x: 85, y: 24, size: 85},
+      "Side dishes":       { x: 85, y: 24, size: 85 },
       "Drinks":            { x: 30, y: 10, size: 60 },
       "Desserts & Fruits": { x: 13, y: 33, size: 80 }
     };
@@ -995,7 +995,7 @@ function showResults(data) {
 
   if (selected.length === 0) return;
 
-  let total = { co2: 0, water: 0, land: 0 };
+  let total = { co2: 0, water: 0, cost: 0 };
 
   const breakdownDiv = document.getElementById('breakdown');
   breakdownDiv.innerHTML = '';
@@ -1004,23 +1004,31 @@ function showResults(data) {
     const info = data[item];
     if (!info) return;
 
-    total.co2 += info.co2;
-    total.water += info.water;
-    total.land += info.land;
+    const grams = info.consumption || 0; 
+    const kg = grams / 1000;
+
+    const co2 = info.carbon * grams;      
+    const water = info.water * kg;        
+    const cost = info.cost * kg;           
+
+    total.co2 += co2 / 1000;             
+    total.water += water;
+    total.cost += cost;
 
     const div = document.createElement('div');
     div.className = 'breakdown-item';
     div.innerHTML = `
       <a href="${info.link}" target="_blank">${item.charAt(0).toUpperCase() + item.slice(1)}</a><br>
-      CO₂: ${info.carbon.toFixed(2)} kg<br>
-      Water: ${info.water.toLocaleString()} liters<br>
+      CO₂: ${(co2 / 1000).toFixed(2)} kg<br>
+      Water: ${Math.round(water).toLocaleString()} liters<br>
+      Cost: €${cost.toFixed(2)}<br>
     `;
     breakdownDiv.appendChild(div);
   });
 
   document.getElementById('co2-value').textContent = total.co2.toFixed(2);
-  document.getElementById('water-value').textContent = total.water.toLocaleString();
-  document.getElementById('cost-value').textContent = total.land.toFixed(2);
+  document.getElementById('water-value').textContent = Math.round(total.water).toLocaleString();
+  document.getElementById('cost-value').textContent = total.cost.toFixed(2);
 
   const resultsSection = document.getElementById('results-section');
   if (resultsSection) {
