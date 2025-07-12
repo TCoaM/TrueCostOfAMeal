@@ -112,7 +112,7 @@ h3 {
 
 h5 {
   font-size: 0.8rem;
-  padding: 2% 0;
+  padding-top: 2%;
   font-family: "Caveat", sans-serif !important;
   text-transform: uppercase;
 }
@@ -183,18 +183,39 @@ h5 {
   padding-bottom:0.5%
 }
 
+#svg4, #svg3{margin:2%}
+
+.titleSelect{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.titleSelect .selectSelect{
+  border-bottom: 1px solid #333;
+  padding-top: 2%;
+  align-items: flex-end;}
+
+.titleSelect select{
+  font-weight: 500;
+  border: #f9f9f9;}
+
 .dataSource{
   width:auto;
   display: flex;
   flex-direction: row;
   flex-wrap:wrap;
-  gap: 1%;
+  justify-content: space-between;
+  border-top:1px solid #333;
+  padding-top:1.5%
 }
+.dataSource p{padding-top:0.5%}
 
-.dataSource p{padding-top:1%}
-
-.dataSource a{padding: 16px; background-color: #4caf50  !important ;color: white; text-decoration: none; 
-  border-radius: 15px;}
+.dataSource a img{
+  height:30px;
+width:auto}
 
 .chart_container,
 .arrow_container,

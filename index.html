@@ -98,7 +98,12 @@
       <div id="pie_3">
       <svg id="svg3"></svg>
     </div>
-
+    <div class="dataSource">
+      <p><strong>Data Source:</strong> FAO, Our World in Data, and other aggregated datasets used for educational purposes.</p>
+      <a href="final_data/italy_food_data.csv" download class="download-btn">
+        <img src="images/download.png">
+    </a>
+    </div>
     </div>
     
   </div>
@@ -107,13 +112,19 @@
       <h4 class="cavText">land</h4>
       <h3>How much land is used to produce food?</h3>
       <p>Almost half the planet is feeding us, quite literally.</p>
-      <p>Nearly 40% of the world’s habitable land is used for agriculture. That’s a huge chunk of Earth’s surface devoted to growing crops and raising animals. Unlike factories or homes, food production needs space, a <em>lot</em> of it. Fields for wheat, orchards for fruit, pastures for livestock... all that land adds up.</p>
+      <p>Nearly 40% of the world’s habitable land is used for agriculture. That’s a huge chunk of Earth’s surface devoted to growing crops and raising animals. Unlike factories or homes, food production needs space, a <strong>lot</strong> of it. Fields for wheat, orchards for fruit, pastures for livestock... all that land adds up.</p>
       <p>But this land hunger comes at a cost. Expanding farmland often means cutting down forests, destroying habitats, and pushing wildlife out. It’s one of the biggest drivers of biodiversity loss today.</p>
       <p>In this chart, you can see how global land is divided: from agricultural use to forests, cities, and other land types. Spoiler: food takes the biggest bite.</p>
       <div id="pie_4">
         <h5>Agriculture: The World’s Largest Landowner</h5>       
         <svg id="svg4"></svg>
       </div>
+      <div class="dataSource">
+      <p><strong>Data Source:</strong> FAO, Our World in Data, and other aggregated datasets used for educational purposes.</p>
+      <a href="final_data/italy_food_data.csv" download class="download-btn">
+        <img src="images/download.png">
+    </a>
+    </div>
   </div>
 
   <div class="section five">
@@ -139,7 +150,14 @@
         <div>
           <svg id="food_zoom_chart"></svg>
         </div>
+        
       </div>
+      <div class="dataSource">
+      <p><strong>Data Source:</strong> FAO, Our World in Data, and other aggregated datasets used for educational purposes.</p>
+      <a href="final_data/italy_food_data.csv" download class="download-btn">
+        <img src="images/download.png">
+    </a>
+    </div>
     <p>As we can see in the chart, the <strong>process with the highest emissions is livestock production</strong> . And it’s no surprise: as you’ll see later, <strong>animal products have some of the highest carbon footprints</strong> . Interestingly, food <strong>transportation doesn’t contribute</strong>  nearly as much as people often think. So maybe it’s time to <strong>swap the slogan "eat local" with a new one: "eat plants."</strong> </p>
   </div>
 
@@ -159,6 +177,12 @@
     <div id="chartPopularity">
        <svg id="svgPopularity" width="1000" height="500"></svg>
     </div>
+    <div class="dataSource">
+      <p><strong>Data Source:</strong> FAO, Our World in Data, and other aggregated datasets used for educational purposes.</p>
+      <a href="final_data/italy_food_data.csv" download class="download-btn">
+        <img src="images/download.png">
+    </a>
+    </div>
   </div>
   <div class="ita">
     <h4 class="cavText">co₂ and water</h4>
@@ -166,6 +190,17 @@
     <p>Among the 12 most consumed foods in Italy, vegetables are the most sustainable: they consume little water and produce less CO₂. On the contrary, meat, particularly beef, has a much higher environmental impact, especially in terms of emissions and resources needed for production.</p>
     <p>But what about the milk? Even if it comes from the same animal, it has a much lower impact than beef: probably because a cow can produce milk for years, while meat requires slaughter and more resources.</p>
     <p>Oil is an unexpected champion of water consumption, together with coffee and beef.</p>
+    <h5>CO₂ for Dinner? Beef Says Yes</h5>
+    <div class="titleSelect">
+      <h5>Footprint Comparison</h5>
+      <div id="graphEight" class="selectSelect">
+        <label for="theme-eight">Select impact</label>
+        <select id="theme-eight">
+          <option value="co2">CO₂ Emissions</option>
+          <option value="water">Water Usage</option>
+        </select>
+      </div>
+    </div>
     <div id="graphSix">
       <label for="theme">Select impact</label>
       <select id="theme">
@@ -174,6 +209,12 @@
       </select>
     </div>
     <svg id="chartSix" width="1000" height="500"></svg>
+    <div class="dataSource">
+      <p><strong>Data Source:</strong> FAO, Our World in Data, and other aggregated datasets used for educational purposes.</p>
+      <a href="final_data/italy_food_data.csv" download class="download-btn">
+        <img src="images/download.png">
+    </a>
+    </div>
 
   </div>
 
@@ -183,13 +224,22 @@
     <p>As we have seen, some of the foods most loved by Italians have an important ecological impact. But the good news is that there are more sustainable alternatives that allow us to enjoy similar dishes, but with a much lighter environmental footprint.</p>
     <p>In general, choosing plant-based foods is almost always a winning choice to reduce CO emissions and water consumption. But beware: it’s not always all black and white. Some foods that emit little CO can consume a lot of water, and vice versa. An example? Soy milk is a good choice in terms of emissions, but higher in water consumption than cow’s milk.</p>
     <p>The key is to be curious and aware: small changes in our eating habits can have a great positive impact on the planet without sacrificing taste!</p>
-    <div id="graphSeven">
-      <label for="theme-seven">Select impact</label>
-      <select id="theme-seven">
-        <option value="co2">CO₂ Emissions</option>
-        <option value="water">Water Usage</option>
-      </select>
-      <svg id="chartSeven" width="1000" height="500"></svg>
+    <div class="titleSelect" id="graphSeven">
+      <h5>Footprint Comparison</h5>
+      <div id="graphSeven" class="selectSelect">
+        <label for="theme-seven">Select impact</label>
+        <select id="theme-seven">
+          <option value="co2">CO₂ Emissions</option>
+          <option value="water">Water Usage</option>
+        </select>
+      </div>
+      <svg id="chartSeven" width="1000" height="400"></svg>
+      <div class="dataSource">
+      <p><strong>Data Source:</strong> FAO, Our World in Data, and other aggregated datasets used for educational purposes.</p>
+      <a href="final_data/italy_food_data.csv" download class="download-btn">
+        <img src="images/download.png">
+    </a>
+    </div>
     </div>
   </div>
 
@@ -198,20 +248,15 @@
     <h3>Is there a correlation between environmental cost and the monetary value of food products?</h3>
     <p>An interesting and somewhat surprising trend emerges from the data collected: there seems to be a correlation between the cost of food and its environmental impact, especially with regard to CO emissions.</p>
     <p>Simply put: the more we spend on food, the more likely it is to pollute. Not always, of course, but in general the most expensive products tend to have a longer supply chain, an animal origin, or require more resources to be produced, all things that increase their carbon footprint.</p>
-    
-    <div id="graphEight">
-      <label for="theme-eight">Select impact</label>
-      <select id="theme-eight">
-        <option value="co2">CO₂ Emissions</option>
-        <option value="water">Water Usage</option>
-      </select>
+    <div class="titleSelect">
+      <h5>Less Carbon, More Cash: The Food Price Connection You Should Know</h5>
     </div>
 
-    <svg id="chartEight" width="900" height="500"></svg>
+    <svg id="chartEight" width="900" height="400"></svg>
     <div class="dataSource">
       <p><strong>Data Source:</strong> FAO, Our World in Data, and other aggregated datasets used for educational purposes.</p>
       <a href="final_data/italy_food_data.csv" download class="download-btn">
-      Download CSV
+        <img src="images/download.png">
     </a>
     </div>
 
