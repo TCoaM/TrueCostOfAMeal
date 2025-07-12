@@ -727,6 +727,21 @@ document.addEventListener("DOMContentLoaded", function () {
       .nice()
       .range([height, 0]);
 
+      const groupCount = Math.floor(chartSeven_data.length / 2);
+      for (let i = 1; i < groupCount; i++) {
+        const sepX = x(chartSeven_data[i * 2].name) - x.paddingInner() * x.step() / 2;
+
+        chart.append("line")
+          .attr("x1", sepX)
+          .attr("x2", sepX)
+          .attr("y1", 0)
+          .attr("y2", height)
+          .attr("stroke", "#999")
+          .attr("stroke-width", 1)
+          .attr("stroke-dasharray", "4 3");
+      }
+
+
     chart.append("g")
       .attr("transform", `translate(0, ${height})`)
       .call(d3.axisBottom(x))
