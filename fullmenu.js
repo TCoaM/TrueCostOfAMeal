@@ -18,27 +18,40 @@ function openModalBtn(btn) {
     // Capitalize first letter of key for display
     const displayName = key.charAt(0).toUpperCase() + key.slice(1);
     document.getElementById("modalTitle").textContent = displayName;
+
     // Use a placeholder image if entry.image is empty or null
     const imageUrlplate = entry.imageButton;
     document.getElementById("modalImg").src = imageUrlplate;
     document.getElementById("modalImg").alt = key;
+
+    const waterHL = entry.water ? (parseFloat(entry.water) / 100).toFixed(2) : 'Data not available';
+
     document.getElementById("modalDescription").innerHTML = `
-        <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Agrovoc URI:</span> ${entry.AGROVOC_uri || 'Data not available'}<br>
-        <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Type:</span> ${entry.type || 'Data not available'}<br>
-        <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Consumption (g/day):</span> ${entry.consumption || 'Data not available'}<br>
-        <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Carbon (g CO₂eq/g):</span> ${entry.carbon || 'Data not available'}<br>
-        <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Water (L/kg):</span> ${entry.water || 'Data not available'}<br>
-        <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Cost (€/kg):</span> ${entry.cost || 'Data not available'}
-      `;
+      <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Agrovoc URI:</span> ${entry.AGROVOC_uri || 'Data not available'}<br>
+      <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Type:</span> ${entry.type || 'Data not available'}<br>
+      <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Consumption (g/day):</span> ${entry.consumption || 'Data not available'}<br>
+      <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Carbon (g CO₂eq/g):</span> ${entry.carbon || 'Data not available'}<br>
+      <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Water (L/kg):</span> ${entry.water || 'Data not available'}<br>
+      <span style="background-color: rgba(236, 238, 206, 1)!important; font-weight: bold;">Cost (€/kg):</span> ${entry.cost || 'Data not available'}
+    `;
+
     document.getElementById("modal").style.display = "block";
+
+    
+    const carbon = parseFloat(entry.carbon) || 0;
+    const water = parseFloat(entry.water) || 0;
+    const cost = parseFloat(entry.cost) || 0;
+    const waterdaLNum = water / 10;
+
+    drawRadarChart(carbon, waterdaLNum, cost);
+
   } else {
     document.getElementById("modalTitle").textContent = "Not found";
     document.getElementById("modalDescription").textContent = `No data for ${key}`;
     document.getElementById("modal").style.display = "block";
   }
-
-  
 }
+
 
 function closeModal() {
   document.getElementById("modal").style.display = "none";
@@ -116,7 +129,6 @@ let radarChartInstance = null;
 function drawRadarChart(carbon, water, cost) {
   const ctx = document.getElementById('impactRadarChart').getContext('2d');
 
-  // Destroy previous chart instance to avoid duplicate overlays
   if (radarChartInstance) {
     radarChartInstance.destroy();
   }
@@ -124,30 +136,62 @@ function drawRadarChart(carbon, water, cost) {
   radarChartInstance = new Chart(ctx, {
     type: 'radar',
     data: {
-      labels: ['Carbon (g CO₂eq/g)', 'Water (L/kg)', 'Cost (€/kg)'],
+      labels: [
+        'Carbon (g CO₂eq/g)',
+        'Water (daL/kg)',
+        'Cost (€/kg)'
+      ],
       datasets: [{
-        label: 'Environmental Impact',
-        data: [carbon, water, cost],
-        backgroundColor:"rgba(236, 238, 206, 1)",
-        borderColor: 'rgba(255, 99, 132, 1)',
-        borderWidth: 2,
-        pointBackgroundColor: 'rgba(255, 99, 132, 1)'
+        label: 'Impact',
+        data: [
+          parseFloat(carbon).toFixed(2),
+          parseFloat(water) .toFixed(2),  // convert L to hL
+          parseFloat(cost).toFixed(2)
+        ],
+        backgroundColor: 'rgba(236, 238, 206, 0.4)',
+        borderColor: 'rgba(100, 100, 100, 1)',
+        pointBackgroundColor: 'rgba(100, 100, 100, 1)',
+        pointRadius: 4,
+        borderWidth: 2
       }]
     },
     options: {
       responsive: true,
       scales: {
         r: {
-          suggestedMin: 0,
-          suggestedMax: Math.max(carbon, water, cost) * 1.2 || 10,
+          beginAtZero: true,
+          suggestedMax: Math.max(carbon, water / 100, cost) * 1.2,
           ticks: {
-            stepSize: 1
+            display: false // Hides circular grid numbers
+          },
+          pointLabels: {
+            font: {
+              size: 14,
+              weight: 'bold'
+            },
+            callback: function(label, index) {
+              // Keep only unit at the axis, rounded already
+              return label;
+            }
+          },
+          grid: {
+            color: 'rgba(200, 200, 200, 0.3)'
+          },
+          angleLines: {
+            color: 'rgba(150, 150, 150, 0.2)'
           }
         }
       },
       plugins: {
         legend: {
           display: false
+        },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return `${context.label}: ${context.formattedValue}`;
+            }
+          }
         }
       }
     }
