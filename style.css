@@ -118,10 +118,10 @@ h3 {
 }
 
 h5 {
-  font-size: 0.8rem;
+  font-size: 1.3rem;
   padding-top: 2%;
   font-family: "Caveat", sans-serif !important;
-  text-transform: uppercase;
+ 
 }
 
 .section {
@@ -246,7 +246,7 @@ width:auto}
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
-  gap: 2%;
+
 }
 
 .zoom_container div {
