@@ -212,8 +212,11 @@ h5 {
 }
 
 .titleSelect .selectSelect{
+    padding: 2% 0;
+}
+.titleSelect .selectSelect select{
   border-bottom: 1px solid #333;
-  padding-top: 2%;
+  padding: 2% 0;
   align-items: flex-end;}
 
 .titleSelect select{
@@ -246,7 +249,7 @@ width:auto}
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
-
+  gap:2%
 }
 
 .zoom_container div {

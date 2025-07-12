@@ -73,7 +73,7 @@ function drawWaterChart() {
       .style("font-size", "32px")
       .style("font-family", "caveat")
       .style("font-weight", "bold")
-      .text("2.85 QUADRILLION LITERS PER YEAR");
+      .text("2.85 quadrillion liters per year");
 
     svg.append("text")
       .attr("x", waterChartRadius + 250)
@@ -197,7 +197,9 @@ function drawLandChart() {
       .attr("y", 95)
       .attr("text-anchor", "start")
       .style("font-size", "32px")
-      .style("font-family", "sans-serif")
+      .style("font-size", "32px")
+      .style("font-family", "caveat")
+      .style("font-weight", "bold")
       .text("49.8M ha");
 
     svg.append("text")
@@ -247,7 +249,7 @@ function drawGroupedBarChart() {
   const container = document.querySelector("#emission_bar_chart").parentElement;
   const containerWidth = container.clientWidth;
 
-  const margin = { top: 10, right: 85, bottom: 130, left: 80 },
+  const margin = { top: 25, right: 85, bottom: 130, left: 80 },
         width = containerWidth - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
