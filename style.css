@@ -122,9 +122,18 @@ h5 {
 }
 
 .ita {
-  padding-top: 5%;
+  padding-top: 15%;
   min-height: 100vh;
 }
+
+.introIta{
+  flex-direction: row;
+  display: flex;}
+
+.introIta img{
+  width:30% !important;
+  height:30% !important;
+  flex:50% !important}
 
 .cavText {
   font-size: 1.4rem;
@@ -170,7 +179,7 @@ h5 {
   transition: ease 0.5s;
   text-decoration: none;
   color: #4caf50 !important;
-  border-bottom: 1px solid #4caf50 ;
+  border-bottom: 1px solid ;
 
 
 }
@@ -275,12 +284,12 @@ width:auto}
   overflow: visible;
 }
 
-#chartPopularity svg {
+#chartPopularity svg, #chartSix, #chartSeven, #chartEight {
   width: 100%;
   max-width: 1000px;
   height: auto;
   display: block;
-  margin: auto;
+  margin: auto
 }
 
 

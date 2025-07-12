@@ -674,9 +674,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const chartSeven_svg = d3.select("#chartSeven")
     .attr("width", 1000)
-    .attr("height", 450); 
+    .attr("height", 580); 
 
-  const margin = { top: 40, right: 45, bottom: 70, left: 85 };
+  const margin = { top: 40, right: 45, bottom: 90, left: 85 };
   const width = 1000 - margin.left - margin.right;
   const height = 500 - margin.top - margin.bottom;
 
@@ -919,7 +919,7 @@ fetch('final_data/game_data.json')
       "Extras":            { x: 10, y: 10, size: 78 },
       "Second courses":    { x: 77, y: 17, size: 100 },
       "Side dishes":       { x: 85, y: 24, size: 85},
-      "Drinks":            { x: 30, y: 10, size: 50 },
+      "Drinks":            { x: 30, y: 10, size: 60 },
       "Desserts & Fruits": { x: 13, y: 33, size: 80 }
     };
 
