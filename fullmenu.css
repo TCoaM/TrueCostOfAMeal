@@ -96,9 +96,9 @@ background-color: rgba(236, 238, 206, 1)!important
 }
 #impactRadarChart{
 position: absolute;
-  top: 40%;
+  top: 25%;
   right: 25px;
-  background: none;
+  background-color: blue;
 }
 .food-grid {
   display: grid;
