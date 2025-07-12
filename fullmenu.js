@@ -68,7 +68,7 @@ function displayMenuCategories() {
   categories.forEach((category, index) => {
     if (groupedData[category] && groupedData[category].length > 0) {
       // Add category heading
-      const categoryHeading = document.createElement('h2');
+      const categoryHeading = document.createElement('h3');
       categoryHeading.className = 'category-heading';
       // Capitalize the first letter of the category name for display
       categoryHeading.textContent = category.charAt(0).toUpperCase() + category.slice(1).toLowerCase(); 

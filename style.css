@@ -106,13 +106,13 @@ h2 {
 }
 
 h3 {
-  font-size: 1rem;
-  padding: 0.5em 0 1em 0;
+  font-size: 0.8rem;
+  padding: 0 0 1em 0;
 }
 
 h5 {
-  font-size: 1rem;
-  padding: 2% 0;
+  font-size: 0.8rem;
+  padding-top: 2%;
   font-family: "Caveat", sans-serif !important;
   text-transform: uppercase;
 }
@@ -131,7 +131,7 @@ h5 {
   font-family: "Caveat", cursive;
 }
 
-.hero h1 {  
+.hero h1 {background-color: transparent !important;
   padding-top: 15%;
   font-family: "Caveat", cursive;
   font-size: 3em;
@@ -139,10 +139,41 @@ h5 {
 }
 
 .hero{  height: 100vh;
+  background-color: transparent !important;
+  background-image: url("images/backgroundhero.png");
+  
+  background-repeat: no-repeat;
+  background-size: cover; 
 }
+
+.hero p{background-color: transparent !important;}
 
 .introText{font-size: 1.5em;
   font-family: "Caveat", cursive;}
+
+.introText a {
+  font-size:15px;
+  text-decoration: none;
+  color:#333;
+  border-bottom: 1px solid #333;
+  font-weight:500;
+  padding-bottom:5% !important;
+  transition: ease 0.5s;
+
+  
+}
+.introText div{
+  float:right;
+}
+
+.introText a:hover{
+  transition: ease 0.5s;
+  text-decoration: none;
+  color: #4caf50 !important;
+  border-bottom: 1px solid #4caf50 ;
+
+
+}
 .introText h3{
   font-size: 1.2rem;
   padding-top:1%;
@@ -154,6 +185,39 @@ h5 {
   padding-bottom:0.5%
 }
 
+#svg4, #svg3{margin:2%}
+
+.titleSelect{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.titleSelect .selectSelect{
+  border-bottom: 1px solid #333;
+  padding-top: 2%;
+  align-items: flex-end;}
+
+.titleSelect select{
+  font-weight: 500;
+  border: #f9f9f9;}
+
+.dataSource{
+  width:auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  justify-content: space-between;
+  border-top:1px solid #333;
+  padding-top:1.5%
+}
+.dataSource p{padding-top:0.5%}
+
+.dataSource a img{
+  height:30px;
+width:auto}
 
 .chart_container,
 .arrow_container,
@@ -181,7 +245,10 @@ h5 {
 
 #zoom_text p:first-child {
   font-size: 2.5rem;
+  font-family: "caveat";
+  font-weight: "bold";
 }
+
 
 #food_zoom_chart {
   width: 100%;
@@ -261,6 +328,12 @@ h5 {
   padding: 2% 0;
 }
 
+.plateIntro a, .plateIntro a:hover{
+  color: #4caf50;
+  font-weight: 500;
+  text-decoration: none;
+}
+
 .plate-menu-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -320,7 +393,7 @@ h5 {
 
 .menu-side h2 {
   font-family: "Caveat", cursive;
-  font-size: 28px;
+  font-size: 35px !important;
   padding-left: 5%;
   
 }
@@ -333,7 +406,7 @@ h5 {
 }
 
 .food-group h3 {
-  font-size: 20px;
+  font-size: 17px;
   margin-bottom: 10px;
   padding-bottom: 5px;
 }
@@ -342,10 +415,13 @@ h5 {
   display: block;
   margin-bottom: 6px;
 }
+input[type="radio"] {
+            accent-color:#4caf50; 
+        }
 
 #confirm-btn {
   float: right;
-  margin: 2%;
+  margin:3% 2%;
   padding: 10px 20px;
   font-size: 16px;
   background: #333 !important;
@@ -505,6 +581,7 @@ h5 {
   padding-top: 20px;
   font-size: 16px;
 }
+
 
 
 

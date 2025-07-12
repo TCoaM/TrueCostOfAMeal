@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>True Cost of a Meal</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="credits.css">
+  <link rel="icon" href="images/favicon.png" type="image/png" />
+  <script src="fullmenu.js"></script>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+  <header>
+  <header class="main-header">
+    <nav class="nav-bar">
+      <ul class="nav-links">
+        <li><a href="index.html#world">World</a></li>
+        <li><a href="index.html#italy">Italy</a></li>
+        <li><a href="index.html#plate">What's on your Plate</a></li>
+        <li><a href="fullmenu.html">Full Menu</a></li>
+        <li><a href="credits.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+<div id="credit-container">
+
+    <div class="credit-intro">
+        <h2 class="credit-title">About This Project</h2>
+    </div>
+    <div id ="methodology-text">
+        <p>Behind the scenes, there was a lot of work to turn messy numbers from different sources into clean, comparable, and meaningful insights.</p>
+        <p>We took data from trusted sources like FAOSTAT, EFSA, and the FAO. Some of it was easy to download. Others — like food prices — had to be  <strong>scraped from websites</strong> . Once collected, we cleaned everything up, removed the irrelevant bits, and organized it all into neat tables.</p>
+        <p>Every source had its own way of naming food. So, to  <strong>match "beef" with "cow meat"</strong>, we used a mix of smart algorithms and a powerful vocabulary from the FAO called  <strong>AGROVOC</strong>. This helped us connect the dots and make sure everything meant the same thing across datasets. When tech couldn’t do it,  <strong>we fixed it by hand. Because accuracy matters.</p>
+        <p>We then filtered the data to focus on what’s relevant: solid foods with a significant environmental footprint. We also removed things like bottled water. This helped us build <strong>clear, readable charts </strong> and gave structure to the final interactive experience.</p>
+        <p > <strong>And yes, we did it twice</strong>. Once to get a solid base with Italy’s most consumed foods. Then again, with more items, to spot patterns like whether <strong>eco-friendly food is also cheaper</strong>and to power the game at the end.</p>
+    </div>
+
+    <div id="datasets">
+
+        <div class="credit-intro"> 
+            <h2 class="credit-title">Datasets</h2>
+        </div>
+       
+        <table id="dataset-table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Topic</th>
+                <th>Data fromat</th>
+                <th>License</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><a href="https://www.fao.org/faostat/en/#data/GT" target="_blank">FAOSTAT emissions</a></td>
+                <td>Life Cycle Assesment of Co2 emissions for the Agrifood system</td>
+                <td>Tabular</td>
+                <td>CC BY 4.0</td>
+            </tr>
+            <tr>
+                <td><a href="https://www.fao.org/agrovoc/linked-data" target="_blank">AGROVOC</a></td>
+                <td>Agriculture Controlled Vocabulary</td>
+                <td>RDF (SKOS)</td>
+                <td>CC BY 4.0</td>
+            </tr>
+            <tr>
+                <td><a href="https://www.efsa.europa.eu/en/data-report/food-consumption-data" target="_blank">Food Consumption Data EU</a></td>
+                <td>Food consumption in EU Countries</td>
+                <td>Tabular</td>
+                <td>CC BY 4.0</td>
+            </tr>
+            <tr>
+                <td><a href="https://www.fao.org/faostat/en/#data/RL" target="_blank">FAOSTAT Land Use</a></td>
+                <td>Land Use for the Agrifood System</td>
+                <td>Tabular</td>
+                <td>CC BY 4.0</td>
+            </tr>
+            <tr>
+                <td><a href="https://data.apps.fao.org/aquastat/?lang=en" target="_blank">Acquastat</a></td>
+                <td>Water Withdrawal for the Agrifood System</td>
+                <td>Tabular</td>
+                <td>CC BY 4.0</td>
+            </tr>
+            <tr>
+                <td><a href="https://osservaprezzi.mise.gov.it/prezzi/livelli/beni-e-servizi-di-largo-consumo/archivio-rilevazioni-beni-e-servizi-di-largo-consumo?ANNO=2025&MESE=5&f%5BPROVINCIA%5D=Alessandria&f%5BTIPO_RECORD_MISE%5D=orto&submit=Applica" target="_blank">Osservatorio Prezzi (ISTAT)</a></td>
+                <td>Price for individual foods in Italy</td>
+                <td>Tabular</td>
+                <td>CC BY 3.0</td>
+            </tr>
+            <tr>
+                <td><a href="https://figshare.com/articles/dataset/SU-EATABLE_LIFE_a_comprehensive_database_of_carbon_and_water_footprints_of_food_commodities/13271111?file=27921765" target="_blank">SU-EATABLE-LIFE</a></td>
+                <td>Water Footprint and Carbon Footprint for ndividual foods</td>
+                <td>Tabular</td>
+                <td>CC BY 4.0</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="credit-intro">
+        <h2 class="credit-title">Team & Roles</h2>
+    </div>
+        
+    <div id="cards-container">
+
+        <div class="card">
+            <div class="card-intro">
+                <div class="card-name">
+                    <h5>Pietro Tisci</h5>
+                </div>
+                <div class="card-img">
+                    
+                </div>
+            </div>
+            <div class="card-role">
+            <ul>
+                <li>Project ideation and storytelling</li>
+                <li>Datasets search and general research</li>
+                <li>Functions for AGROVOC integration</li>
+                <li>Data adaption from notebook to website</li>
+                <li>Website implementation</li>
+            </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-intro">
+                <div class="card-name">
+                    <h5>Simone Casazza</h5>
+                </div>
+                <div class="card-img">
+                   
+                </div>
+            </div>
+            <div class="card-role">
+                <ul>
+                    <li>Project ideation and storytelling</li>
+                    <li>Datasets search and general research</li>
+                    <li>Data parsing</li>
+                    <li>Data integration</li>
+                    <li>Data cleaning and selection</li>
+                    <li>Visualizations on the notebook</li>
+                
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-intro">
+                <div class="card-name">
+                    <h5>Giorgia Umana</h5>
+                </div>
+                <div class="card-img">
+                  
+                </div>
+            </div>
+            <div class="card-role">
+            <ul>
+                <li>Project ideation and storytelling</li>
+                <li>Datasets search and general research</li>
+                <li>Website Design</li>
+                <li>website implementation</li>
+                <li>Text writing</li>
+            </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section team">
+        <h4>Our Team</h4>
+        <p><strong>Pietro Tisci</strong> – COSA</p>
+        <p><strong>Simone Casazza</strong> – COSA</p>
+        <p><strong>Giorgia Umana</strong> – Web Development</p>
+      </div>
+
+      <div class="footer-section credits">
+        <h4>Credits</h4>
+        <p>Data provided by FAO & ISTAT.</p>
+        <p>Icons from Feather Icons.</p>
+      </div>
+
+      <div class="footer-section links">
+        <h4>Links</h4>
+        <p><a href="https://github.com/TCoaM/TrueCostOfAMeal" target="_blank">GitHub Repository</a></p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 The True Cost of a Meal. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+</html>

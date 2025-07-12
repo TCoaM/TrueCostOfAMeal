@@ -24,7 +24,7 @@
         <li><a href="#italy">Italy</a></li>
         <li><a href="#plate">What's on your Plate</a></li>
         <li><a href="fullmenu.html">Full Menu</a></li>
-        <li><a href="#credits">Credits</a></li>
+        <li><a href="credits.html">About</a></li>
       </ul>
     </nav>
   </header>
@@ -72,15 +72,9 @@
       We also explore whether high-impact foods come with higher prices.
     </p>
     <p><strong>More money in your pocket, less burden on the planet.</strong></p>
-  </div>
-
-  <div class="section">
-    <h2>Methodology</h2>
-    <p>Behind the scenes, there was a lot of work to turn messy numbers from different sources into clean, comparable, and meaningful insights.</p>
-    <p>We took data from trusted sources like FAOSTAT, EFSA, and the FAO. Some of it was easy to download. Others — like food prices — had to be  <strong>scraped from websites</strong> . Once collected, we cleaned everything up, removed the irrelevant bits, and organized it all into neat tables.</p>
-    <p>Every source had its own way of naming food. So, to  <strong>match "beef" with "cow meat"</strong>, we used a mix of smart algorithms and a powerful vocabulary from the FAO called  <strong>AGROVOC</strong>. This helped us connect the dots and make sure everything meant the same thing across datasets. When tech couldn’t do it,  <strong>we fixed it by hand. Because accuracy matters.</p>
-    <p>We then filtered the data to focus on what’s relevant: solid foods with a significant environmental footprint. We also removed things like bottled water. This helped us build <strong>clear, readable charts </strong> and gave structure to the final interactive experience.</p>
-    <p> <strong>And yes, we did it twice</strong>. Once to get a solid base with Italy’s most consumed foods. Then again, with more items, to spot patterns like whether <strong>eco-friendly food is also cheaper</strong>and to power the game at the end.</p>
+    <div>    
+      <a href="credits.html">About the project</a>
+    </div>  
   </div>
 
   <div class="section two" id="world">
@@ -104,7 +98,12 @@
       <div id="pie_3">
       <svg id="svg3"></svg>
     </div>
-
+    <div class="dataSource">
+      <p><strong>Data Source:</strong> FAO, Our World in Data, and other aggregated datasets used for educational purposes.</p>
+      <a href="final_data/italy_food_data.csv" download class="download-btn">
+        <img src="images/download.png">
+    </a>
+    </div>
     </div>
     
   </div>
@@ -113,13 +112,19 @@
       <h4 class="cavText">land</h4>
       <h3>How much land is used to produce food?</h3>
       <p>Almost half the planet is feeding us, quite literally.</p>
-      <p>Nearly 40% of the world’s habitable land is used for agriculture. That’s a huge chunk of Earth’s surface devoted to growing crops and raising animals. Unlike factories or homes, food production needs space, a <em>lot</em> of it. Fields for wheat, orchards for fruit, pastures for livestock... all that land adds up.</p>
+      <p>Nearly 40% of the world’s habitable land is used for agriculture. That’s a huge chunk of Earth’s surface devoted to growing crops and raising animals. Unlike factories or homes, food production needs space, a <strong>lot</strong> of it. Fields for wheat, orchards for fruit, pastures for livestock... all that land adds up.</p>
       <p>But this land hunger comes at a cost. Expanding farmland often means cutting down forests, destroying habitats, and pushing wildlife out. It’s one of the biggest drivers of biodiversity loss today.</p>
       <p>In this chart, you can see how global land is divided: from agricultural use to forests, cities, and other land types. Spoiler: food takes the biggest bite.</p>
       <div id="pie_4">
         <h5>Agriculture: The World’s Largest Landowner</h5>       
         <svg id="svg4"></svg>
       </div>
+      <div class="dataSource">
+      <p><strong>Data Source:</strong> FAO, Our World in Data, and other aggregated datasets used for educational purposes.</p>
+      <a href="final_data/italy_food_data.csv" download class="download-btn">
+        <img src="images/download.png">
+    </a>
+    </div>
   </div>
 
   <div class="section five">
@@ -139,13 +144,20 @@
 
       <div class="zoom_container">
         <div id="zoom_text">
-          <p>13.754.713</p>
-          <p>total food emissions</p>
+          <p>~13.75 million kilotons </p>
+          <p>of CO₂ equivalent emissions</p>
         </div>
         <div>
           <svg id="food_zoom_chart"></svg>
         </div>
+        
       </div>
+      <div class="dataSource">
+      <p><strong>Data Source:</strong> FAO, Our World in Data, and other aggregated datasets used for educational purposes.</p>
+      <a href="final_data/italy_food_data.csv" download class="download-btn">
+        <img src="images/download.png">
+    </a>
+    </div>
     <p>As we can see in the chart, the <strong>process with the highest emissions is livestock production</strong> . And it’s no surprise: as you’ll see later, <strong>animal products have some of the highest carbon footprints</strong> . Interestingly, food <strong>transportation doesn’t contribute</strong>  nearly as much as people often think. So maybe it’s time to <strong>swap the slogan "eat local" with a new one: "eat plants."</strong> </p>
   </div>
 
@@ -158,57 +170,110 @@
   <div class="itaPopular ita">
     <h4 class="cavText">popularity</h4>
     <h3>What are the most commonly consumed foods in Italy?</h3>
-    <p>a text</p>
-    <h5>Most Popular Foods in Italy</h5>
+    <p>The love of Italians for coffee is not only a stereotype: coffee together with cow’s milk is among the most consumed foods in Italy.</p>
+    <p>But that’s not the end of it. If we look at the chart, we can immediately recognize the heart of Mediterranean cuisine: vegetables, a good dose of olive oil, and of course pasta.</p>
+    <p>A diet that reflects deep-rooted habits and authentic tastes, but also hides some surprises: not all these food items are as light on the environment as they are in our dishes. Some, such as olive oil, are among the most "challenging" in terms of environmental impact.</p>
+    <h5>Most Popular Food Items in Italy</h5>
     <div id="chartPopularity">
        <svg id="svgPopularity" width="1000" height="500"></svg>
+    </div>
+    <div class="dataSource">
+      <p><strong>Data Source:</strong> FAO, Our World in Data, and other aggregated datasets used for educational purposes.</p>
+      <a href="final_data/italy_food_data.csv" download class="download-btn">
+        <img src="images/download.png">
+    </a>
     </div>
   </div>
   <div class="ita">
     <h4 class="cavText">co₂ and water</h4>
     <h3>What is the carbon footprint of those foods? And the water footprint?</h3>
-    <p>a text</p>
-    <div id="graphSix">
-      <label for="theme">Select one</label>
-      <select id="theme">
-        <option value="co2">CO₂ Emissions</option>
-        <option value="water">Water Usage</option>
-      </select>
+    <p>Among the 12 most consumed foods in Italy, vegetables are the most sustainable: they consume little water and produce less CO₂. On the contrary, meat, particularly beef, has a much higher environmental impact, especially in terms of emissions and resources needed for production.</p>
+    <p>But what about the milk? Even if it comes from the same animal, it has a much lower impact than beef: probably because a cow can produce milk for years, while meat requires slaughter and more resources.</p>
+    <p>Oil is an unexpected champion of water consumption, together with coffee and beef.</p>
+    <div class="titleSelect">
+    <h5>CO₂ and Dehydration for Dinner? Beef  and Coffe Say Yes</h5>
+      <div id="graphSIx" class="selectSelect">
+        <label for="theme">Select impact</label>
+        <select id="theme">
+          <option value="co2">CO₂ Emissions</option>
+          <option value="water">Water Usage</option>
+        </select>
+      </div>
     </div>
-    <svg id="chartSix" width="1000" height="500"></svg>
+    <svg id="chartSix" width="1000" height="400"></svg>
+    <div class="dataSource">
+      <p><strong>Data Source:</strong> FAO, Our World in Data, and other aggregated datasets used for educational purposes.</p>
+      <a href="final_data/italy_food_data.csv" download class="download-btn">
+        <img src="images/download.png">
+    </a>
+    </div>
 
   </div>
 
   <div class="alternatives">
     <h4 class="cavText">popular foods and their alternatives</h4>
     <h3>Are there any alternatives, to some of those popular foods, with a lower environmental cost?</h3>
-    <p>a text</p>
-    <div id="graphSeven">
-      <label for="theme-seven">Select one</label>
-      <select id="theme-seven">
-        <option value="co2">CO₂ Emissions</option>
-        <option value="water">Water Usage</option>
-      </select>
-      <svg id="chartSeven" width="1000" height="500"></svg>
+    <p>As we have seen, some of the foods most loved by Italians have an important ecological impact. But the good news is that there are more sustainable alternatives that allow us to enjoy similar dishes, but with a much lighter environmental footprint.</p>
+    <p>In general, choosing plant-based foods is almost always a winning choice to reduce CO emissions and water consumption. But beware: it’s not always all black and white. Some foods that emit little CO can consume a lot of water, and vice versa. An example? Soy milk is a good choice in terms of emissions, but higher in water consumption than cow’s milk.</p>
+    <p>The key is to be curious and aware: small changes in our eating habits can have a great positive impact on the planet without sacrificing taste!</p>
+    <div class="titleSelect" id="graphSeven">
+      <h5>Footprint Comparison</h5>
+      <div id="graphSeven" class="selectSelect">
+        <label for="theme-seven">Select impact</label>
+        <select id="theme-seven">
+          <option value="co2">CO₂ Emissions</option>
+          <option value="water">Water Usage</option>
+        </select>
+      </div>
+      <svg id="chartSeven" width="1000" height="400"></svg>
+      
     </div>
+    <div class="dataSource">
+      <p><strong>Data Source:</strong> FAO, Our World in Data, and other aggregated datasets used for educational purposes.</p>
+      <a href="final_data/italy_food_data.csv" download class="download-btn">
+        <img src="images/download.png"> 
+      </a>
+      </div>
   </div>
 
   <div class="chart_container_eight">
     <h4 class="cavText">price and environmental cost</h4>
-    <h3>is there a correlation between environmental cost and the monetary value of food products?</h3>
-    <p>Select an environmental factor to compare against food prices.</p>
-    
-    <div id="graphEight">
-      <label for="theme-eight">Select one</label>
-      <select id="theme-eight">
-        <option value="co2">CO₂ Emissions</option>
-        <option value="water">Water Usage</option>
-      </select>
+    <h3>Is there a correlation between environmental cost and the monetary value of food products?</h3>
+    <p>An interesting and somewhat surprising trend emerges from the data collected: there seems to be a correlation between the cost of food and its environmental impact, especially with regard to CO emissions.</p>
+    <p>Simply put: the more we spend on food, the more likely it is to pollute. Not always, of course, but in general the most expensive products tend to have a longer supply chain, an animal origin, or require more resources to be produced, all things that increase their carbon footprint.</p>
+    <div class="titleSelect">
+      <h5>Less Carbon, More Cash: The Food Price Connection You Should Know</h5>
     </div>
 
-    <svg id="chartEight" width="900" height="500"></svg>
-    
+    <svg id="chartEight" width="900" height="400"></svg>
+    <div class="dataSource">
+      <p><strong>Data Source:</strong> FAO, Our World in Data, and other aggregated datasets used for educational purposes.</p>
+      <a href="final_data/italy_food_data.csv" download class="download-btn">
+        <img src="images/download.png">
+    </a>
+    </div>
+
   </div>
+
+  <div class="ita">
+    <h2>The True Cost of Your Meal</h2>
+
+    <p >
+      When we sit down to eat, we rarely think beyond taste, price, or convenience. But every ingredient carries an invisible footprint — one that affects our planet through carbon emissions, water consumption, and land use.
+    </p>
+
+    <p style="color: #4caf50">
+      From our data, one thing is clear: plant-based foods tend to have a lighter environmental impact, while animal-based and processed products usually cost the Earth more.
+    </p>
+
+    <p>
+      It’s not about guilt, but about awareness. Understanding the true cost of a meal empowers you to make choices that are better for the planet — and often better for your health and wallet too.
+    </p>
+
+    <p style=" font-style: italic; border-left: 4px solid #4caf50; padding-left: 15px; margin-top: 30px; color: #34495e;">
+      So next time you’re filling your plate, ask yourself: <br><strong>How can my food choices help create a healthier planet and a happier me?</strong>
+    </p>
+</div>
 
 
   <div class="plateIntro">

@@ -71,8 +71,9 @@ function drawWaterChart() {
       .attr("y", 115)
       .attr("text-anchor", "start")
       .style("font-size", "32px")
-      .style("font-family", "sans-serif")
-      .text("23.60B L");
+      .style("font-family", "caveat")
+      .style("font-weight", "bold")
+      .text("2.85 QUADRILLION LITERS PER YEAR");
 
     svg.append("text")
       .attr("x", waterChartRadius + 250)
@@ -81,7 +82,8 @@ function drawWaterChart() {
       .attr("text-anchor", "start")
       .style("font-size", "16px")
       .style("fill", "#333")
-      .text("total agricultural water withdrawal");
+      .text("just for the agricultural sector");
+      
 
     setTimeout(() => {
       arcs.append("text")
@@ -301,6 +303,7 @@ function drawGroupedBarChart() {
       .attr("transform", "rotate(-40)")
       .style("text-anchor", "end")
       .style("font-size", "15px");
+      
 
     svg.append("g").call(d3.axisLeft(y));
 
@@ -483,7 +486,7 @@ observer.observe(document.querySelector("#emission_bar_chart"));
 //italy
 //top food items
 function drawPopularityChart(data) {
-  const marginPOP = { top: 40, right: 40, bottom: 150, left: 80 };
+  const marginPOP = { top: 40, right: 40, bottom: 90, left: 80 };
   const fullWidthPOP = 1000;
   const fullHeightPOP = 500;
   const widthPOP = fullWidthPOP - marginPOP.left - marginPOP.right;
@@ -553,7 +556,7 @@ function drawPopularityChart(data) {
     .attr("transform", "rotate(-90)")
     .attr("text-anchor", "middle")
     .style("font-size", "15px")
-    .text("Mean Consumption (kg or L per year)");
+    .text("Mean Daily Consumption (g or mL)");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -571,9 +574,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 //food items emissions+water
-const margin = { top: 40, right: 40, bottom: 150, left: 80 };
+const margin = { top: 40, right: 40, bottom: 90, left: 80 };
 const fullWidth = 1000;
-const fullHeight = 500;
+const fullHeight = 400;
 const width = fullWidth - margin.left - margin.right;
 const height = fullHeight - margin.top - margin.bottom;
 
@@ -634,7 +637,7 @@ function drawChart(theme) {
     .attr("transform", "rotate(-90)")
     .attr("text-anchor", "middle")
     .style("font-size", "16px")
-    .text(theme === "co2" ? "g CO₂ eq / g" : "Liters / kg");
+    .text(theme === "co2" ? "g CO₂-eq per g or mL of Food" : "Liters per kg or L of Food");
   
   svg.selectAll("text.value-label")
   .data(rawData)
@@ -646,7 +649,7 @@ function drawChart(theme) {
   .attr("text-anchor", "middle")
   .style("font-size", "15px")
   .style("fill", "#333")
-  .text(d => Math.ceil(d[valueKey]))
+  .text(d => d[valueKey].toFixed(1))
 ;
 }
 
@@ -671,9 +674,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const chartSeven_svg = d3.select("#chartSeven")
     .attr("width", 1000)
-    .attr("height", 550); 
+    .attr("height", 450); 
 
-  const margin = { top: 40, right: 40, bottom: 120, left: 80 };
+  const margin = { top: 40, right: 45, bottom: 70, left: 85 };
   const width = 1000 - margin.left - margin.right;
   const height = 500 - margin.top - margin.bottom;
 
@@ -710,7 +713,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .attr("transform", `translate(${margin.left},${margin.top})`);
 
     const valueKey = theme === "water" ? "water" : "co2";
-    const yLabel = theme === "water" ? "Liters / KG" : "kg CO₂ eq / KG";
+    const yLabel = theme === "water" ? "Liters per kg or L of Food" : "g CO₂-eq per g or mL of Food";
 
     const x = d3.scaleBand()
       .domain(chartSeven_data.map(d => d.name))
@@ -763,7 +766,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .attr("text-anchor", "middle")
       .style("font-size", "15px")
       .style("fill", "#333")
-      .text(d => Math.round(d[valueKey]));
+      .text(d => d[valueKey].toFixed(1));
 
     chart.append("text")
       .attr("x", -height / 2)
@@ -816,7 +819,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const svg = d3.select("#chartEight");
     const width = +svg.attr("width");
     const height = +svg.attr("height");
-    const margin = { top: 40, right: 40, bottom: 60, left: 80 };
+    const margin = { top: 40, right: 40, bottom: 50, left: 80 };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
 
@@ -848,7 +851,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
       const xKey = theme === "water" ? "water" : "co2";
-      const xLabel = theme === "water" ? "Liters / KG" : "kg CO₂ eq / KG";
+      const xLabel = theme === "water" ? "Liters per kg or L of Food" : "g CO₂-eq per g or mL of Food";
 
       const x = d3.scaleLinear()
         .domain([0, d3.max(data, d => d[xKey]) || 0])
@@ -881,7 +884,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .attr("x", -innerHeight / 2)
         .attr("text-anchor", "middle")
         .style("font-size", "14px")
-        .text("Price (€/KG)");
+        .text("Price (€ per kg or L)");
 
       // Dots
       g.selectAll("circle")
@@ -913,11 +916,11 @@ fetch('final_data/game_data.json')
 
     const mealTypePositions = {
       "First courses":     { x: 48, y: 60, size: 150 },
-      "Extras":            { x: 10, y: 10, size: 80 },
+      "Extras":            { x: 10, y: 10, size: 78 },
       "Second courses":    { x: 77, y: 17, size: 100 },
-      "Side dishes":       { x: 78, y: 25, size: 90 },
+      "Side dishes":       { x: 85, y: 24, size: 85},
       "Drinks":            { x: 30, y: 10, size: 50 },
-      "Desserts & Fruits": { x: 13, y: 33, size: 55 }
+      "Desserts & Fruits": { x: 13, y: 33, size: 80 }
     };
 
     const optionsDiv = document.getElementById('ingredient-options');
