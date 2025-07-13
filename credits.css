@@ -1,14 +1,17 @@
 #credit-container{
     padding: 7%;
 }
-
+limits-text
 .credit-intro{
     padding-bottom: 2%;
 }
 #methodology-text{
-    padding-bottom: 10%
+    padding-bottom: 5%
 }
 
+#limits-text{
+    padding-bottom: 10%
+}
 #datasets{
     padding-bottom: 10%;
     width: 100%;
@@ -62,7 +65,7 @@ td a{
   display: grid;
   grid-template-rows: 1fr 2fr;
   background-color: rgba(236, 238, 206, 1)!important;
-  height: 50vh;
+  height: 55vh;
   padding: 1rem;
   border-radius: 12px;
   
