@@ -186,8 +186,18 @@ h5 {
 .hero p{background-color: transparent !important;
  color:#1E4526}
 
+.intro{
+  height: 90vh;
+  padding-top:20%;
+  background-color: transparent !important;
+}
+
+.intro p{
+    background-color: transparent !important;
+
+}
+
 .introText{font-size: 1.5em;
-  height:95vh !important;
   background-color: transparent !important;
   font-family: "Caveat", cursive;}
 
