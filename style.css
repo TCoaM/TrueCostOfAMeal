@@ -158,24 +158,36 @@ h5 {
   font-family: "Caveat", cursive;
 }
 
+.dataSource a, a:hover{
+  text-decoration: none !important;
+  color:#4caf50  !important;
+  font-weight: bold !important;
+}
+
+
+.backgroundAll{ background-image: url("images/backgroundhero.png");
+  background-size: cover;
+  background-color: transparent !important;
+  background-position: center top;}
 .hero h1 {background-color: transparent !important;
   padding-top: 15%;
   font-family: "Caveat", cursive;
   font-size: 3em;
   font-weight: 500;
+  color:#1E4526
 }
+
 
 .hero{  height: 100vh;
   background-color: transparent !important;
-  background-image: url("images/backgroundhero.png");
   
-  background-repeat: no-repeat;
-  background-size: cover; 
 }
 
-.hero p{background-color: transparent !important;}
+.hero p{background-color: transparent !important;
+ color:#1E4526}
 
 .introText{font-size: 1.5em;
+  background-color: transparent !important;
   font-family: "Caveat", cursive;}
 
 .introText a {
