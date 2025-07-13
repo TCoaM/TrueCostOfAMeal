@@ -249,7 +249,7 @@ function drawGroupedBarChart() {
   const container = document.querySelector("#emission_bar_chart").parentElement;
   const containerWidth = container.clientWidth;
 
-  const margin = { top: 25, right: 85, bottom: 130, left: 80 },
+  const margin = { top: 25, right: 70, bottom: 130, left: 120 },
         width = containerWidth - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
@@ -308,6 +308,16 @@ function drawGroupedBarChart() {
       
 
     svg.append("g").call(d3.axisLeft(y));
+
+    svg.append("text")
+  .attr("transform", "rotate(-90)")
+  .attr("y", -95) 
+  .attr("x", -height / 2)
+  .attr("dy", "1em")
+  .style("text-anchor", "middle")
+  .style("font-size", "15px")
+  .text("CO₂ equivalent emissions in kilotons");
+
 
     svg.selectAll(".stack")
       .data(stackedSeries)
@@ -466,7 +476,7 @@ function drawZoomedFoodChart(foodData, colorScale, containerWidth) {
     .attr("y", chartHeight + margin.top + 40)
     .attr("text-anchor", "middle")
     .style("font-size", "15px")
-    .text("Environmental Impact");
+    .text("CO₂ equivalent emissions in kilotons");
 
   const total = d3.sum(data, d => d.value);
 }
