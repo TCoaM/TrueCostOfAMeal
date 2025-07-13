@@ -200,7 +200,7 @@ function drawLandChart() {
       .style("font-size", "32px")
       .style("font-family", "caveat")
       .style("font-weight", "bold")
-      .text("49.8M ha");
+      .text("49.8 million hectares");
 
     svg.append("text")
       .attr("x", radius4 + 200)
@@ -249,14 +249,27 @@ function drawGroupedBarChart() {
   const container = document.querySelector("#emission_bar_chart").parentElement;
   const containerWidth = container.clientWidth;
 
-  const margin = { top: 25, right: 70, bottom: 130, left: 120 },
-        width = containerWidth - margin.left - margin.right,
-        height = 500 - margin.top - margin.bottom;
+  const height = containerWidth < 600 ? 400 : 500;
+
+  const margin = {
+    top: 25,
+    right: 70,
+    bottom: containerWidth < 600 ? 100 : 130,
+    left: containerWidth < 500 ? 60 : 120
+  };
+
+  const width = containerWidth - margin.left - margin.right;
 
   const svg = d3.select("#emission_bar_chart")
     .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
-    .append("g")
+    .attr("preserveAspectRatio", "xMidYMid meet")
+    .style("width", "100%")
+    .style("height", "auto")
+    .selectAll("g")
+    .data([null])
+    .join("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);
+
   d3.csv("final_data/emissions_sectors_agrovoc.csv").then(data => {
     data = data.filter(d => d.Item && d.Value);
     data.forEach(d => d.Value = +d.Value);
@@ -291,8 +304,9 @@ function drawGroupedBarChart() {
       .range([height, 0]);
 
     const color = d3.scaleOrdinal()
-    .domain(keys)
-    .range(["#66C2A5", "#FC8D62", "#8DA0CB", "#E78AC3", "#A6D854", "#FFD92F", "#FFAF2F", "#E5C494", "#B3B3B3" ]);
+      .domain(keys)
+      .range(d3.schemeSet2);
+
     const stack = d3.stack().keys(keys);
     const stackedSeries = stack([foodBar]);
 
@@ -300,24 +314,25 @@ function drawGroupedBarChart() {
 
     svg.append("g")
       .attr("transform", `translate(0,${height})`)
-      .call(d3.axisBottom(x).tickSize(0).tickPadding(10))
+      .call(d3.axisBottom(x).tickSize(0).tickPadding(8))
       .selectAll("text")
       .attr("transform", "rotate(-40)")
       .style("text-anchor", "end")
-      .style("font-size", "15px");
-      
+      .style("font-size", containerWidth < 500 ? "10px" : "13px");
 
-    svg.append("g").call(d3.axisLeft(y));
+    svg.append("g")
+      .call(d3.axisLeft(y).ticks(5))
+      .selectAll("text")
+      .style("font-size", containerWidth < 500 ? "10px" : "13px");
 
     svg.append("text")
-  .attr("transform", "rotate(-90)")
-  .attr("y", -95) 
-  .attr("x", -height / 2)
-  .attr("dy", "1em")
-  .style("text-anchor", "middle")
-  .style("font-size", "15px")
-  .text("CO₂ equivalent emissions in kilotons");
-
+      .attr("transform", "rotate(-90)")
+      .attr("y", -margin.left + 20)
+      .attr("x", -height / 2)
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("font-size", "14px")
+      .text("CO₂ equivalent emissions in kilotons");
 
     svg.selectAll(".stack")
       .data(stackedSeries)
@@ -349,19 +364,17 @@ function drawGroupedBarChart() {
       .attr("rx", 4)
       .attr("ry", 4);
 
-
-      svg.selectAll(".other-bar-label")
+    svg.selectAll(".other-bar-label")
       .data(otherBars)
       .enter()
       .append("text")
       .attr("class", "other-bar-label")
       .attr("x", d => x(d.label) + x.bandwidth() / 2)
-      .attr("y", d => y(d.value) - 5)  
+      .attr("y", d => y(d.value) - 5)
       .attr("text-anchor", "middle")
-      .style("font-size", "12px")
+      .style("font-size", containerWidth < 500 ? "10px" : "12px")
       .style("fill", "#333")
       .text(d => d.value.toFixed(1));
-
 
     drawZoomedFoodChart(foodEmissions, color, containerWidth);
     drawArrowToZoomedChart(x("Food Emissions"), width, margin);
@@ -684,13 +697,14 @@ document.addEventListener("DOMContentLoaded", function () {
     "coffee", "orange juice", "beef", "salmon"
   ];
 
-  const chartSeven_svg = d3.select("#chartSeven")
-    .attr("width", 1000)
-    .attr("height", 580); 
+  const container = document.querySelector("#chartSeven");
+  const containerWidth = container.clientWidth;
+  const fullWidth = containerWidth;
+  const fullHeight = 580;
 
   const margin = { top: 40, right: 45, bottom: 90, left: 85 };
-  const width = 1000 - margin.left - margin.right;
-  const height = 500 - margin.top - margin.bottom;
+  const width = fullWidth - margin.left - margin.right;
+  const height = fullHeight - margin.top - margin.bottom;
 
   const colorEven = "#FC8D62";
   const colorOdd = "#b8e6b0";
@@ -719,9 +733,14 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function drawChartSeven(theme) {
-    chartSeven_svg.selectAll("*").remove();
+    d3.select("#chartSeven").selectAll("*").remove();
 
-    const chart = chartSeven_svg.append("g")
+    const svg = d3.select("#chartSeven")
+      .append("svg")
+      .attr("viewBox", `0 0 ${fullWidth} ${fullHeight}`)
+      .attr("preserveAspectRatio", "xMidYMid meet")
+      .classed("responsive-svg", true)
+      .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
 
     const valueKey = theme === "water" ? "water" : "co2";
@@ -737,22 +756,20 @@ document.addEventListener("DOMContentLoaded", function () {
       .nice()
       .range([height, 0]);
 
-      const groupCount = Math.floor(chartSeven_data.length / 2);
-      for (let i = 1; i < groupCount; i++) {
-        const sepX = x(chartSeven_data[i * 2].name) - x.paddingInner() * x.step() / 2;
+    const groupCount = Math.floor(chartSeven_data.length / 2);
+    for (let i = 1; i < groupCount; i++) {
+      const sepX = x(chartSeven_data[i * 2].name) - x.paddingInner() * x.step() / 2;
+      svg.append("line")
+        .attr("x1", sepX)
+        .attr("x2", sepX)
+        .attr("y1", 0)
+        .attr("y2", height)
+        .attr("stroke", "#999")
+        .attr("stroke-width", 1)
+        .attr("stroke-dasharray", "4 3");
+    }
 
-        chart.append("line")
-          .attr("x1", sepX)
-          .attr("x2", sepX)
-          .attr("y1", 0)
-          .attr("y2", height)
-          .attr("stroke", "#999")
-          .attr("stroke-width", 1)
-          .attr("stroke-dasharray", "4 3");
-      }
-
-
-    chart.append("g")
+    svg.append("g")
       .attr("transform", `translate(0, ${height})`)
       .call(d3.axisBottom(x))
       .selectAll("text")
@@ -760,11 +777,11 @@ document.addEventListener("DOMContentLoaded", function () {
       .attr("text-anchor", "end")
       .attr("dx", "-0.6em")
       .attr("dy", "0.3em")
-      .style("font-size", "15px");
+      .style("font-size", "14px");
 
-    chart.append("g").call(d3.axisLeft(y));
+    svg.append("g").call(d3.axisLeft(y));
 
-    chart.selectAll("rect")
+    svg.selectAll("rect")
       .data(chartSeven_data)
       .enter()
       .append("rect")
@@ -777,13 +794,12 @@ document.addEventListener("DOMContentLoaded", function () {
       .attr("stroke-width", 1.2)
       .attr("rx", 6)
       .attr("ry", 6)
-      
       .transition()
       .duration(800)
       .attr("y", d => y(d[valueKey]))
       .attr("height", d => height - y(d[valueKey]));
 
-    chart.selectAll("text.value-label")
+    svg.selectAll("text.value-label")
       .data(chartSeven_data)
       .enter()
       .append("text")
@@ -791,19 +807,19 @@ document.addEventListener("DOMContentLoaded", function () {
       .attr("x", d => x(d.name) + x.bandwidth() / 2)
       .attr("y", d => y(d[valueKey]) - 6)
       .attr("text-anchor", "middle")
-      .style("font-size", "15px")
+      .style("font-size", "12px")
       .style("fill", "#333")
       .text(d => d[valueKey].toFixed(1));
 
-    chart.append("text")
+    svg.append("text")
       .attr("x", -height / 2)
       .attr("y", -60)
       .attr("transform", "rotate(-90)")
       .attr("text-anchor", "middle")
-      .style("font-size", "15px")
+      .style("font-size", "14px")
       .text(yLabel);
 
-    const legend = chartSeven_svg.append("g")
+    const legend = svg.append("g")
       .attr("transform", `translate(${width - 80}, 20)`);
 
     legend.append("rect")
@@ -813,15 +829,14 @@ document.addEventListener("DOMContentLoaded", function () {
       .attr("height", 16)
       .attr("fill", colorEven)
       .attr("stroke", "#333")
-      .attr("rx", 4)   
-      .attr("ry", 4)
-      .style("border-radious","8px");
+      .attr("rx", 4)
+      .attr("ry", 4);
 
     legend.append("text")
       .attr("x", 70)
       .attr("y", 12)
       .text("Popular food")
-      .style("font-size", "14px");
+      .style("font-size", "13px");
 
     legend.append("rect")
       .attr("x", 47)
@@ -830,101 +845,112 @@ document.addEventListener("DOMContentLoaded", function () {
       .attr("height", 16)
       .attr("fill", colorOdd)
       .attr("stroke", "#333")
-      .attr("rx", 4)   
-      .attr("ry", 4); 
+      .attr("rx", 4)
+      .attr("ry", 4);
 
     legend.append("text")
       .attr("x", 70)
       .attr("y", 38)
       .text("Alternative")
-      .style("font-size", "14px");
+      .style("font-size", "13px");
   }
 });
 
+
 //scatter plot
 document.addEventListener("DOMContentLoaded", function () {
-    const svg = d3.select("#chartEight");
-    const width = +svg.attr("width");
-    const height = +svg.attr("height");
-    const margin = { top: 40, right: 40, bottom: 50, left: 80 };
-    const innerWidth = width - margin.left - margin.right;
-    const innerHeight = height - margin.top - margin.bottom;
+  const container = document.querySelector("#chartEight");
+  const margin = { top: 40, right: 40, bottom: 60, left: 80 };
 
-    const tooltip = d3.select(".tooltip");
+  const svg = d3.select("#chartEight")
+    .append("svg")
+    .attr("preserveAspectRatio", "xMidYMid meet")
+    .style("width", "100%")
+    .style("height", "auto");
 
-    let data = [];
+  const tooltip = d3.select(".tooltip");
+  let data = [];
 
-    d3.json("final_data/game_data.json").then(rawData => {
-      data = Object.keys(rawData).map(item => {
-        return {
-          name: item,
-          water: rawData[item].water,
-          co2: rawData[item].carbon,
-          price: rawData[item].cost
-        };
-      }).filter(d => d.water != null && d.co2 != null && d.price != null);
+  d3.json("final_data/game_data.json").then(rawData => {
+    data = Object.keys(rawData).map(item => ({
+      name: item,
+      water: rawData[item].water,
+      co2: rawData[item].carbon,
+      price: rawData[item].cost
+    })).filter(d => d.water != null && d.co2 != null && d.price != null);
 
-      drawScatter("co2");
+    drawScatter("co2");
 
-      d3.select("#theme-eight").on("change", function () {
-        drawScatter(this.value);
-      });
+    d3.select("#theme-eight").on("change", function () {
+      drawScatter(this.value);
     });
+  });
 
-    function drawScatter(theme) {
-      svg.selectAll("*").remove();
+  function drawScatter(theme) {
+    svg.selectAll("*").remove();
 
-      const g = svg.append("g")
-        .attr("transform", `translate(${margin.left},${margin.top})`);
+    const containerWidth = container.clientWidth;
+    const fullWidth = containerWidth;
+    const fullHeight = 500;
 
-      const xKey = theme === "water" ? "water" : "co2";
-      const xLabel = theme === "water" ? "Liters per kg or L of Food" : "g CO₂-eq per g or mL of Food";
+    const width = fullWidth - margin.left - margin.right;
+    const height = fullHeight - margin.top - margin.bottom;
 
-      const x = d3.scaleLinear()
-        .domain([0, d3.max(data, d => d[xKey]) || 0])
-        .nice()
-        .range([0, innerWidth]);
+    svg
+      .attr("viewBox", `0 0 ${fullWidth} ${fullHeight}`);
 
-      const y = d3.scaleLinear()
-        .domain([0, d3.max(data, d => d.price) || 0])
-        .nice()
-        .range([innerHeight, 0]);
+    const g = svg.append("g")
+      .attr("transform", `translate(${margin.left},${margin.top})`);
 
-      g.append("g")
-        .attr("transform", `translate(0, ${innerHeight})`)
-        .call(d3.axisBottom(x));
+    const xKey = theme === "water" ? "water" : "co2";
+    const xLabel = theme === "water"
+      ? "Liters per kg or L of Food"
+      : "g CO₂-eq per g or mL of Food";
 
-      g.append("g")
-        .call(d3.axisLeft(y));
+    const x = d3.scaleLinear()
+      .domain([0, d3.max(data, d => d[xKey])])
+      .nice()
+      .range([0, width]);
 
-      g.append("text")
-        .attr("x", innerWidth / 2)
-        .attr("y", innerHeight + 40)
-        .attr("text-anchor", "middle")
-        .style("font-size", "14px")
-        .text(xLabel);
+    const y = d3.scaleLinear()
+      .domain([0, d3.max(data, d => d.price)])
+      .nice()
+      .range([height, 0]);
 
-      g.append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", -50)
-        .attr("x", -innerHeight / 2)
-        .attr("text-anchor", "middle")
-        .style("font-size", "14px")
-        .text("Price (€ per kg or L)");
+    g.append("g")
+      .attr("transform", `translate(0,${height})`)
+      .call(d3.axisBottom(x));
 
-      g.selectAll("circle")
-        .data(data)
-        .enter()
-        .append("circle")
-        .attr("cx", d => x(d[xKey]))
-        .attr("cy", d => y(d.price))
-        .attr("r", 7)
-        .attr("fill", "#66C2A5")
-        .attr("stroke", "#333")
-        .attr("stroke-width", 1.2)
-     
-      }
-    });
+    g.append("g")
+      .call(d3.axisLeft(y));
+
+    g.append("text")
+      .attr("x", width / 2)
+      .attr("y", height + 40)
+      .attr("text-anchor", "middle")
+      .style("font-size", "14px")
+      .text(xLabel);
+
+    g.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", -60)
+      .attr("x", -height / 2)
+      .attr("text-anchor", "middle")
+      .style("font-size", "14px")
+      .text("Price (€ per kg or L)");
+
++    g.selectAll("circle")
+      .data(data)
+      .enter()
+      .append("circle")
+      .attr("cx", d => x(d[xKey]))
+      .attr("cy", d => y(d.price))
+      .attr("r", 6)
+      .attr("fill", "#66C2A5")
+      .attr("stroke", "#333")
+      .attr("stroke-width", 1.2);
+  }
+});
 
 //meal game
 fetch('final_data/game_data.json')
@@ -1026,10 +1052,9 @@ function showResults(data) {
     const info = data[item];
     if (!info) return;
 
-    // Use the values directly (assumed already for one unit/serving)
-    const co2 = parseFloat(info.carbon || 0);   // in kg CO2e per serving
-    const water = parseFloat(info.water || 0);  // in liters
-    const cost = parseFloat(info.cost || 0);    // in euros
+    const co2 = parseFloat(info.carbon || 0);   
+    const water = parseFloat(info.water || 0);  
+    const cost = parseFloat(info.cost || 0);    
 
     total.co2 += co2;
     total.water += water;
