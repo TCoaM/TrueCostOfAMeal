@@ -149,9 +149,7 @@ h5 {
 
 .section,
 .ita,
-.introIta,
-.plateIntro,
-.onYourPlate {min-height: 100vh;
+.introIta{min-height: 100vh;
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }
