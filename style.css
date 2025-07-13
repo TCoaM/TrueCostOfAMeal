@@ -137,7 +137,25 @@ h5 {
 
 .section {
   padding: 7%;
+
 }
+
+.scrollContainer {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.section,
+.ita,
+.introIta,
+.plateIntro,
+.onYourPlate {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
 
 .ita {
   padding-top: 15%;
