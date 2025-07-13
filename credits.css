@@ -65,7 +65,7 @@ td a{
   display: grid;
   grid-template-rows: 1fr 2fr;
   background-color: rgba(236, 238, 206, 1)!important;
-  height: 50vh;
+  height: 55vh;
   padding: 1rem;
   border-radius: 12px;
   
