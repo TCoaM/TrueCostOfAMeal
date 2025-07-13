@@ -151,7 +151,7 @@ h5 {
 .ita,
 .introIta,
 .plateIntro,
-.onYourPlate {
+.onYourPlate {min-height: 100vh;
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }
@@ -201,12 +201,13 @@ h5 {
   
 }
 
+strong{font-weight: 500 !important;}
 .hero p{background-color: transparent !important;
  color:#1E4526}
 
 .intro{
   height: 90vh;
-  padding-top:20%;
+  padding-top:25%;
   background-color: transparent !important;
 }
 
