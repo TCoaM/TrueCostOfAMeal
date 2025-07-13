@@ -586,7 +586,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 //food items emissions+water
-const margin = { top: 40, right: 40, bottom: 90, left: 80 };
+const margin = { top: 40, right: 30, bottom: 90, left: 100 };
 const fullWidth = 1000;
 const fullHeight = 400;
 const width = fullWidth - margin.left - margin.right;
@@ -897,7 +897,6 @@ document.addEventListener("DOMContentLoaded", function () {
       g.append("g")
         .call(d3.axisLeft(y));
 
-      // Axes labels
       g.append("text")
         .attr("x", innerWidth / 2)
         .attr("y", innerHeight + 40)
@@ -913,7 +912,6 @@ document.addEventListener("DOMContentLoaded", function () {
         .style("font-size", "14px")
         .text("Price (€ per kg or L)");
 
-      // Dots
       g.selectAll("circle")
         .data(data)
         .enter()
