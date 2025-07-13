@@ -1,14 +1,17 @@
 #credit-container{
     padding: 7%;
 }
-
+limits-text
 .credit-intro{
     padding-bottom: 2%;
 }
 #methodology-text{
-    padding-bottom: 10%
+    padding-bottom: 5%
 }
 
+#limits-text{
+    padding-bottom: 10%
+}
 #datasets{
     padding-bottom: 10%;
     width: 100%;
