@@ -94,7 +94,7 @@
     "consumption": 88.81,
     "carbon": 1.2055,
     "water": 1508.0,
-    "cost": 23.15,
+    "cost": 1.66,
     "meal_type": "First courses",
     "image": "images/pasta.png",
     "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/pasta.png"
