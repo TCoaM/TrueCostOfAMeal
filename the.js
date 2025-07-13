@@ -1063,7 +1063,7 @@ function showResults(data) {
     const div = document.createElement('div');
     div.className = 'breakdown-item';
     div.innerHTML = `
-      <a href="${info.link}" target="_blank">${item.charAt(0).toUpperCase() + item.slice(1)}</a><br>
+      <p style="font-weight: 500 !important; font-size: 1rem;">${item.charAt(0).toUpperCase() + item.slice(1)}</p>
       CO₂: ${co2.toFixed(2)} kg<br>
       Water: ${Math.round(water).toLocaleString()} liters<br>
       Cost: €${cost.toFixed(2)}<br>
