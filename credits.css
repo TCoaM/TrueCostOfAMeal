@@ -30,6 +30,27 @@ td a{
     color: #FFAF2F!important;
 }
 
+#full-citations {
+    padding-top: 2%;
+    padding-bottom: 5%;
+}
+
+.citation-list {
+    list-style-type: disc;
+    padding-left: 2rem;
+    font-size: 0.95rem;
+    line-height: 1.5rem;
+}
+
+.citation-list li {
+    margin-bottom: 1rem;
+}
+
+.citation-list a {
+    color: #FFAF2F;
+    font-weight: 500;
+}
+
 #cards-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
