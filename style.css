@@ -61,6 +61,7 @@ ul{
 .nav-links li a:hover,
 .nav-links li a.active {
   color: #4caf50;
+  font-weight: 400 !important;
   
 }
 
