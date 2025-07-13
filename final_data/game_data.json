@@ -53,7 +53,7 @@
     "cost": 1.98,
     "meal_type": "Side dishes",
     "image": "images/potatoes.png",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/potatoe.png"
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/potatoes.png"
   },
   "bread": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_1071",
@@ -199,7 +199,7 @@
     "cost": 1.64,
     "meal_type": "Side dishes",
     "image": "images/carrots.png",
-    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/carrot.png"
+    "imageButton": "https://github.com/TCoaM/TrueCostOfAMeal/raw/main/images/carrots.png"
   },
   "hams": {
     "AGROVOC_uri": "http://aims.fao.org/aos/agrovoc/c_3481",
