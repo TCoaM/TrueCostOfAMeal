@@ -1021,7 +1021,6 @@ function showResults(data) {
   if (selected.length === 0) return;
 
   let total = { co2: 0, water: 0, cost: 0 };
-
   const breakdownDiv = document.getElementById('breakdown');
   breakdownDiv.innerHTML = '';
 
@@ -1029,14 +1028,12 @@ function showResults(data) {
     const info = data[item];
     if (!info) return;
 
-    const grams = info.consumption || 0; 
-    const kg = grams / 1000;
+    // Use the values directly (assumed already for one unit/serving)
+    const co2 = parseFloat(info.carbon || 0);   // in kg CO2e per serving
+    const water = parseFloat(info.water || 0);  // in liters
+    const cost = parseFloat(info.cost || 0);    // in euros
 
-    const co2 = info.carbon * grams;      
-    const water = info.water * kg;        
-    const cost = info.cost * kg;           
-
-    total.co2 += co2 / 1000;             
+    total.co2 += co2;
     total.water += water;
     total.cost += cost;
 
@@ -1044,7 +1041,7 @@ function showResults(data) {
     div.className = 'breakdown-item';
     div.innerHTML = `
       <a href="${info.link}" target="_blank">${item.charAt(0).toUpperCase() + item.slice(1)}</a><br>
-      CO₂: ${(co2 / 1000).toFixed(2)} kg<br>
+      CO₂: ${co2.toFixed(2)} kg<br>
       Water: ${Math.round(water).toLocaleString()} liters<br>
       Cost: €${cost.toFixed(2)}<br>
     `;
@@ -1059,12 +1056,13 @@ function showResults(data) {
   if (resultsSection) {
     resultsSection.classList.remove('hidden');
   }
+
   document.querySelector('.results-summary')?.scrollIntoView({ behavior: 'smooth' });
   setTimeout(() => {
     document.querySelector('.results-summary')?.scrollIntoView({ behavior: 'smooth' });
-  }, 100); 
-
+  }, 100);
 }
+
 
 
 //animations 
