@@ -130,7 +130,6 @@ h3 {
 
 h5 {
   font-size: 1.5rem !important;
-  padding-top: 2%;
   font-weight: bold !important;
   font-family: "Caveat", sans-serif !important;
  
@@ -269,7 +268,7 @@ strong{font-weight: 500 !important;}
 }
 
 .titleSelect .selectSelect{
-    padding: 2% 0;
+    padding: 3% 0;
 }
 .titleSelect .selectSelect select{
   border-bottom: 1px solid #333;
