@@ -1,18 +1,18 @@
-# True Cost Of A Meal
+# The True Cost Of A Meal
 True Cost of a Meal (TCoaM) is an end-of-course project for the exam Information Visualization, taught by Professor Marilena Daquino during the academic year 2024/2025 at the University of Bologna
 
 [Project Website](https://tcoam.github.io/TrueCostOfAMeal/)
 
 ## Credits
 
-* Pietro Tisci:
+Pietro Tisci:
 - Project ideation and storytelling
 - Datasets search and general research
 - Functions for AGROVOC integration
 - Data adaption from notebook to website
 - Website implementation
 
-* Simone Casazza:
+Simone Casazza:
 - Project ideation and storytelling
 - Datasets search and general research
 - Data parsing
@@ -20,7 +20,7 @@ True Cost of a Meal (TCoaM) is an end-of-course project for the exam Information
 - Data cleaning and selection
 - Visualizations on the notebook
 
-* Giorgia Umana:
+Giorgia Umana:
 - Project ideation and storytelling
 - Datasets search and general research
 - Website Design
