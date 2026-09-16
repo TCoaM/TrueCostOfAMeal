@@ -385,7 +385,7 @@ function drawArrowToZoomedChart(barX, chartWidth, margin) {
   const arrowSvg = d3.select("#arrow_svg");
   arrowSvg.selectAll("*").remove();
 
-  const arrowX = barX + margin.left + 60;   
+  const arrowX = barX + margin.left + 40;   
   const startY = -40;                       
   const endX = arrowX - 10;                
   const endY = 130;                         
@@ -1080,10 +1080,10 @@ function showResults(data) {
     resultsSection.classList.remove('hidden');
   }
 
-  document.querySelector('.results-summary')?.scrollIntoView({ behavior: 'smooth' });
-  setTimeout(() => {
-    document.querySelector('.results-summary')?.scrollIntoView({ behavior: 'smooth' });
-  }, 100);
+  resultsSection?.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
 }
 
 

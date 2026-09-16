@@ -6,6 +6,11 @@
 }
 .here{font-weight: 600 !important;}
 
+.scrollbar::-webkit-scrollbar {
+  width: 2px;
+  color: #4caf50;
+  background-color: #4caf50;
+}
 .hiddenThing{
   opacity:0;
   transition: all 2s;
@@ -111,6 +116,7 @@ ul{
 body {
   margin: 0;
   padding: 0;
+  overflow: hidden;
   background-color: #FFFAF4;
 }
 
@@ -150,6 +156,18 @@ h5 {
 .section,
 .ita,
 .introIta{min-height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.main-footer {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.plateIntro,
+.onYourPlate,
+#results-section {
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }
@@ -463,14 +481,16 @@ width:auto}
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+
   justify-content: space-between;
 }
 
 .menu-side h2 {
   font-family: "Caveat", cursive;
   font-size: 35px !important;
-  padding-left:0 0 0.5% 5% !important;
-  
+  padding:0 0 0.5% 5% !important;
+
+  scrollbar-width: none;
 }
 
 .food-group {
